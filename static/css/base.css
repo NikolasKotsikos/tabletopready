@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Oswald:wght@200;300;400&display=swap');
+
+html { 
+    height: 100%;
+}
+
+body {
+    height: calc(100vh - 170px);
+    font-family: 'Lato', sans-serif;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.main-logo-link {
+    font-family: 'Oswald', sans-serif;
+    color: #fafafa;
+    width: fit-content;
+}
+
+.main-logo-link .logo-green,
+.main-logo-icon .logo-green {
+    color: #7ab648 !important;
+}
+
+.order-now-button {
+    background: #222;
+    color: #fafafa;
+    min-width: 260px;
+}
+
+.order-now-button:hover, 
+.order-now-button:active,
+.order-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: #fafafa;
+}
+
+.text-black {
+    color: #000 !important;    
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/*----------------------------------Media Queries */
+
+/* Slightly larger container on medium screen sizes and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}

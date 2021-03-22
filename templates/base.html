@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
 
-    {% block extra_meta%}
+    {% block extra_meta %}
     {% endblock %}
     
     {% block corecss %}
@@ -24,6 +24,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>   
+        <script src="https://kit.fontawesome.com/6894d3d5a1.js" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
@@ -33,16 +34,16 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <div class="row">
+        <div class="row bg-dark">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"><span class="main-logo-icon border-black rounded-0">T<span class="main-logo-green">R</span></span> Tabletop <span class="main-logo-green">Ready</span></a>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link"><span class="main-logo-icon border border-white rounded-0">T<span class="logo-green">R</span></span> Tabletop <span class="logo-green">Ready</span></a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="">
                     <div class="input-group w-100">
-                        <input class="form-control border-black rounded-0" type="text" name="q" placeholder="Search our site">
+                        <input class="form-control" type="text" name="q" placeholder="Search our site">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <button class="form-control btn btn-outline-secondary" type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -54,7 +55,7 @@
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                     <li class="list-inline-item dropdown">
-                        <a href="#" class="text-white nav-link" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a href="#" class="text-white nav-link" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
                                 <p class="my-0">My Account</p>
@@ -63,10 +64,10 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Manage Products</a>
+                                    <a href="" class="dropdown-item">Manage Miniatures</a>
                                 {% endif %}
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' " class="dropdown-item">Logout</a>
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
@@ -74,9 +75,13 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="#">
                             <div class="text-center">
-                                <div><i class="fas fa-clipboard"></i></div>
+                                {% if grand_total %}
+                                    <div><i class="fas fa-clipboard-list fa-lg"></i></div>
+                                {% else %}
+                                    <div><i class="fas fa-clipboard fa-lg"></i></div>
+                                {% endif %}
                                 <p class="my-0">
                                     {% if grand_total %}
                                         ${{ grand_total|floatformat:2 }}
