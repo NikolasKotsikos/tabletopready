@@ -14,7 +14,10 @@
     {% endblock %}
     
     {% block corecss %}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">  
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">     
     {% endblock %}
 
     {% block extra_css %}
@@ -36,7 +39,9 @@
     <header class="container-fluid fixed-top">
         <div class="row bg-dark">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"><span class="main-logo-icon border border-white rounded-0">T<span class="logo-green">R</span></span> Tabletop <span class="logo-green">Ready</span></a>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                  <h2>Tabletop <span class="green-text">Ready</span></h2>
+                </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                 <form method="GET" action="">
@@ -47,7 +52,7 @@
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
-                            </button>
+                           </button>
                         </div>
                     </div>
                 </form>

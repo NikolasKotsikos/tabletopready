@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Oswald:wght@200;300;400&display=swap');
-
 html { 
     height: 100%;
 }
@@ -18,15 +16,27 @@ body {
     width: 1.5rem;
 }
 
-.main-logo-link {
-    font-family: 'Oswald', sans-serif;
+.main-logo-link,
+.main-logo-link:hover,
+.main-logo-link:active {
+    font-weight: 300;
     color: #fafafa;
-    width: fit-content;
+    font-family: 'Oswald', sans-serif;
+    
 }
 
-.main-logo-link .logo-green,
-.main-logo-icon .logo-green {
+.green-text {
+    font-weight: 400;
     color: #7ab648 !important;
+}
+
+.text-center {
+    height: min-content;
+}
+
+.info-box {
+    background-color: #333333;
+    height: 200px;
 }
 
 .order-now-button {
