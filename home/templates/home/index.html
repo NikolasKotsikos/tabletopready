@@ -3,11 +3,11 @@
 
 {% block page_header %}
 
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 
 {% endblock %}
 
@@ -15,14 +15,23 @@
 
 <section class="py-5 text-center container">
     <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">COMMISSIONS SIMPLIFIED</h1>
-        <div class="d-flex justify-content-between align-items-center">
-            <div class="card shadow-sm">Card 1</div>
-            <div class="card shadow-sm">Card 2</div>
-            <div class="card shadow-sm">Card 3</div>            
+        <div class="col-lg-12 col-md-8 mx-auto">
+            <h3 class="fw-light my-lg-5">COMMISSIONS SIMPLIFIED</h3>
+            <div class="container-fluid d-none d-md-flex justify-content-around align-items-center">
+                <div class="card shadow-sm info-card">Card 1</div>
+                <div class="card shadow-sm info-card">Card 2</div>
+                <div class="card shadow-sm info-card">Card 3</div>
+            </div>
+            <div class="container d-md-none d-xs-flex justify-content-center align-items-center">
+                <div class="card shadow-sm info-card-small">
+                    <ul class="text-white">
+                        <li>Option 1</li>
+                        <li>Option 2</li>
+                        <li>Option 3</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 </section>
 
@@ -34,7 +43,7 @@
                 <div class="card shadow-sm">
                     <img src="..." class="col-md-6" alt="">
                     <div class="card-body">
-                        <p class="card-text">{{ review.description }}</p>
+                        <p class="card-text">Item name</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
                                 <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
@@ -45,8 +54,8 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
-</div>
 
 
-{% endblock %}
+    {% endblock %}

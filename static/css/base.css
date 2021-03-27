@@ -63,6 +63,18 @@ body {
     border: 1px solid black !important;
 }
 
+.info-card {
+    background-color: #333333;
+    height: 350px;
+    width: 350px;
+}
+
+.info-card-small {
+    background-color: #333333;
+    height: auto;
+    width: auto;
+}
+
 /*----------------------------------Media Queries */
 
 /* Slightly larger container on medium screen sizes and up */
