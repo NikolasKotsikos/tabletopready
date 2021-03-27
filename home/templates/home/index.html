@@ -13,22 +13,40 @@
 
 {% block content %}
 
-    <div class="container h-100">
-        <div class="row h-100 d-flex justify-content-evenly align-items-start flex-row">
-            <h3 class="text-center"><u>COMMISSIONS SIMPLIFIED</u></h3>
-            <div class="col-md-2 d-xs-none info-box"></div>
-            <div class="col-md-2 d-xs-none info-box"></div>
-            <div class="col-md-2 d-xs-none info-box"></div>
-            
-            <div class="col-sm-12 d-md-none text-center">
-                <ul class="list-unstyled">
-                    <li>1. Option 1</li>
-                    <li>2. Option 2</li>
-                    <li>3. Option 3</li>
-                    <li>4. Option 4</li>
-                </ul>
-            </div>
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">COMMISSIONS SIMPLIFIED</h1>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="card shadow-sm">Card 1</div>
+            <div class="card shadow-sm">Card 2</div>
+            <div class="card shadow-sm">Card 3</div>            
         </div>
+      </div>
     </div>
+</section>
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <img src="..." class="col-md-6" alt="">
+                    <div class="card-body">
+                        <p class="card-text">{{ review.description }}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
+                                <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
+                            </div>
+                            <small class="text-muted">9 mins</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
 
 {% endblock %}
