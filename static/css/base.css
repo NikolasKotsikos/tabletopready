@@ -26,17 +26,11 @@ body {
 }
 
 .green-text {
-    font-weight: 400;
     color: #7ab648 !important;
 }
 
 .text-center {
     height: min-content;
-}
-
-.info-box {
-    background-color: #333333;
-    height: 200px;
 }
 
 .order-now-button {
@@ -59,20 +53,23 @@ body {
     color: #000 !important;    
 }
 
+.btn-black {
+    background: black;
+    color: white;
+}
+
 .border-black {
     border: 1px solid black !important;
 }
 
-.info-card {
-    background-color: #333333;
-    height: 350px;
-    width: 350px;
+.bg-black {
+    background: #333333 !important;
 }
 
-.info-card-small {
-    background-color: #333333;
-    height: auto;
-    width: auto;
+#delivery-banner h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: lighter;
+    color: #fafafa;
 }
 
 .hero-text {
@@ -93,6 +90,21 @@ footer i {
 /*----------------------------------Media Queries */
 
 /* Slightly larger container on medium screen sizes and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* Fixed top-navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
