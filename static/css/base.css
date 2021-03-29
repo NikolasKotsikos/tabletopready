@@ -20,7 +20,7 @@ body {
 .main-logo-link:hover,
 .main-logo-link:active {
     font-weight: 300;
-    color: #fafafa;
+    color: #333333;
     font-family: 'Oswald', sans-serif;
     
 }
@@ -73,6 +73,11 @@ body {
     background-color: #333333;
     height: auto;
     width: auto;
+}
+
+.hero-text {
+    font-family: 'Oswald', sans-serif;
+    font-weight: bolder;    
 }
 
 /*----------------------------------Media Queries */
