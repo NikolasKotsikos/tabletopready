@@ -66,12 +66,6 @@ body {
     background: #333333 !important;
 }
 
-#delivery-banner h3 {
-    font-family: "Oswald", sans-serif;
-    font-weight: lighter;
-    color: #fafafa;
-}
-
 .hero-text {
     font-family: 'Oswald', sans-serif;
     font-weight: bolder;    
@@ -97,10 +91,6 @@ footer i {
         right: 0;
         left: 0;
         z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
     }
 }
 

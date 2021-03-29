@@ -7,7 +7,9 @@
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="Description"
+         content="Tabletop Ready is a e-commerse site that sells painted miniatures, assembled and prepared to order in an uncomplicated way.">
     {% endblock %}
 
     {% block extra_meta %}
@@ -66,12 +68,7 @@
     <title>Tabletop Ready {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-     <header class="container-fluid fixed-top">
-        <div id="delivery-banner" class="row text-center">
-            <div class="col bg-black text-white">
-                <h3 class="my-1">Free shipping on orders over €{{ free_shipping_threshold }}!</h3>                
-            </div>            
-        </div>
+     <header class="container-fluid fixed-top">   
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
