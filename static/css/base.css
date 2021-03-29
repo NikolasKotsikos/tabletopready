@@ -80,6 +80,16 @@ body {
     font-weight: bolder;    
 }
 
+footer {
+    background-color: #333333;
+    color: #fafafa;
+    font-family: 'Lato', sans-serif;
+}
+
+footer i {
+    color: #fafafa;
+}
+
 /*----------------------------------Media Queries */
 
 /* Slightly larger container on medium screen sizes and up */
