@@ -92,6 +92,14 @@ footer i {
         left: 0;
         z-index: 1030;
     }
+
+    .carousel-item {
+        height: 35vh;
+    }
+
+    .carousel-item img {
+        background-size: cover;
+    }
 }
 
 /* Fixed top-navbar only on medium and up */
