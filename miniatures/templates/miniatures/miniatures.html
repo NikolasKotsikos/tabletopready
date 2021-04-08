@@ -10,10 +10,52 @@
 {% endblock %}
 
 {% block content %}
-    <section class="container">
+    <div class="overlay"></div>
+    <section class="container-fluid">
         <div class="row">
-            <div class="col">
-                {{ miniatures }}
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">Miniatures</h2>
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="miniatures-container col-10 offet-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for miniature in miniatures %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card h-100 border-0">
+                                {% if miniature.image %}
+                                <a href="">
+                                    <img src="{{ miniature.image.url }}" alt="{{ miniature.name }}" class="card-img-top img-fluid">
+                                </a>
+                                {% else %}
+                                <a href="">
+                                    <img src="{{ MEDIA_URL }}no-img.png" alt="" class="card-img-top img-fluid">
+                                </a>
+                                {% endif %}
+                                <div class="card-body">
+                                    <p class="mb-0">{{ miniature.name }}</p>
+                                    <p class="lead mb-0 text-left font-weight-bold">€{{ miniature.price }}</p>
+                                    <div class="row">
+                                        <div class="col d-flex flex-column">
+                                            <small class="text-muted"><i class="fas fa-crosshairs"></i> {{ miniature.army }}</small>                            
+                                            {% if miniature.faction %}
+                                                <small class="text-muted"><i class="fas fa-flag"></i> {{ miniature.faction }}</small>
+                                            {% endif %}                                            
+                                            <small class="text-muted"><i class="fas fa-dice"></i> {{ miniature.gaming_system }}</small>                                         
+                                            <small class="text-muted"><i class="fas fa-industry"></i> {{ miniature.manufacturer.friendly_name }}</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-sm-none">
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </section>
