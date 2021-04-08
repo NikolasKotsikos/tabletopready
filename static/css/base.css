@@ -75,7 +75,12 @@ body {
     font-weight: bolder;    
 }
 
+.logo-font {
+    font-family: 'Oswald', sans-serif;     
+}
+
 footer {
+    position: absolute;
     background-color: #333333;
     color: #fafafa;
     font-family: 'Lato', sans-serif;
@@ -97,23 +102,11 @@ footer i {
 
 /*----------------------------------Media Queries */
 
-/* Slightly larger container on medium screen sizes and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .carousel-item {
-        height: 40vh;
-    }
-
-    .carousel-item img {
-        background-size: cover;
-    }
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
 }
 
 /* Fixed top-navbar only on medium and up */
@@ -128,5 +121,24 @@ footer i {
 
     .header-container {
         padding-top: 164px;
+    }
+
+      .carousel-item {
+        height: 40vh;
+    }
+
+    .carousel-item img {
+        background-size: cover;
+    }
+}
+
+/* Adds top padding when the navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 150px;
+    }
+
+    body {
+        height: calc(100vh - 150px);
     }
 }
