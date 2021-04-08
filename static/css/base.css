@@ -53,6 +53,10 @@ body {
     color: #000 !important;    
 }
 
+.text-shadow {
+    text-shadow: 2px 2px 4px #333333;
+}
+
 .btn-black {
     background: black;
     color: white;
@@ -94,7 +98,7 @@ footer i {
     }
 
     .carousel-item {
-        height: 35vh;
+        height: 40vh;
     }
 
     .carousel-item img {

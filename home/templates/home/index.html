@@ -13,32 +13,37 @@
 
 {% block content %}
 
-<section class="text-center container-fluid bg-dark">
+<section class="text-center container-fluid px-0 bg-dark">
     <div id="carouselHomeSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                    <img src="media/playing.jpg" class="d-block w-100" alt="Playing with miniatures">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="my-lg-5 hero-text text-white">Get your miniatures <span class="green-text">ready</span> for all tabletops.</h2> 
-                        <a href="" class="btn btn-black rounded-0 text-white" type="button">Learn More</a>                    
-                    </div>                
+                <img src="media/playing.jpg" class="d-block w-100" alt="Playing with miniatures">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="my-lg-5 hero-text text-white text-shadow">Get your miniatures <span
+                            class="green-text">ready</span> for all tabletops.</h2>
+                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Learn More</a>
+                </div>
             </div>
             <div class="carousel-item">
-                        <img src="media/assembling.jpg" class="d-block w-100" alt="Assembling miniatures">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2 class="my-lg-5 hero-text text-white">Get miniatures assembled and <span class="green-text">ready</span> to paint!</h2> 
-                            <a href="" class="btn btn-black rounded-0 text-white" type="button">Shop Assembled Miniatures</a>
-                        </div>      
+                <img src="media/assembling.jpg" class="d-block w-100" alt="Assembling miniatures">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="my-lg-5 hero-text text-white text-shadow">Get miniatures assembled and <span
+                            class="green-text">ready</span> to paint!</h2>
+                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Shop Assembled
+                        Miniatures</a>
+                </div>
             </div>
             <div class="carousel-item">
-                    <img src="media/painting.jpg" class="d-block w-100" alt="Painting miniatures">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="my-lg-5 hero-text text-white">Pick your miniature, get it Tabletop <span class="green-text">Ready</span>.</h2> 
-                        <a href="" class="btn btn-black rounded-0 text-white" type="button">Shop Miniatures</a>                    
-                    </div>
+                <img src="media/painting.jpg" class="d-block w-100" alt="Painting miniatures">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="my-lg-5 hero-text text-white text-shadow">Pick your miniature, get it Tabletop <span
+                            class="green-text">Ready</span>.</h2>
+                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Shop Painted
+                        Miniatures</a>
+                </div>
             </div>
         </div>
-    </div>    
+    </div>
 </section>
 
 
@@ -47,23 +52,32 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
                 <div class="card shadow-sm">
-                    <img src="..." class="col-md-6" alt="">
+                    <img src="media/no-img.png" class="col-md-6" alt="Default image">
                     <div class="card-body">
                         <p class="card-text">Item name</p>
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
-                                <a href="#" class="btn btn-sm btn-outline-secondary">Edit</a>
-                            </div>
-                            <small class="text-muted">9 mins</small>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<section class="py-5 bg-dark"></section>
+<section class="album py-5 bg-dark">
+    <div class="container-fluid">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos illo?
+                            Possimus vel nesciunt illo, delectus odio eligendi blanditiis, cum, repudiandae obcaecati
+                            veniam ipsam totam facere accusantium. Consequuntur, consequatur eius.
+                        </p> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-    {% endblock %}
+{% endblock %}
