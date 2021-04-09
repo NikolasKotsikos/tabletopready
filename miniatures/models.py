@@ -15,8 +15,8 @@ class Manufacturer(models.Model):
 
 class Miniature(models.Model):
     manufacturer = models.ForeignKey('Manufacturer',
-                                 null=True, blank=True,
-                                 on_delete=models.SET_NULL)
+                                     null=True, blank=True,
+                                     on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     gaming_system = models.CharField(max_length=254)
     army = models.CharField(max_length=254)
