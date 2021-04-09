@@ -79,6 +79,13 @@ body {
     font-weight: bolder;    
 }
 
+#topnav a h2,
+.mobile-logo {
+    width: max-content;
+    padding: 5px;
+    border: 1px solid black;
+}
+
 .logo-font {
     font-family: 'Oswald', sans-serif;     
 }

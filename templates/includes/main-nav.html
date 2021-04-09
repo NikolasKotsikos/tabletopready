@@ -1,12 +1,12 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="home-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Home
             </a>
-
-            <div class="dropdown-menu border-0" aria-labelledby="miniatures-link">
-                <a href="" class="dropdown-item">About Us</a>                
+            <div class="dropdown-menu border-0" aria-labelledby="home-link">
+                <a href="" class="dropdown-item">About Us</a>
+                <a href="{% url 'home' %}" class="dropdown-item">Home</a>                
             </div>            
         </li>
 
@@ -15,10 +15,11 @@
                 All Miniatures
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="miniatures-link">
-                <a href="" class="dropdown-item">By Manufacturer</a>
-                <a href="" class="dropdown-item">By Gaming System</a>
-                <a href="" class="dropdown-item">By Army</a>
-                <a href="" class="dropdown-item">By Faction</a>                
+                <a href="{% url 'miniatures' %}?sort=gaming_system&direction=asc" class="dropdown-item">By Gaming System</a>
+                <a href="{% url 'miniatures' %}?sort=manufacturer&direction=asc" class="dropdown-item">By Manufacturer</a>
+                <a href="{% url 'miniatures' %}?sort=army&direction=asc" class="dropdown-item">By Army</a>
+                <a href="{% url 'miniatures' %}?sort=faction&direction=asc" class="dropdown-item">By Faction</a> 
+                <a href="{% url 'miniatures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>                               
                 <a href="{% url 'miniatures' %}" class="dropdown-item">All Miniatures</a>
             </div>
         </li>
@@ -28,11 +29,11 @@
                 Warhammer 40,000
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="wh40k-link">
-                <a href="" class="dropdown-item">Adeptus Astartes</a>
-                <a href="" class="dropdown-item">Astra Militarum</a>
-                <a href="" class="dropdown-item">Chaos</a>
-                <a href="" class="dropdown-item">Thousand Sons</a>                
-                <a href="" class="dropdown-item">Necrons</a>
+                <a href="{% url 'miniatures' %}?sort='Adeptus Astartes'" class="dropdown-item">Adeptus Astartes</a>
+                <a href="{% url 'miniatures' %}?sort='Astra Militarum'" class="dropdown-item">Astra Militarum</a>
+                <a href="{% url 'miniatures' %}?sort='Chaos'" class="dropdown-item">Chaos</a>
+                <a href="{% url 'miniatures' %}?sort='Thousand Sons'" class="dropdown-item">Thousand Sons</a>                
+                <a href="{% url 'miniatures' %}?sort='Necrons'" class="dropdown-item">Necrons</a>
             </div>
         </li>
 
@@ -41,13 +42,13 @@
                 Star Wars: Legion
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="swl-link">
-                <a href="" class="dropdown-item">Galactic Empire</a>
-                <a href="" class="dropdown-item">Rebel Alliance</a>              
+                <a href="{% url 'miniatures' %}?sort='Galactic Empire'" class="dropdown-item">Galactic Empire</a>
+                <a href="{% url 'miniatures' %}?sort='Rebel Alliance'" class="dropdown-item">Rebel Alliance</a>              
             </div>
         </li>
 
          <li class="nav-item">
-            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="{% url 'miniatures' %}?sort=in_stock>0">
                 In Stock
             </a>      
         </li>
