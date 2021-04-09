@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Miniature, Manufacturer
+from .models import Miniature, GamingSystem
 
 
 # Register your models here.
@@ -16,7 +16,7 @@ class MiniatureAdmin(admin.ModelAdmin):
     ordering = ('date_added',)
 
 
-class ManufacturerAdmin(admin.ModelAdmin):
+class GamingSystemAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
@@ -24,4 +24,4 @@ class ManufacturerAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Miniature, MiniatureAdmin)
-admin.site.register(Manufacturer, ManufacturerAdmin)
+admin.site.register(GamingSystem, GamingSystemAdmin)

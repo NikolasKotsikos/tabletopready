@@ -3,7 +3,11 @@
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
                 Home
-            </a>            
+            </a>
+
+            <div class="dropdown-menu border-0" aria-labelledby="miniatures-link">
+                <a href="" class="dropdown-item">About Us</a>                
+            </div>            
         </li>
 
         <li class="nav-item dropdown">
@@ -15,18 +19,47 @@
                 <a href="" class="dropdown-item">By Gaming System</a>
                 <a href="" class="dropdown-item">By Army</a>
                 <a href="" class="dropdown-item">By Faction</a>                
-                <a href="" class="dropdown-item">By Price</a>
                 <a href="{% url 'miniatures' %}" class="dropdown-item">All Miniatures</a>
             </div>
         </li>
 
         <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="wh40k-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Warhammer 40,000
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="wh40k-link">
+                <a href="" class="dropdown-item">Adeptus Astartes</a>
+                <a href="" class="dropdown-item">Astra Militarum</a>
+                <a href="" class="dropdown-item">Chaos</a>
+                <a href="" class="dropdown-item">Thousand Sons</a>                
+                <a href="" class="dropdown-item">Necrons</a>
+            </div>
+        </li>
+
+         <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="swl-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Star Wars: Legion
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="swl-link">
+                <a href="" class="dropdown-item">Galactic Empire</a>
+                <a href="" class="dropdown-item">Rebel Alliance</a>              
+            </div>
+        </li>
+
+         <li class="nav-item">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
+                In Stock
+            </a>      
+        </li>
+
+
+        <li class="nav-item">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
                 Gallery
             </a>      
         </li>
 
-        <li class="nav-item dropdown">
+        <li class="nav-item">
            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#">
                 Reviews
             </a>      

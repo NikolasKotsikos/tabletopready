@@ -25,6 +25,10 @@ body {
     
 }
 
+#shipping-banner {
+    background-color: #7ab648;
+}
+
 .green-text {
     color: #7ab648 !important;
 }
@@ -124,7 +128,7 @@ footer i {
     }
 
     .carousel-item {
-        height: 40vh;
+        height: 50vh;
     }
 
     .carousel-item img {
