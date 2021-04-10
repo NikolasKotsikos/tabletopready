@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    height: calc(100vh - 170px);
+    height: 100%;
     font-family: 'Lato', sans-serif;
 }
 
@@ -82,19 +82,24 @@ body {
 #topnav a h2,
 .mobile-logo {
     width: max-content;
-    padding: 5px;
-    border: 1px solid black;
+    padding: 8px;
+    border: 2px solid black;
 }
 
 .logo-font {
     font-family: 'Oswald', sans-serif;     
 }
 
+.miniature-details-container {
+    height: 100%;
+}
+
 footer {
-    position: absolute;
+    position: relative;
     background-color: #333333;
     color: #fafafa;
     font-family: 'Lato', sans-serif;
+    height: 65px;
 }
 
 footer i {

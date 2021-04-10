@@ -1,14 +1,17 @@
 from django.contrib import admin
-from .models import Miniature, GamingSystem
+from .models import Miniature, GamingSystem, Army
 
 
 # Register your models here.
 class MiniatureAdmin(admin.ModelAdmin):
     list_display = (
+        'sku',
         'name',
         'gaming_system',
-        'faction',
+        'army',
         'price',
+        'model_count',
+        'in_stock',
         'date_added',
         'image',
     )
@@ -23,5 +26,13 @@ class GamingSystemAdmin(admin.ModelAdmin):
     )
 
 
+class ArmyAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+
 admin.site.register(Miniature, MiniatureAdmin)
 admin.site.register(GamingSystem, GamingSystemAdmin)
+admin.site.register(Army, ArmyAdmin)
