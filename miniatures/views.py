@@ -10,7 +10,7 @@ def all_miniatures(request):
 
     miniatures = Miniature.objects.all()
     query = None
-    gaming_system = None
+    gamesys = None
     army = None
     sort = None
     direction = None
@@ -22,20 +22,20 @@ def all_miniatures(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 miniatures = miniatures.annotate(lower_name=Lower('name'))
-            if sortkey == 'gaming_system':
-                sortkey = 'gaming_system__name'
+            if sortkey == 'gamesys':
+                sortkey = 'gamesys__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             miniatures = miniatures.order_by(sortkey)
 
-        if 'gaming_system' in request.GET:
-            gaming_system = request.GET['gaming_system'].split(',')
+        if 'gamesys' in request.GET:
+            gamesys = request.GET['gamesys'].split(',')
             miniatures = miniatures.filter(
-                                    gaming_system__name__in=gaming_system)
-            gaming_system = GamingSystem.objects.filter(
-                                                name__in=gaming_system)
+                                    gamesys__name__in=gamesys)
+            gamesys = GamingSystem.objects.filter(
+                                                name__in=gamesys)
 
         if 'army' in request.GET:
             army = request.GET['army'].split(',')
@@ -59,7 +59,7 @@ def all_miniatures(request):
     context = {
         'miniatures': miniatures,
         'search_term': query,
-        'current_gamingsystem': gaming_system,
+        'current_gamesys': gamesys,
         'current_army': army,
         'current_sorting': current_sorting,
     }

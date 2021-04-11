@@ -15,11 +15,12 @@
                 All Miniatures
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="miniatures-link">
-                <a href="{% url 'miniatures' %}?sort=gaming_system&direction=asc" class="dropdown-item">By Gaming System</a>
+                <a href="{% url 'miniatures' %}?sort=gamesys&direction=asc" class="dropdown-item">By Gaming System</a>
                 <a href="{% url 'miniatures' %}?sort=manufacturer&direction=asc" class="dropdown-item">By Manufacturer</a>
                 <a href="{% url 'miniatures' %}?sort=army&direction=asc" class="dropdown-item">By Army</a>
-                <a href="{% url 'miniatures' %}?sort=model_count&direction=desc" class="dropdown-item">By Model Count</a> 
-                <a href="{% url 'miniatures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>                               
+                <a href="{% url 'miniatures' %}?sort=itemcount&direction=desc" class="dropdown-item">By Model Count</a> 
+                <a href="{% url 'miniatures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'miniatures' %}?sort=&direction=desc" class="dropdown-item">In Stock</a>                              
                 <a href="{% url 'miniatures' %}" class="dropdown-item">All Miniatures</a>
             </div>
         </li>

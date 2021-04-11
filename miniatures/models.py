@@ -29,7 +29,7 @@ class Army(models.Model):
 
 
 class Miniature(models.Model):
-    gaming_system = models.ForeignKey('GamingSystem',
+    gamesys = models.ForeignKey('GamingSystem',
                                       null=True, blank=True,
                                       on_delete=models.CASCADE)
     sku = models.CharField(max_length=254, null=True, blank=True)
@@ -41,8 +41,8 @@ class Miniature(models.Model):
     has_factions = models.BooleanField(default=False, null=True, blank=True)
     description = models.TextField(default=None)
     date_added = models.DateTimeField(auto_now_add=True)
-    model_count = models.IntegerField(default=1)
-    in_stock = models.IntegerField(default=0)
+    itemcount = models.IntegerField(default=1)
+    stock = models.IntegerField(default=0)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     image_url = models.URLField(max_length=1024,
                                 null=True, blank=True)

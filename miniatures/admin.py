@@ -7,11 +7,11 @@ class MiniatureAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
-        'gaming_system',
+        'gamesys',
         'army',
         'price',
-        'model_count',
-        'in_stock',
+        'itemcount',
+        'stock',
         'date_added',
         'image',
     )
