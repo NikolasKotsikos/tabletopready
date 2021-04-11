@@ -26,12 +26,12 @@ body {
 }
 
 #shipping-banner {
-    background-color: #7ab648;
+    background-color: #333333;
 }
 
 .dropdown-item:hover,
 .dropdown-item:active {
-    background-color: #333333;
+    background-color: #7ab648;
     color: #fafafa;
 }
 
@@ -70,6 +70,19 @@ body {
 .btn-black {
     background: black;
     color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: #333333 !important;
+    border: 1px solid #333333;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: #333333;
+    color: #fafafa !important;
 }
 
 .border-black {
