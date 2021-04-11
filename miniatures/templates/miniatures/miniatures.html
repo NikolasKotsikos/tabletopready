@@ -15,12 +15,51 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Miniatures</h2>
+                {% with a=current_army gs=current_gamingsystem %}
+                    {% if a %}
+                        {% for a in current_army %}
+                            <a href="{% url 'miniatures' %}?army={{ a.name }}" class="army-badge text-decoration-none">
+                                <span class="p-2 mt-2 badge badge-white text-dark rounded-0 border border-dark">{{ a.friendly_name }}</span>
+                            </a>
+                        {% endfor %}
+                    {% elif gs %}
+                        {% for gs in current_gamingsystem %}    
+                            <a href="{% url 'miniatures' %}?gaming_system={{ gs.name }}" class="gs-badge text-decoration-none">
+                                <span class="p-2 mt-2 badge badge-white text-dark rounded-0 border border-dark">{{ gs.friendly_name }}</span>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
                 <hr class="w-50 mb-1">
             </div>
         </div>
         <div class="row">
             <div class="miniatures-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
+                <div class="row mt-1 mb-2">
+                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <div class="sort-select-wrapper w-50">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                                <option value="army_asc" {% if current_sorting == 'army_asc' %}selected{% endif %}>Army (A-Z)</option>
+                                <option value="army_desc" {% if current_sorting == 'army_desc' %}selected{% endif %}>Army (Z-A)</option>
+                                <option value="gaming_system_asc" {% if current_sorting == 'gaming_system_asc' %}selected{% endif %}>Gaming System (A-Z)</option>
+                                <option value="gaming_system_desc" {% if current_sorting == 'gaming_system_desc' %}selected{% endif %}>Gaming System (Z-A)</option>
+                            </select>
+                        </div>    
+                    </div>
+                    <div class="col-12 col-md-6 order-md-first">
+                        <p class="text-muted mt-3 text-center text-md-left">
+                            {% if search_term or current_army or current_gamingsystem or current_sorting != 'None_None' %}
+                                <span class="small"><a href="{% url 'miniatures' %}">Miniatures Home</a> | </span>
+                            {% endif %}
+                            {{ miniatures|length }} Miniatures{% if search_term %} found for <strong>{{ search_term }}</strong>{% endif %}
+                        </p>    
+                    </div>
+                </div>
                 <div class="row">
                     {% for miniature in miniatures %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">

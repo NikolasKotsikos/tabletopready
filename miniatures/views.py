@@ -11,6 +11,7 @@ def all_miniatures(request):
     miniatures = Miniature.objects.all()
     query = None
     gaming_system = None
+    army = None
     sort = None
     direction = None
 
@@ -47,7 +48,7 @@ def all_miniatures(request):
             query = request.GET['q']
             if not query:
                 messages.error(request,
-                                "You didn't enter any search criteria!")
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('miniatures'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
@@ -59,6 +60,7 @@ def all_miniatures(request):
         'miniatures': miniatures,
         'search_term': query,
         'current_gamingsystem': gaming_system,
+        'current_army': army,
         'current_sorting': current_sorting,
     }
 

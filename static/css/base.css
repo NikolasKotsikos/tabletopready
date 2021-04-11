@@ -29,6 +29,12 @@ body {
     background-color: #7ab648;
 }
 
+.dropdown-item:hover,
+.dropdown-item:active {
+    background-color: #333333;
+    color: #fafafa;
+}
+
 .green-text {
     color: #7ab648 !important;
 }
@@ -114,6 +120,12 @@ footer i {
     position: fixed;
     background: #fafafa;
     z-index: -1;
+}
+
+a.army-badge > span.badge:hover,
+a.gs-badge > span.badge:hover {
+    background: #7ab648;
+    color: #fafafa !important;
 }
 
 /*----------------------------------Media Queries */
