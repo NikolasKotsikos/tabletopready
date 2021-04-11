@@ -22,8 +22,27 @@
         </div>
         <div class="row">
             <div class="col">
-                {% if bag_items %}
-                    <div class="table-responsive-rounded"></div>
+                {% if cart_items %}
+                    <div class="table-responsive-rounded">
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-black">
+                                <tr>
+                                    <th>Miniature Info</th>
+                                    <th></th>
+                                    <th>Price</th>
+                                    <th>Qty</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in cart_items %}
+                                <tr>
+                                    <td class="p-3 w-25">
+                                        <img src="{{ item.miniature.image.url }}" alt="{{ item.miniature.name }}" class="img-fluid rounded">
+                                    </td>   
+                                </tr>
+                        </table>
+                    </div>
                 {% else %}
                     <p class="lead mb-5">Your cart is empty.</p>
                     <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0 btn-lg">
