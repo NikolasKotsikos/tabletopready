@@ -13,33 +13,40 @@
 
 {% block content %}
 
-<section class="text-center container-fluid px-0 bg-dark">
+<section class="text-center container-fluid px-0">
     <div id="carouselHomeSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="media/playing.jpg" class="d-block w-100" alt="Playing with miniatures">
-                <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="media/playing.jpg" class="image-fld w-100" alt="Playing with miniatures">
+                <div class="carousel-caption d-block">
                     <h2 class="my-lg-5 hero-text text-white text-shadow">Get models <span
                             class="green-text">ready</span> for all tabletops!</h2>
                     <a href="{% url 'miniatures' %}" class="btn btn-lg btn-black rounded-0 text-white" type="button">Browse Miniatures</a>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="media/painting.jpg" class="d-block w-100" alt="Painting miniatures">
-                <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-item" data-bs-interval="5000">
+                <img src="media/painting.jpg" class="image-fld w-100" alt="Painting miniatures">
+                <div class="carousel-caption d-block">
                     <h2 class="my-lg-5 hero-text text-white text-shadow">We make having a painted army <span class="green-text">easy</span>!</h2>
                     <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Find Out How</a>
                 </div>
-            </div>          
-        </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="10000">
+                <img src="media/register.jpg" class="image-fld w-100" alt="Darth Vader fighthing Luke Skywalker">
+                <div class="carousel-caption d-none d-block">
+                    <h2 class="my-lg-5 hero-text text-white text-shadow">Get <span class="green-text">10% off</span> your first order!</h2>
+                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Register Now</a>
+                </div>
+            </div>                    
+        </div>       
     </div>
+   
 </section>
 
 
-<section class="album py-5 bg-light">
-    <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
+<section class="album py-5 bg-light container-fluid justify-content-center">    
+        <div class="row row-cols-1 row-cols-sm-2 g-3 justify-content-center">
+            <div class="col-sm-12 col-md-4">
                 <div class="card shadow-sm">
                     <img src="media/noimage.png" class="col-md-6" alt="Default image">
                     <div class="card-body">
@@ -47,26 +54,44 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<section class="album py-5 bg-dark">
-    <div class="container-fluid">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            <div class="col">
+            <div class="col-sm-12 col-md-4">
                 <div class="card shadow-sm">
+                    <img src="media/noimage.png" class="col-md-6" alt="Default image">
                     <div class="card-body">
-                        <p class="card-text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos illo?
-                            Possimus vel nesciunt illo, delectus odio eligendi blanditiis, cum, repudiandae obcaecati
-                            veniam ipsam totam facere accusantium. Consequuntur, consequatur eius.
-                        </p> 
+                        <p class="card-text">Item name</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>    
 </section>
 
+<section class="album py-5 bg-dark container-fluid">
+    <div class="row row-cols-1 row-cols-sm-2 g-3 justify-content-center">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="card-text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos illo?
+                        Possimus vel nesciunt illo, delectus odio eligendi blanditiis, cum, repudiandae obcaecati
+                        veniam ipsam totam facere accusantium. Consequuntur, consequatur eius.
+                    </p> 
+                </div>
+            </div>
+        </div>
+    </div>    
+</section>
+ <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a href="" class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
+</div>
+{% endblock %}
 
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>    
 {% endblock %}

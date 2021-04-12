@@ -39,8 +39,50 @@
                                 <tr>
                                     <td class="p-3 w-25">
                                         <img src="{{ item.miniature.image.url }}" alt="{{ item.miniature.name }}" class="img-fluid rounded">
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0"><strong>{{ item.miniature.name }}</strong></p>
+                                        <p class="my-0 small text-muted">SKU: {{ item.miniature.sku|upper }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">€{{ item.miniature.price }}</p>
+                                    </td>
+                                    <td class="py-3 w-25">
+                                        <p class="my-0">{{ item.quantity }}</p>
+                                    </td>
+                                    <td class="py-3">
+                                        <p class="my-0">€{{ item.miniature.price }}</p>
                                     </td>   
                                 </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    <h6><strong>Cart Total: {{ total|floatformat:2 }}</strong></h6>
+                                    <h6>Shipping: €{{ shipping|floatformat:2 }}</h6>
+                                    <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                                    {% if free_shipping_delta > 0 %}
+                                        <p class="mb-1 text-danger">
+                                            You could get free shipping by spending just <strong>€{{ free_shipping_delta }}</strong> more!
+                                        </p>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                        <span class="icon">
+                                            <i class="fas fa-chevron-left"></i>
+                                        </span>
+                                        <span class="text-uppercase">Keep Shopping</span>
+                                    </a>
+                                    <a href="" class="btn btn-black rounded-0 btn-lg">
+                                        <span class="text-uppercase">Secure Checkout</span>
+                                        <span class="icon">
+                                            <i class="fas fa-lock"></i>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 {% else %}
