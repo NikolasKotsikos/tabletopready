@@ -11,15 +11,27 @@ def cart_contents(request):
     miniatures_count = 0
     cart = request.session.get('cart', {})
 
-    for item_id, quantity in cart.items():
-        miniature = get_object_or_404(Miniature, pk=item_id)
-        total += quantity * miniature.price
-        miniatures_count += quantity
-        cart_items.append({
-            'item_id': item_id,
-            'quantity': quantity,
-            'miniature': miniature,
-        })
+    for item_id, item_data in cart.items():
+        if isinstance(item_data, int):
+            miniature = get_object_or_404(Miniature, pk=item_id)
+            total += item_data * miniature.price
+            miniatures_count += item_data
+            cart_items.append({
+                'item_id': item_id,
+                'quantity': item_data,
+                'miniature': miniature,
+            })
+        else:
+            miniature = get_object_or_404(Miniature, pk=item_id)
+            for faction, quantity in item_data['items_by_faction'].items():
+                total += quantity * miniature.price
+                miniatures_count += quantity
+                cart_items.append({
+                    'item_id': item_id,
+                    'quantity': item_data,
+                    'miniature': miniature,
+                    'faction': faction,
+                })
 
     if total < settings.FREE_SHIPPING_THRESHOLD:
         shipping = total * Decimal(settings.STANDARD_SHIPPING_PERCENTAGE)

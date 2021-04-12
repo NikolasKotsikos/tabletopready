@@ -40,6 +40,40 @@
                     <form class="form" action="{% url 'add_to_cart' miniature.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
+                            {% with miniature.has_factions as f %}
+                            {% if f %}
+                                {% if miniature.army.name == 'adeptus_astartes' %}
+                                    <div class="col-12">
+                                        <p><strong>Faction Colors:</strong></p>
+                                        <select class="form-control rounded-0 w-50" name="miniature_faction" id="id_miniature_faction">
+                                            <option value="black_templars">Black Templars</option>
+                                            <option value="blood_angels">Blood Angels</option>
+                                            <option value="blood_ravens">Blood Ravens</option>
+                                            <option value="crimson_fists">Crimson Fists</option>
+                                            <option value="dark_angels">Dark Angels</option>
+                                            <option value="imperial_fists">Imperial Fists</option>
+                                            <option value="iron_hands">Iron Hands</option>
+                                            <option value="raven_guard">Raven Guard</option>
+                                            <option value="salamanders">Salamanders</option>
+                                            <option value="space_wolves">Space Wolves</option>
+                                            <option value="ultramarines">Ultramarines</option>
+                                            <option value="white_scars">White Scars</option>
+                                        </select>                                        
+                                     </div>
+                                {% elif miniature.army.name == 'chaos' %}
+                                    <div class="col-12">
+                                        <p><strong>Faction Colors:</strong></p>
+                                        <select class="form-control rounded-0 w-50" name="miniature_faction" id="id_miniature_faction">
+                                            <option value="<p>Alpha</p> <b>Legion</b>">Alpha Legion</option>
+                                            <option value="black_legion">Black Legion</option>
+                                            <option value="<p>Emperor's</p> <b>Children</b>">Emperor's Children</option>
+                                            <option value="iron_warriors">Iron Warriors</option>
+                                            <option value="word_bearers">Word Bearers</option>
+                                            <option value="world_eaters">World Eaters</option>                                            
+                                        </select>                                        
+                                     </div>
+                                {% endif %}
+                            {% endif %}
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
@@ -48,7 +82,7 @@
                             </div>
                         </div>
 
-                        <div class="col-12 px-0">
+                        <div class="col{% if f %}-12 mt-2{% endif %}">
                             <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0 mt-5">
                                 <span class="icon">
                                     <i class="fas fa-chevron-left"></i>
@@ -62,6 +96,7 @@
                             {% endif %}
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
                     </form>
                     <div class="miniature-details-footer d-flex justify-content-start mt-4">
                         {% if miniature.stock > 0 %}
