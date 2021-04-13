@@ -79,6 +79,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -156,5 +158,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 FREE_SHIPPING_THRESHOLD = 90
-STANDARD_SHIPPING_PERCENTAGE = 15
+STANDARD_SHIPPING_PERCENTAGE = 20
 FIRST_ORDER_DISCOUNT = 10
