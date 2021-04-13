@@ -28,7 +28,7 @@ def cart_contents(request):
                 miniatures_count += quantity
                 cart_items.append({
                     'item_id': item_id,
-                    'quantity': item_data,
+                    'quantity': quantity,
                     'miniature': miniature,
                     'faction': faction,
                 })
