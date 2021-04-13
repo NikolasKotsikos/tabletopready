@@ -46,18 +46,19 @@
                                     <div class="col-12">
                                         <p><strong>Faction Colors:</strong></p>
                                         <select class="form-control rounded-0 w-50" name="miniature_faction" id="id_miniature_faction">
-                                            <option value="black_templars">Black Templars</option>
-                                            <option value="blood_angels">Blood Angels</option>
-                                            <option value="blood_ravens">Blood Ravens</option>
-                                            <option value="crimson_fists">Crimson Fists</option>
-                                            <option value="dark_angels">Dark Angels</option>
-                                            <option value="imperial_fists">Imperial Fists</option>
-                                            <option value="iron_hands">Iron Hands</option>
-                                            <option value="raven_guard">Raven Guard</option>
-                                            <option value="salamanders">Salamanders</option>
-                                            <option value="space_wolves">Space Wolves</option>
-                                            <option value="ultramarines">Ultramarines</option>
-                                            <option value="white_scars">White Scars</option>
+                                            <!--HTML tags used inside value in order to use striptags built-in filter in cart view-->
+                                            <option value="<p>Black</p> <b>Templars</b>">Black Templars</option>
+                                            <option value="<p>Blood</p> <b>Angels</b>">Blood Angels</option>
+                                            <option value="<p>Blood</p> <b>Ravens</b>">Blood Ravens</option>
+                                            <option value="<p>Crimson</p> <b>Fists</b>">Crimson Fists</option>
+                                            <option value="<p>Dark</p> <b>Angels</b>">Dark Angels</option>
+                                            <option value="<p>Imperial</p> <b>Fists</b>">Imperial Fists</option>
+                                            <option value="<p>Iron</p> <b>Hands</b>">Iron Hands</option>
+                                            <option value="<p>Raven</p> <b>Guard</b>">Raven Guard</option>
+                                            <option value="<p>Salamanders</p>">Salamanders</option>
+                                            <option value="<p>Space</p> <b>Wolves</b>">Space Wolves</option>
+                                            <option value="<p>Ultramarines</p>">Ultramarines</option>
+                                            <option value="<p>White</p> <b>Scars</b>">White Scars</option>
                                         </select>                                        
                                      </div>
                                 {% elif miniature.army.name == 'chaos' %}
@@ -65,11 +66,11 @@
                                         <p><strong>Faction Colors:</strong></p>
                                         <select class="form-control rounded-0 w-50" name="miniature_faction" id="id_miniature_faction">
                                             <option value="<p>Alpha</p> <b>Legion</b>">Alpha Legion</option>
-                                            <option value="black_legion">Black Legion</option>
+                                            <option value="<p>Black</p> <b>Legion</b>">Black Legion</option>
                                             <option value="<p>Emperor's</p> <b>Children</b>">Emperor's Children</option>
-                                            <option value="iron_warriors">Iron Warriors</option>
-                                            <option value="word_bearers">Word Bearers</option>
-                                            <option value="world_eaters">World Eaters</option>                                            
+                                            <option value="<p>Iron</p> <b>Warriors</b>">Iron Warriors</option>
+                                            <option value="<p>Word</p> <b>Bearers</b>">Word Bearers</option>
+                                            <option value="<p>World</p> <b>Eaters</b>">World Eaters</option>                                            
                                         </select>                                        
                                      </div>
                                 {% endif %}
@@ -77,7 +78,38 @@
                             <div class="col-12">
                                 <p class="mt-3"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
-                                    <input type="number" name="quantity" value="1" min="1" max="99" data-item_id="{{ miniature.id }}" id="id_qty_{{ miniature.id }}" class="form-control qty-input">
+                                    <div class="input-group">
+                                        {% if miniature.stock > 0 %}
+                                            <div class="input-group-prepend">
+                                                <button class="decrement-qty btn btn-black rounded-0" 
+                                                    data-item_id="{{ miniature.id }}" id="decrement-qty_{{ miniature.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-minus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        {% endif %}
+                                        <input 
+                                            type="number" 
+                                            name="quantity" 
+                                            value="1" 
+                                            min="1" 
+                                            max="{{ miniature.stock }}" 
+                                            data-item_id="{{ miniature.id }}" 
+                                            id="id_qty_{{ miniature.id }}" 
+                                            class="form-control qty-input"
+                                        >
+                                        {% if miniature.stock > 0 %}
+                                            <div class="input-group-append">
+                                                <button class="increment-qty btn btn-black rounded-0" 
+                                                    data-item_id="{{ miniature.id }}" id="increment-qty_{{ miniature.id }}">
+                                                    <span class="icon">
+                                                        <i class="fas fa-plus"></i>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        {% endif %}    
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -100,7 +132,7 @@
                     </form>
                     <div class="miniature-details-footer d-flex justify-content-start mt-4">
                         {% if miniature.stock > 0 %}
-                            <p class="text-muted"><i class="fas fa-boxes fa-lg"></i> {{ miniature.stock }}</p>
+                            <p class="text-muted" data-item_id="{{ miniature.id }}" id="id_stock_{{ miniature.id }}"><i class="fas fa-boxes fa-lg"></i> {{ miniature.stock }}</p>
                         {% else %}
                             <p><i class="fas fa-ban fa-lg"></i> Out of stock</p>
                         {% endif %}
@@ -109,4 +141,9 @@
            </div>
        </div>
     </section>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'miniatures/includes/quantity_input_script.html' %}
 {% endblock %}
