@@ -43,6 +43,10 @@ body {
     height: min-content;
 }
 
+.tinted { 
+    opacity: 0.75; 
+}
+
 .order-now-button {
     background: #222;
     color: #fafafa;
@@ -54,7 +58,10 @@ body {
 .order-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
-.btn-black:focus {
+.btn-black:focus
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
     background: #222;
     color: #fafafa;
 }
@@ -67,9 +74,13 @@ body {
     text-shadow: 2px 2px 4px #333333;
 }
 
+.btn-green {
+    background: #7ab648;
+    color: #fafafa;
+}
 .btn-black {
     background: black;
-    color: white;
+    color: #fafafa;
 }
 
 .btn-outline-black {
@@ -107,6 +118,11 @@ body {
 
 .logo-font {
     font-family: 'Oswald', sans-serif;     
+}
+
+.carousel-item img {
+    background-size: cover;
+    min-height: 250px;
 }
 
 .miniature-details-container {
@@ -176,10 +192,10 @@ a.gs-badge > span.badge:hover {
 
     .header-container {
         padding-top: 164px;
-    }
-
-    .carousel-item img {
-        background-size: cover;
+    }  
+    
+    .carousel-caption {
+        margin-bottom: 7rem;
     }
 }
 
@@ -191,5 +207,15 @@ a.gs-badge > span.badge:hover {
 
     body {
         height: calc(100vh - 150px);
+    }
+
+    #carouselHomeSlidesOnly {
+        padding-top: 44px;
+    }
+}
+
+@media (max-width: 320px) {
+    #carouselHomeSlidesOnly {
+        padding-top: 108px;
     }
 }

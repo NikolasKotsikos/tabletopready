@@ -8,14 +8,14 @@ def cart_contents(request):
 
     cart_items = []
     total = 0
-    miniatures_count = 0
+    miniature_count = 0
     cart = request.session.get('cart', {})
 
     for item_id, item_data in cart.items():
         if isinstance(item_data, int):
             miniature = get_object_or_404(Miniature, pk=item_id)
             total += item_data * miniature.price
-            miniatures_count += item_data
+            miniature_count += item_data
             cart_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
@@ -25,7 +25,7 @@ def cart_contents(request):
             miniature = get_object_or_404(Miniature, pk=item_id)
             for faction, quantity in item_data['items_by_faction'].items():
                 total += quantity * miniature.price
-                miniatures_count += quantity
+                miniature_count += quantity
                 cart_items.append({
                     'item_id': item_id,
                     'quantity': quantity,
@@ -45,7 +45,7 @@ def cart_contents(request):
     context = {
         'cart_items': cart_items,
         'total': total,
-        'miniatures_count': miniatures_count,
+        'miniature_count': miniature_count,
         'shipping': shipping,
         'free_shipping_delta': free_shipping_delta,
         'free_shipping_threshold': settings.FREE_SHIPPING_THRESHOLD,

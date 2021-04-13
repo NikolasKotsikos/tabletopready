@@ -17,26 +17,35 @@
     <!--Homepage welcome carousel-->
     <div id="carouselHomeSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-                <img src="media/playing.jpg" class="image-fld w-100" alt="Playing with miniatures">
-                <div class="carousel-caption d-block">
+            <div class="carousel-item active" data-interval="10000">
+                <img src="media/playing.jpg" class="image-fld w-100 tinted" alt="Playing with miniatures">
+                <div class="carousel-caption d-none d-md-block">
                     <h2 class="my-lg-5 hero-text text-white text-shadow">Get models <span
                             class="green-text">ready</span> for all tabletops!</h2>
-                    <a href="{% url 'miniatures' %}" class="btn btn-lg btn-black rounded-0 text-white" type="button">Browse Miniatures</a>
+                    <a href="{% url 'miniatures' %}" class="btn btn-lg btn-green rounded-0" type="button">Browse Miniatures</a>
+                </div>
+                <div class="carousel-caption d-md-none d-sm-block">
+                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">Browse Our Tabletop Ready Miniatures</a>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="5000">
-                <img src="media/painting.jpg" class="image-fld w-100" alt="Painting miniatures">
-                <div class="carousel-caption d-block">
+            <div class="carousel-item" data-interval="5000">
+                <img src="media/painting.jpg" class="image-fld w-100 tinted" alt="Painting miniatures">
+                <div class="carousel-caption d-none d-md-block">
                     <h2 class="my-lg-5 hero-text text-white text-shadow">We make having a painted army <span class="green-text">easy</span>!</h2>
-                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Find Out How</a>
+                    <a href="" class="btn btn-lg btn-green rounded-0" type="button">Find Out How</a>
+                </div>
+                <div class="carousel-caption d-md-none d-sm-block">
+                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">See How We Make Having Painted Armies Easy</a>
                 </div>
             </div>
-            <div class="carousel-item" data-bs-interval="10000">
-                <img src="media/register.jpg" class="image-fld w-100" alt="Darth Vader fighthing Luke Skywalker">
-                <div class="carousel-caption d-none d-block">
+            <div class="carousel-item" data-interval="10000">
+                <img src="media/register.jpg" class="image-fld w-100 tinted" alt="Darth Vader fighthing Luke Skywalker">
+                <div class="carousel-caption d-none d-md-block">
                     <h2 class="my-lg-5 hero-text text-white text-shadow">Get <span class="green-text">10% off</span> your first order!</h2>
-                    <a href="" class="btn btn-lg btn-black rounded-0 text-white" type="button">Register Now</a>
+                    <a href="" class="btn btn-lg btn-green rounded-0" type="button">Register Now</a>
+                </div>
+                <div class="carousel-caption d-md-none d-sm-block">
+                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">Register And Get 10% Off Your First Order!</a>
                 </div>
             </div>                    
         </div>       

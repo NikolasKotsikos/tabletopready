@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load cart_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -51,7 +52,7 @@
                                         <p class="my-0">€{{ item.miniature.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="">
+                                        <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
                                             {% csrf_token %}
                                             <div class="form-group">                                   
                                                 <div class="input-group">                                       
@@ -66,12 +67,12 @@
                                                     <input 
                                                         type="number" 
                                                         name="quantity" 
-                                                        value="1" 
+                                                        value="{{ item.quantity }}" 
                                                         min="1" 
                                                         max="{{ item.miniature.stock }}" 
                                                         data-item_id="{{ item.item_id }}" 
                                                         id="id_qty_{{ item.item_id }}" 
-                                                        class="form-control form-control-sm qty-input"
+                                                        class="form-control form-control-sm qty_input"
                                                     >                                            
                                                     <div class="input-group-append">
                                                         <button class="increment-qty btn btn-sm btn-black rounded-0" 
@@ -87,11 +88,11 @@
                                                 </div>                                    
                                             </div>
                                         </form>
-                                        <a href="" class="update-link green-text"><small>Update</small></a>
-                                        <a href="" class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-faction="{{ item.faction }}"><small>Remove</small></a>
+                                        <a class="update-link green-text"><small>Update</small></a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-miniature_faction="{{ item.faction }}"><small>Remove</small></a>
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">€{{ item.miniature.price }}</p>
+                                        <p class="my-0">€{{ item.miniature.price | calc_subtotal:item.quantity }}</p>
                                     </td>   
                                 </tr>
                             {% endfor %}
@@ -145,24 +146,23 @@
 
 <script type="text/javascript">
     // Updates quantity on click
-    $('.update-link').click(function(e){
+    $('.update-link').click(function(e) {
         var form = $(this).prev('.update-form');
         form.submit();
     })
 
     // Removes item and reloads on click
-    $('.remove-item').click(function(e){
+    $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var faction = $(this).data('faction');
-        var url = `/cart/remove/${itemId}`;
-        var data = {'csrfmiddlewaretoken': csrfToken, 'faction': faction};
+        var faction = $(this).data('miniature_faction');
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'miniature_faction': faction};
 
-        $.post(url,data)
+        $.post(url, data)
          .done(function() {
              location.reload();
          });
     })
-
 </script>
 {% endblock %}
