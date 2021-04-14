@@ -19,10 +19,21 @@ body {
 .main-logo-link,
 .main-logo-link:hover,
 .main-logo-link:active {
-    font-weight: 300;
     color: #333333;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
     
+}
+
+.nav-icon-txt {
+    font-size: 14px;
+}
+
+.search-dropdown {
+    transform: translate3d(-276px, 64px, 0px) !important;
+}
+
+.search-form {
+    width: 325px;
 }
 
 #shipping-banner {
@@ -97,7 +108,11 @@ body {
 }
 
 .border-black {
-    border: 1px solid black !important;
+    border: 1px solid #000 !important;
+}
+
+.border-white {
+    border: 1px solid white !important;
 }
 
 .bg-black {
@@ -105,7 +120,7 @@ body {
 }
 
 .hero-text {
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Julius Sans One', sans-serif;
     font-weight: bolder;    
 }
 
@@ -113,11 +128,11 @@ body {
 .mobile-logo {
     width: max-content;
     padding: 8px;
-    border: 2px solid black;
+    border: 1px solid #000;
 }
 
 .logo-font {
-    font-family: 'Oswald', sans-serif;     
+    font-family: 'Julius Sans One', sans-serif;     
 }
 
 .carousel-item img {
@@ -125,20 +140,31 @@ body {
     min-height: 250px;
 }
 
-.miniature-details-container {
-    height: 100%;
+.cart-container {
+    height: calc(100% - 251px);
+    margin-top: 80px;
 }
 
 footer {
     position: relative;
     background-color: #333333;
     color: #fafafa;
-    font-family: 'Lato', sans-serif;
-    height: 65px;
+    font-family: 'Lato', sans-serif;       
 }
 
 footer i {
     color: #fafafa;
+}
+
+.footer-logo {        
+    width: max-content;
+    padding: 6px;
+    border: 1px solid white;      
+}
+
+.footer-link {
+    font-family: 'Julius Sans One', sans-serif; 
+    font-weight: lighter !important;
 }
 
 .overlay {
@@ -161,7 +187,7 @@ a.gs-badge > span.badge:hover {
     height: 42px;
     width: 42px;
     position: fixed;
-    bottom: 10px;
+    bottom: 60px;
     right: 10px;    
 }
 
@@ -192,10 +218,10 @@ a.gs-badge > span.badge:hover {
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
-  }
+  }  
 }
 
-/* Fixed top-navbar only on medium and up */
+/* Fixed top-navbar and footer height only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -206,11 +232,26 @@ a.gs-badge > span.badge:hover {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 120px;
     }  
     
     .carousel-caption {
         margin-bottom: 7rem;
+    }
+    
+    .miniatures-container,
+    .cart-container {
+        min-height: calc(84.3vh - 55px);
+        margin-top: 20px;
+    }
+
+    .miniature-details-container {
+        min-height: calc(84.3vh - 55px);
+        margin-top: 27.8px;
+    }
+
+    footer {
+        max-height: 55px;         
     }
 }
 
