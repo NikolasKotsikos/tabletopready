@@ -6,17 +6,25 @@ from django.conf import settings
 
 from miniatures.models import Miniature
 
+
 class Order(models.Model):
-    order_number = models.CharField(max_length=32, null=False, editable=False)
-    full_name = models.CharField(max_length=50, null=False, blank=False)
-    email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = models.CharField(max_length=20, null=False, blank=False)
-    country = models.CharField(max_length=40, null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    order_number = models.CharField(max_length=32, null=False,
+                                    editable=False)
+    full_name = models.CharField(max_length=50, null=False,
+                                 blank=False)
+    email = models.EmailField(max_length=254, null=False,
+                              blank=False)
+    phone_number = models.CharField(max_length=20, null=False,
+                                    blank=False)
+    country = models.CharField(max_length=40, null=False,
+                               blank=False)
+    postcode = models.CharField(max_length=20, null=True,
+                                blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=False, blank=True)
-    county = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, null=True,
+                              blank=True)
     date = models.DateTimeField(auto_now_add=True)
     shipping_cost = models.DecimalField(max_digits=6,
                                         decimal_places=2,
@@ -36,13 +44,15 @@ class Order(models.Model):
         Generates a random, unique order number using UUID
         """
         return uuid.uuid4().hex.upper()
- 
+
     def update_total(self):
         """
         Updates grand total each time a line item is added,
         accounting for delivery costs.
         """
-        self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum']
+        self.order_total = self.lineitems.aggregate(
+                                          Sum('lineitem_total')
+                                          )['lineitem_total_sum']
         if self.order_total < settings.FREE_SHIPPING_THRESHOLD:
             self.shipping_cost = self.order_total * settings.STANDARD_SHIPPING_PERCENTAGE / 100
         else:
@@ -63,13 +73,19 @@ class Order(models.Model):
         return self.order_number
 
 
-
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    miniature = models.ForeignKey(Miniature, null=False, blank=False, on_delete=models.CASCADE)
-    miniature_faction = models.CharField(max_length=2, null=True, blank=True)
+    order = models.ForeignKey(Order, null=False,
+                              blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    miniature = models.ForeignKey(Miniature, null=False,
+                                  blank=False, on_delete=models.CASCADE)
+    miniature_faction = models.CharField(max_length=2, null=True,
+                                         blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                         null=False, blank=False,
+                                         editable=False)
 
     def save(self, *args, **kwargs):
         """
@@ -78,6 +94,6 @@ class OrderLineItem(models.Model):
         """
         self.lineitem_total = self.miniature.price * self.quantity
         super().save(*args, **kwargs)
-    
+
     def __str__(self):
         return f'SKU {self.miniature.sku} on order {self.order.order_number}'
