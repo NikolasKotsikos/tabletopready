@@ -68,11 +68,11 @@
     <title>Tabletop Ready {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-     <header class="container-fluid fixed-top">   
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-xl-flex">
+    <header class="container-fluid fixed-top justify-content-between">   
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-2 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0">Tabletop-<span class="green-text text-uppercase">Ready</span></h2>
+                    <h4 class="logo-font text-black my-0">Tabletop-<span class="green-text text-uppercase">Ready</span></h4>
                 </a>
             </div>
             <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
@@ -81,12 +81,12 @@
                 </nav>
             </div>
             <div class="col-12 col-lg-2 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0 d-lg-flex">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0 d-lg-flex justify-content-between justify-content-md-end">
                     <li class="list-inline-item dropdown">
                         <a class="text-black nav-link d-block" href="#" id="search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-search fa-lg"></i></div>
-                                <p class="my-0 nav-icon-txt">Search</p>
+                                <p class="my-0 nav-icon-txt d-none d-xl-block">Search</p>
                             </div>
                         </a>
                         <div class="dropdown-menu search-dropdown shadow-sm border-0 p-3 rounded-0 my-0" aria-labelledby="search">
@@ -108,7 +108,7 @@
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-user fa-lg"></i></div>
-                                <p class="my-0 nav-icon-txt">My Account</p>
+                                <p class="my-0 nav-icon-txt d-none d-xl-block">My Account</p>
                             </div>
                         </a>
                         <div class="dropdown-menu shadow-sm border-0" aria-labelledby="user-options">
@@ -125,16 +125,21 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
-                        <a class="{% if grand_total %}green-text font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
+                        <a class="text-black nav-link" href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                                <p class="my-0">
+                                <p class="nav-icon-txt my-0">
                                     {% if grand_total %}
                                         €{{ grand_total|floatformat:2 }}
                                     {% else %}
                                         €0.00
                                     {% endif %}
                                 </p>
+                                {% if miniature_count > 0 %}
+                                <div class="position-absolute cart-item-counter text-center">
+                                    <strong>{{ miniature_count }}</strong>
+                                </div>
+                                {% endif %}
                             </div>
                         </a>
                     </li>
@@ -143,21 +148,21 @@
         </div>
         <div class="row bg-white">
             <div class="col-12 my-auto py-1 text-center">
-                <a href="{% url 'home' %}" class="d-sm-block d-xl-none nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0 mx-auto mobile-logo">Tabletop <span class="green-text">Ready</span></h2>
+                <a href="{% url 'home' %}" class="d-sm-block d-lg-none nav-link main-logo-link">
+                    <h4 class="logo-font text-black my-0 mx-auto mobile-logo">Tabletop <span class="green-text">Ready</span></h4>
                 </a>
             </div>
-            <nav class="navbar d-sm-block d-xl-none navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <nav class="navbar d-lg-none d-flex navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle dropdown menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}                
             </nav>
         </div>
-         <div id="shipping-banner" class="row text-center">
+        <div id="shipping-banner" class="row text-center">
             <div class="col text-white">
-                <h5 class="logo-font text-uppercase my-1">Free shipping on orders over € {{ free_shipping_threshold }}!</h5>                
+                <h5 class="shipping-font text-uppercase my-1">Free shipping on orders over € {{ free_shipping_threshold }}!</h5>                
             </div>            
         </div>        
     </header>
@@ -189,13 +194,8 @@
     <footer class="container-fluid"> 
          <!--Copyright and social links-->
          <div class="row d-flex flex-sm-column flex-md-row justify-content-md-between">
-            <div class="col-4 text-center d-none d-md-block h-auto">
-               <a href="{% url 'home' %}" class="nav-link footer-link">
-                    <h5 class="text-white footer-logo my-0">Tabletop-<span class="green-text text-uppercase">Ready</span></h5>
-                </a>
-            </div>
-            <div class="col-12 col-md-4 mx-sm-0 mt-md-2 text-center">
-               <ul class="list-inline d-block mb-0 float-md-right">
+                  <div class="col-12 col-md-4 mx-sm-0 mt-md-2 text-center">
+               <ul class="list-inline d-block mb-0 float-md-left">
                   <li class="list-inline-item p-1">
                      <a target="_blank" 
                         rel="noopener"
@@ -225,7 +225,12 @@
                      </a>
                   </li>
                </ul>
-            </div>
+            </div> 
+            <div class="col-4 text-center d-none d-md-block h-auto">
+               <a href="{% url 'home' %}" class="nav-link footer-link float-md-right">
+                    <h5 class="text-white footer-logo my-0">Tabletop-<span class="green-text text-uppercase">Ready</span></h5>
+                </a>
+            </div>      
          </div>
       </footer>
       

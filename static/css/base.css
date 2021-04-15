@@ -21,13 +21,40 @@ body {
 .main-logo-link,
 .main-logo-link:hover,
 .main-logo-link:active {
-    color: #333333;
+    color: #333333;   
+}
+
+.logo-font  {
     font-family: 'Julius Sans One', sans-serif;
-    
+    font-size: 18px;  
+}
+
+.nav-font {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+}
+
+.shipping-font {
+    color: #fafafa;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
 }
 
 .nav-icon-txt {
-    font-size: 14px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10px;
+}
+
+.cart-item-counter {
+    background: #7ab648;
+    color: #fafafa;
+    min-height: 1.1rem;
+    min-width: 1.1rem;
+    top: 0;
+    right: 28px;
+    border-radius: 50%;
+    line-height: 1.35rem;
+    font-size: .7rem;
 }
 
 .search-dropdown {
@@ -127,14 +154,11 @@ body {
 }
 
 #topnav a h2,
+#topnav a h4,
 .mobile-logo {
     width: max-content;
     padding: 8px;
     border: 1px solid #000;
-}
-
-.logo-font {
-    font-family: 'Julius Sans One', sans-serif;     
 }
 
 .carousel-item img {
@@ -142,9 +166,11 @@ body {
     min-height: 250px;
 }
 
-.cart-container {
+
+.cart-container,
+.miniatures-container {
     flex: 1;
-    margin-top: 80px;
+    margin-top: 43px;
 }
 
 footer {
@@ -166,7 +192,7 @@ footer i {
 
 .footer-link {
     font-family: 'Julius Sans One', sans-serif; 
-    font-weight: lighter !important;
+    font-size: 18px;
 }
 
 .overlay {
@@ -216,11 +242,28 @@ a.gs-badge > span.badge:hover {
 
 /*----------------------------------Media Queries */
 
-/* Slightly larger container on xl screens */
+/* Slightly larger container, logo and nav fonts on xl screens */
 @media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }  
+    .container {
+        max-width: 80%;
+    }  
+
+    .logo-font  {
+        font-size: 28px;  
+    }
+
+    .nav-font {
+        font-size: 22px;
+    }
+    
+    .shipping-font {
+        font-size: 20px;
+    }
+
+    .nav-icon-txt {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+}
 }
 
 /* Fixed top-navbar and footer height only on medium and up */
@@ -234,7 +277,7 @@ a.gs-badge > span.badge:hover {
     }
 
     .header-container {
-        padding-top: 120px;
+        padding-top: 115px;
     }  
     
     .carousel-caption {
@@ -243,13 +286,10 @@ a.gs-badge > span.badge:hover {
     
     .miniatures-container,
     .cart-container {
-        /* min-height: calc(84.3vh - 55px); */
-        flex: 1;
         margin-top: 20px;
     }
 
     .miniature-details-container {
-        /* min-height: calc(84.3vh - 55px); */
         flex: 1;
         margin-top: 27.8px;
     }
