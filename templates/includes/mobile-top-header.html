@@ -41,16 +41,21 @@
     </div>
 </li>
 <li class="list-inline-item">
-    <a class="{% if grand_total %}green-text font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
+    <a class="text-black nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-            <p class="my-0">
+            <p class="nav-icon-txt text-black my-0">
                 {% if grand_total %}
                     €{{ grand_total|floatformat:2 }}
                 {% else %}
                     €0.00
                 {% endif %}
             </p>
+            {% if miniature_count > 0 %}
+            <div class="position-absolute cart-item-counter text-center">
+                <strong>{{ miniature_count }}</strong>
+            </div>
+            {% endif %}
         </div>
     </a>
 </li>

@@ -88,8 +88,8 @@
                                                 </div>                                    
                                             </div>
                                         </form>
-                                        <a class="update-link green-text"><small>Update</small></a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-miniature_faction="{{ item.faction }}"><small>Remove</small></a>
+                                        <a class="update-link green-text"><i class="fas fa-cart-plus"></i> Update Cart</a>
+                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-miniature_faction="{{ item.faction }}"><i class="fas fa-times"></i> Remove</a>
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.miniature.price | calc_subtotal:item.quantity }}</p>
@@ -160,9 +160,9 @@
         var data = {'csrfmiddlewaretoken': csrfToken, 'miniature_faction': faction};
 
         $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-</script>
+        .done(function() {
+            location.reload();
+        });
+    })    
+    </script>
 {% endblock %}
