@@ -8,6 +8,49 @@
         </button>
     </div>
     <div class="toast-body bg-white">
-        {{ message }}
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3">
+            </div>
+        </div>
+        {% if grand_total %}
+            <p class="cart-notification-font bg-white text-black py-1">Your Cart ({{ miniature_count }})</p>
+            <div class="cart-notification-wrapper">
+                {% for item in cart_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            <img src="{{ item.miniature.image.url }}" alt="{{ item.miniature.name }}" class="w-100" loading="lazy">
+                        </div>
+                        <div class="col-9">
+                            <p class="my-0"><strong>{{ item.miniature.name }}</strong></p>
+                            <p class="my-0">Army: {{ item.miniature.army.friendly_name }}</p>
+                            <p class="my-0">Faction: {% if item.miniature.has_factions %}{{ item.faction }}{% else %}N/A{% endif %}</p>
+                            <p class="my-0">Game System: {{ item.miniature.gamesys.friendly_name }}</p>
+                            <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong><p class="mt-3 mb-1 text-black">
+                        Total{% if free_shipping_delta > 0 %} (Exc. Shipping){% endif %}:
+                        <span class="float-right">€{{ total|floatformat:2 }}</span>
+                    </p></strong>
+                    {% if free_shipping_delta > 0 %}
+                        <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                            Spend <strong>€{{ free_shipping_delta }}</strong> more to get free shipping!
+                        </p>
+                    {% endif %}
+                    <a href="{% url 'view_cart' %}" class="btn btn-black btn-block rounded-0">
+                        <span class="text-uppercase">Go To Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        {% endif%}
     </div>
 </div>
