@@ -29,15 +29,16 @@ def add_to_cart(request, item_id):
             if faction in cart[item_id]['items_by_faction'].keys():
                 cart[item_id]['items_by_faction'][faction] += quantity
                 messages.success(request,
-                             f'Updated {faction} {miniature.name} quantity to {cart[item_id]["items_by_faction"][faction]}'
-                             )
+                                 f'Updated {faction} {miniature.name} quantity to {cart[item_id]["items_by_faction"][faction]}'
+                                 )
             else:
                 cart[item_id]['items_by_faction'][faction] = quantity
-                messages.success(request, f'Added {faction} {miniature.name} to your cart')
+                messages.success(
+                    request, f'Added {faction} {miniature.name} to your cart')
         else:
             cart[item_id] = {'items_by_faction': {faction: quantity}}
-            messages.success(request, f'Added {faction} {miniature.name} to your cart')
-
+            messages.success(
+                request, f'Added {faction} {miniature.name} to your cart')
 
     else:
         if item_id in list(cart.keys()):
@@ -74,7 +75,8 @@ def adjust_cart(request, item_id):
             del cart[item_id]['items_by_faction'][faction]
             if not cart[item_id]['items_by_faction']:
                 cart.pop(item_id)
-            messages.success(request, f'Removed {faction} {miniature.name} from your cart')
+            messages.success(
+                request, f'Removed {faction} {miniature.name} from your cart')
 
     else:
         if quantity > 0:
@@ -84,7 +86,8 @@ def adjust_cart(request, item_id):
                              )
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {miniature.name} from your cart')
+            messages.success(
+                request, f'Removed {miniature.name} from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -104,11 +107,13 @@ def remove_from_cart(request, item_id):
             del cart[item_id]['items_by_faction'][faction]
             if not cart[item_id]['items_by_faction']:
                 cart.pop(item_id)
-            messages.success(request, f'Removed {faction} {miniature.name} from your cart')
+            messages.success(
+                request, f'Removed {faction} {miniature.name} from your cart')
 
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {miniature.name} from your cart')
+            messages.success(
+                request, f'Removed {miniature.name} from your cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

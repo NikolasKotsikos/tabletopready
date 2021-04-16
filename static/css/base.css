@@ -1,3 +1,4 @@
+/* Containers */
 html { 
     height: 100vh;
 }
@@ -9,7 +10,14 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
-/* from Bulma */
+
+.container,
+.miniatures-container {
+    flex: 1;
+    margin-top: 10px;
+}
+
+/* From Bulma */
 .icon {
     align-items: center;
     display: inline-flex;
@@ -166,13 +174,6 @@ body {
     min-height: 250px;
 }
 
-
-.cart-container,
-.miniatures-container {
-    flex: 1;
-    margin-top: 43px;
-}
-
 footer {
     background-color: #333333;
     color: #fafafa;
@@ -317,12 +318,14 @@ a.gs-badge > span.badge:hover {
     }
 
     .nav-icon-txt {
-    font-family: 'Julius Sans One', sans-serif;
     font-size: 12px;
-}
+    }
 }
 
-/* Fixed top-navbar and footer height only on medium and up */
+/* 
+  Fixed top-navbar, footer height and extra padding to miniature 
+  details container only on medium and up 
+*/
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -333,18 +336,13 @@ a.gs-badge > span.badge:hover {
     }
 
     .header-container {
-        padding-top: 95px;
+        padding-top: 75px;
     }  
     
     .carousel-caption {
         margin-bottom: 7rem;
     }
-    
-    .miniatures-container,
-    .cart-container {
-        margin-top: 40px;
-    }
-
+ 
     .miniature-details-container {
         flex: 1;
         margin-top: 27.8px;
