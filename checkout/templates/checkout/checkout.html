@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 {% load cart_tools %}
+{% block title %} : Checkout {% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block page_header %}
-    <div class="container">
+    <div class="container header-container">
         <div class="row">
             <div class="col"></div>
         </div>
@@ -61,12 +62,12 @@
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
+                        <p class="my-0">Shipping:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
                     <div class="col-3">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
-                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0">€{{ shipping | floatformat:2 }}</p>
                         <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>

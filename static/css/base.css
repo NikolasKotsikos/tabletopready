@@ -11,10 +11,11 @@ body {
 }
 
 
-.container,
-.miniatures-container {
+.container:not(.header-container),
+.miniatures-container,
+.miniature-details-container {
     flex: 1;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 /* From Bulma */
@@ -322,10 +323,7 @@ a.gs-badge > span.badge:hover {
     }
 }
 
-/* 
-  Fixed top-navbar, footer height and extra padding to miniature 
-  details container only on medium and up 
-*/
+/* Fixed top-navbar, footer height only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -343,11 +341,6 @@ a.gs-badge > span.badge:hover {
         margin-bottom: 7rem;
     }
  
-    .miniature-details-container {
-        flex: 1;
-        margin-top: 27.8px;
-    }
-
     footer {
         max-height: 55px;         
     }
