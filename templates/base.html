@@ -118,11 +118,11 @@
                                 {% if request.user.is_superuser %}
                                     <a href="" class="dropdown-item">Manage Miniatures</a>
                                 {% endif %}
-                                <a href="" class="dropdown-item">Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
                             {% endif %}
                         </div>
                     </li>

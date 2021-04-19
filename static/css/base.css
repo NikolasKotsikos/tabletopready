@@ -132,6 +132,12 @@ body {
     color: #fafafa;
 }
 
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #333333;
+}
+
 .btn-outline-black {
     background: white;
     color: #333333 !important;
@@ -227,6 +233,12 @@ a.gs-badge > span.badge:hover {
     cursor: pointer;
 }
 
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+/*------------------------------Bootstrap Toasts */
+
 .message-container {
     position: fixed;
     top: 72px;
@@ -298,6 +310,102 @@ a.gs-badge > span.badge:hover {
     font-size:  13px;
 }
 
+/* Allauth form formatting */ 
+.allauth-row {
+    max-width: 99vw;
+    min-height: 82.1vh;
+    height: calc(100vh - 168px);
+}
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; 
+    color: #333333;
+}
+
+.allauth-form-inner-content input {
+    border-color: #333333;
+    border-radius: 0;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content button,
+.allauth-form-inner-content input[type='submit'] {
+	/* btn */
+	display: inline-block;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #7ab648;
+    border: 1px solid #7ab648;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0;
+
+    /* standard bootstrap btn transitions */
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.allauth-form-inner-content button:hover,
+.allauth-form-inner-content input[type='submit']:hover {	
+	color: #333333;
+    background-color: #fafafa;
+    border-color: #333333;
+}
+
+.allauth-form-inner-content a:not(#social-links~) {
+	color: #7ab648; /* green-text */
+}
+
+/* Facebook */
+
+.fcbk-bg {
+    background: #3B5998; 
+}
+
+/* Google */
+
+.ggl-bg {
+    background: #FF0035;
+}
+
+/* Twitter */
+
+.twttr-bg {
+    background: #55ACEE; 
+}
+
+.fcbk-bg a,
+.ggl-bg a,
+.twttr-bg a {
+	color: #fafafa;;
+}
+
+.fcbk-bg a:hover,
+.ggl-bg a:hover,
+.twttr-bg a:hover {
+	text-decoration: none;	
+}
+
+.fcbk-bg:hover,
+.ggl-bg:hover,
+.twttr-bg:hover {
+	background: #333333;
+}
+
+
 /*----------------------------------Media Queries */
 
 /* Slightly larger container, logo and nav fonts on xl screens */
@@ -319,7 +427,7 @@ a.gs-badge > span.badge:hover {
     }
 
     .nav-icon-txt {
-    font-size: 12px;
+        font-size: 12px;
     }
 }
 
@@ -334,7 +442,7 @@ a.gs-badge > span.badge:hover {
     }
 
     .header-container {
-        padding-top: 75px;
+        padding-top: 66px;
     }  
     
     .carousel-caption {
