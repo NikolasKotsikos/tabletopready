@@ -26,8 +26,9 @@
 }
 
 .stripe-style-input::placeholder {
-    color: #474747;
+    color: #aab7c4;
 }
+
 .fieldset-label {
     position: relative;
     right: .5rem;
@@ -37,6 +38,16 @@
 #card-element {
     color: #333333;
     border: 1px solid #333333;
+}
+
+select,
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }
 
 #loading-overlay {
