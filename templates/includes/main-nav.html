@@ -17,10 +17,10 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-font text-black nav-link mr-3" href="#" id="wh40k-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-font text-black nav-link mr-3" href="#" id="armies-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Armies
             </a>
-            <div class="dropdown-menu shadow-sm border-0" aria-labelledby="wh40k-link">
+            <div class="dropdown-menu shadow-sm border-0" aria-labelledby="armies-link">
                 <a href="#" class="dropdown-item text-muted disabled">Warhammer 40,000</a>
                 <hr>
                 <a href="{% url 'miniatures' %}?army=adeptus_astartes" class="dropdown-item">Adeptus Astartes</a>
@@ -28,6 +28,10 @@
                 <a href="{% url 'miniatures' %}?army=chaos" class="dropdown-item">Chaos</a>
                 <a href="{% url 'miniatures' %}?army=thousand_sons" class="dropdown-item">Thousand Sons</a>                
                 <a href="{% url 'miniatures' %}?army=necrons" class="dropdown-item">Necrons</a>                
+                <hr>
+                <a href="#" class="dropdown-item text-muted disabled">Warhammer: Age of Sigmar</a>
+                <hr>
+                <a href="{% url 'miniatures' %}?army=strmcast_etrnls" class="dropdown-item">Stormcast Eternals</a>
                 <hr>
                 <a href="#" class="dropdown-item text-muted disabled"> Star Wars: Legion</a>
                 <hr>
@@ -42,6 +46,7 @@
             </a>
             <div class="dropdown-menu shadow-sm border-0" aria-labelledby="swl-link">
                 <a href="{% url 'miniatures' %}?army=adeptus_astartes,chaos,astra_militarum,thousand_sons,necrons" class="dropdown-item">Warhammer 40,000</a>
+                <a href="{% url 'miniatures' %}?gamesys=wh_aos" class="dropdown-item">Warhammer: Age of Sigmar</a>
                 <a href="{% url 'miniatures' %}?army=galactic_empire,rebel_alliance" class="dropdown-item">Star Wars: Legion</a>              
             </div>
         </li>

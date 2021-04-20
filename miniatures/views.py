@@ -83,7 +83,17 @@ def miniature_details(request, miniature_id):
 
 def add_miniature(request):
     """ Add a miniature to the store """
-    form = MiniatureForm()
+    if request.method == 'POST':
+        form = MiniatureForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added miniature!')
+            return redirect(reverse('add_miniature'))
+        else:
+            messages.error(request, 'Failed to add miniature. Please check that the form is valid.')
+    else:
+        form = MiniatureForm()
+
     template = 'miniatures/add_miniature.html'
     context = {
         'form': form,
@@ -94,7 +104,17 @@ def add_miniature(request):
 
 def add_army(request):
     """ Add an army to the store """
-    form = ArmyForm()
+    if request.method == 'POST':
+        form = ArmyForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added army!')
+            return redirect(reverse('add_army'))
+        else:
+            messages.error(request,
+                           'Failed to add army. Please check that the form is valid.')
+    else:
+        form = ArmyForm()
     template = 'miniatures/add_army.html'
     context = {
         'form': form,
@@ -105,7 +125,16 @@ def add_army(request):
 
 def add_gamesystem(request):
     """ Add a game system to the store """
-    form = GameSystemForm()
+    if request.method == 'POST':
+        form = GameSystemForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added game system!')
+            return redirect(reverse('add_gamesystem'))
+        else:
+            messages.error(request, 'Failed to add game system. Please check that the form is valid.')
+    else:
+        form = GameSystemForm()
     template = 'miniatures/add_gamesystem.html'
     context = {
         'form': form,
