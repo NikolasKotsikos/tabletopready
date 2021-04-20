@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Miniature, GamingSystem, Army
 from django.db.models.functions import Lower
+
+from .models import Miniature, GamingSystem, Army
+from .forms import MiniatureForm, ArmyForm, GameSystemForm
 
 
 def all_miniatures(request):
@@ -77,3 +79,36 @@ def miniature_details(request, miniature_id):
     }
 
     return render(request, 'miniatures/miniature_details.html', context)
+
+
+def add_miniature(request):
+    """ Add a miniature to the store """
+    form = MiniatureForm()
+    template = 'miniatures/add_miniature.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_army(request):
+    """ Add an army to the store """
+    form = ArmyForm()
+    template = 'miniatures/add_army.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_gamesystem(request):
+    """ Add a game system to the store """
+    form = GameSystemForm()
+    template = 'miniatures/add_gamesystem.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
