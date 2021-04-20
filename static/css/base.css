@@ -15,7 +15,7 @@ body {
 .miniatures-container,
 .miniature-details-container {
     flex: 1;
-    margin-top: 40px;
+    margin-top: 45px;
 }
 
 /* From Bulma */

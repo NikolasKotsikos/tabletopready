@@ -13,9 +13,9 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid miniature-details-container">
-       <div class="row">
-           <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-               <div class="image-container my-5">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+                <div class="image-container my-5">
                     {% if miniature.image %}
                     <a href="{{ miniature.image.url }}" target="_blank">
                         <img src="{{ miniature.image.url }}" alt="{{ miniature.name }}" class="card-img-top img-fluid">
@@ -25,10 +25,10 @@
                         <img src="{{ MEDIA_URL }}noimage.png" alt="No image" class="card-img-top img-fluid">
                     </a>
                     {% endif %}
-               </div>
-           </div>
-           <div class="col-12 col-md-6 col-lg-4">
-               <div class="flex-column mb-5 mt-md-5">
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="flex-column mb-5 mt-md-5">
                     <p class="mb-0">{{ miniature.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold">€{{ miniature.price }}</p>
                     {% if miniature.gamesys %}                                               
@@ -36,7 +36,12 @@
                     {% endif %}
                     <p class="text-muted my-0"><i class="fas fa-crosshairs"></i> {{ miniature.army.friendly_name  }}</p>
                     <p class="text-muted my-0"><i class="fas fa-industry"></i> {{ miniature.manufacturer }}</p>
-                    <p class="text-muted my-0"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }}</p>    
+                    <p class="text-muted my-0"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }}</p>
+                     {% if miniature.stock > 0 %}
+                        <p class="text-muted my-0" data-item_id="{{ miniature.id }}" id="id_stock_{{ miniature.id }}"><i class="fas fa-boxes text-success"></i> {{ miniature.stock }} items in stock</p>                        
+                    {% else %}
+                        <p><i class="fas fa-ban text-danger my-0"></i> Out of stock</p>
+                    {% endif %}            
                     <p class="mt-3">{{ miniature.description }}</p>
                     <form class="form" action="{% url 'add_to_cart' miniature.id %}" method="POST">
                         {% csrf_token %}
@@ -73,7 +78,7 @@
                                             <option value="<p>Word</p> <b>Bearers</b>">Word Bearers</option>
                                             <option value="<p>World</p> <b>Eaters</b>">World Eaters</option>                                            
                                         </select>                                        
-                                     </div>
+                                    </div>
                                 {% endif %}
                             {% endif %}
                         <div class="col-12">
@@ -129,16 +134,36 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </form>
-                    <div class="miniature-details-footer d-flex justify-content-start mt-4">
-                        {% if miniature.stock > 0 %}
-                            <p class="text-muted" data-item_id="{{ miniature.id }}" id="id_stock_{{ miniature.id }}"><i class="fas fa-boxes fa-lg"></i> {{ miniature.stock }}</p>
-                        {% else %}
-                            <p><i class="fas fa-ban fa-lg"></i> Out of stock</p>
-                        {% endif %}
-                    </div>      
+                    <div class="miniature-details-footer row d-flex flex-row mt-4">
+                        {% if request.user.is_superuser %}
+                        <div class="col-12">
+                            <a href="{% url 'edit_miniature' miniature.id %}" class="btn btn-green rounded-0"><i class="fas fa-edit"></i> Edit</a>
+                            <button class="btn btn-danger rounded-0" type="button" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-times"></i> Delete</button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-danger logo-font" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="text-black">This will delete <strong>{{ miniature.name }}</strong> forever!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Cancel</button>
+                                        <a type="button" class="btn btn-danger rounded-0" href="{% url 'delete_miniature' miniature.id %}"><i class="fas fa-trash"></i> Delete</a>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}                                            
+                    </div>                   
                </div>
-           </div>
-       </div>
+            </div>
+        </div>
     </div>
 {% endblock %}
 

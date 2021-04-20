@@ -86,9 +86,9 @@ def add_miniature(request):
     if request.method == 'POST':
         form = MiniatureForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            miniature = form.save()
             messages.success(request, 'Successfully added miniature!')
-            return redirect(reverse('add_miniature'))
+            return redirect(reverse('miniature_details', args=[miniature.id]))
         else:
             messages.error(request, 'Failed to add miniature. Please check that the form is valid.')
     else:
@@ -115,6 +115,7 @@ def add_army(request):
                            'Failed to add army. Please check that the form is valid.')
     else:
         form = ArmyForm()
+
     template = 'miniatures/add_army.html'
     context = {
         'form': form,
@@ -136,6 +137,7 @@ def add_gamesystem(request):
                            'Failed to add game system. Please check that the form is valid.')
     else:
         form = GameSystemForm()
+
     template = 'miniatures/add_gamesystem.html'
     context = {
         'form': form,
@@ -219,3 +221,27 @@ def edit_gamesystem(request, gamesystem_id):
     }
 
     return render(request, template, context)
+
+
+def delete_miniature(request, miniature_id):
+    """ Deletes a miniature from the store """
+    miniature = get_object_or_404(Miniature, pk=miniature_id)
+    miniature.delete()
+    messages.success(request, 'Miniature deleted!')
+    return redirect(reverse('miniatures'))
+
+
+def delete_army(request, army_id):
+    """ Deletes an army from the store """
+    army = get_object_or_404(Army, pk=army_id)
+    army.delete()
+    messages.success(request, 'Army deleted!')
+    return redirect(reverse('miniatures'))
+
+
+def delete_gamesystem(request, gamesystem_id):
+    """ Deletes a game system from the store """
+    gamesystem = get_object_or_404(Army, pk=gamesystem_id)
+    gamesystem.delete()
+    messages.success(request, 'Game System deleted!')
+    return redirect(reverse('miniatures'))

@@ -97,6 +97,12 @@
                                     {% else %}
                                         <small class="text-muted"><i class="fas fa-ban fa-lg"></i> Out of stock</small>
                                     {% endif %}        
+                                    {% if request.user.is_superuser %}
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_miniature' miniature.id %}"><i class="fas fa-edit"></i> Edit</a>
+                                            <a class="text-danger" href="{% url 'delete_miniature' miniature.id %}"><i class="fas fa-times"></i> Delete</a>
+                                        </small>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

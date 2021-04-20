@@ -14,4 +14,10 @@ urlpatterns = [
          views.edit_army, name='edit_army'),
     path('edit_gamesystem/<int:gamesystem_id>/',
          views.edit_gamesystem, name='edit_gamesystem'),
+    path('delete_miniature/<int:miniature_id>/',
+         views.delete_miniature, name='delete_miniature'),
+    path('delete_army/<int:army_id>/',
+         views.delete_army, name='delete_army'),
+    path('delete_gamesystem/<int:gamesystem_id>/',
+         views.delete_gamesystem, name='delete_gamesystem'),
 ]
