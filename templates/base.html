@@ -116,7 +116,7 @@
                         <div class="dropdown-menu shadow-sm border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item text-muted disabled">Shop Admin</a>
+                                    <a href="#" class="dropdown-item small green-text disabled">Admin Tools</a>
                                     <hr>
                                     <a href="{% url 'add_miniature' %}" class="dropdown-item">Manage Miniatures</a>
                                     <a href="{% url 'add_army' %}" class="dropdown-item">Manage Armies</a>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %} : Miniatures Management {% endblock %}
+{% block title %} : Edit Miniature {% endblock %}
 
 
 {% block page_header %}
@@ -14,12 +14,12 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container checkout-container">
+    <div class="container checkout-container">        
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Miniatures Management</h2>
-                <h5 class="text-muted">Add a Miniature</h5>
+                <h2 class="logo-font mb-4">Edit Miniature</h2>
+                <h5 class="text-muted">Edit a Miniature</h5>
                 <hr>
             </div>
         </div>        
@@ -27,12 +27,12 @@
             {% if request.user.is_superuser %}
                 <div class="row">  
                     <div class="col-12 col-md-6">
-                        <form method="POST" action="{% url 'add_miniature' %}" class="form mb-2" enctype="multipart/form-data">
+                        <form method="POST" action="{% url 'edit_miniature' miniature.id %}" class="form mb-2" enctype="multipart/form-data">
                             {% csrf_token %}
                             {{ form | crispy }}
                             <div class="text-right">
                                 <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0">Cancel</a>
-                                <button class="btn btn-black rounded-0" type="submit">Add a Miniature</button>
+                                <button class="btn btn-black rounded-0" type="submit">Edit Miniature</button>
                             </div>
                         </form>             
                     </div>          

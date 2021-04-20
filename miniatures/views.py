@@ -132,12 +132,38 @@ def add_gamesystem(request):
             messages.success(request, 'Successfully added game system!')
             return redirect(reverse('add_gamesystem'))
         else:
-            messages.error(request, 'Failed to add game system. Please check that the form is valid.')
+            messages.error(request,
+                           'Failed to add game system. Please check that the form is valid.')
     else:
         form = GameSystemForm()
     template = 'miniatures/add_gamesystem.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_miniature(request, miniature_id):
+    """ Edit a miniature in the store """
+    miniature = get_object_or_404(Miniature, pk=miniature_id)
+    if request.method == 'POST':
+        form = MiniatureForm(request.POST, request.FILES, instance=miniature)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Successfully updated {miniature.name}')
+            return redirect(reverse('miniature_details', args=[miniature.id]))
+        else:
+            messages.error(request,
+                           f'Failed to update {miniature.name}. Please check that the form is valid.')
+    else:
+        form = MiniatureForm(instance=miniature)
+        messages.info(request, f'You are editing {miniature.name}')
+
+    template = 'miniatures/edit_miniature.html'
+    context = {
+        'form': form,
+        'miniature': miniature,
     }
 
     return render(request, template, context)

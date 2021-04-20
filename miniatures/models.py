@@ -31,7 +31,7 @@ class Army(models.Model):
 class Miniature(models.Model):
     gamesys = models.ForeignKey('GamingSystem',
                                 null=True, blank=True,
-                                on_delete=models.CASCADE)
+                                on_delete=models.SET_NULL)
     sku = models.CharField(max_length=254, null=True, blank=True)
     name = models.CharField(max_length=254)
     manufacturer = models.CharField(max_length=254)
@@ -50,3 +50,6 @@ class Miniature(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        ordering = ['gamesys']
