@@ -158,12 +158,64 @@ def edit_miniature(request, miniature_id):
                            f'Failed to update {miniature.name}. Please check that the form is valid.')
     else:
         form = MiniatureForm(instance=miniature)
-        messages.info(request, f'You are editing {miniature.name}')
+        messages.info(request, f'You are editing {miniature.name}.')
 
     template = 'miniatures/edit_miniature.html'
     context = {
         'form': form,
         'miniature': miniature,
+    }
+
+    return render(request, template, context)
+
+
+def edit_army(request, army_id):
+    """" Edit an army in the store """
+    army = get_object_or_404(Army, pk=army_id)
+    if request.method == 'POST':
+        form = ArmyForm(request.POST, request.FILES, instance=army)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             f'Successfully updated {army.friendly_name}')
+            return redirect(reverse('edit_army', args=[army.id]))
+        else:
+            messages.error(request,
+                           f'Failed to update {army.friendly_name}. Please check that the form is valid.')
+    else:
+        form = ArmyForm(instance=army)
+        messages.info(request, f'You are editing {army.friendly_name}.')
+
+    template = 'miniatures/edit_army.html'
+    context = {
+        'form': form,
+        'army': army,
+    }
+
+    return render(request, template, context)
+
+
+def edit_gamesystem(request, gamesystem_id):
+    """" Edit an army in the store """
+    gamesystem = get_object_or_404(GamingSystem, pk=gamesystem_id)
+    if request.method == 'POST':
+        form = GameSystemForm(request.POST, request.FILES, instance=gamesystem)
+        if form.is_valid():
+            form.save()
+            messages.success(request,
+                             f'Successfully updated {gamesystem.friendly_name}')
+            return redirect(reverse('edit_gamesystem', args=[gamesystem.id]))
+        else:
+            messages.error(request,
+                           f'Failed to update {gamesystem.friendly_name}. Please check that the form is valid.')
+    else:
+        form = GameSystemForm(instance=gamesystem)
+        messages.info(request, f'You are editing {gamesystem.friendly_name}.')
+
+    template = 'miniatures/edit_gamesystem.html'
+    context = {
+        'form': form,
+        'gamesystem': gamesystem,
     }
 
     return render(request, template, context)
