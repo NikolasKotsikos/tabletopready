@@ -55,12 +55,12 @@ def all_miniatures(request):
                 return redirect(reverse('miniatures'))
 
             queries = Q(name__icontains=query) | Q(
-                                                   description__icontains=query
-                                                   ) | Q(
-                                                         gamesys__name__icontains=query
-                                                         ) | Q(
-                                                               army__name__icontains=query
-                                                               )
+                        description__icontains=query
+                        ) | Q(
+                                gamesys__name__icontains=query
+                                ) | Q(
+                                    army__name__icontains=query
+                                    )
             miniatures = miniatures.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
