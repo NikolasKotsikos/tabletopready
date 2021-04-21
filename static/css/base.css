@@ -26,31 +26,20 @@ body {
     width: 1.5rem;
 }
 
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: #fafafa;
+    z-index: -1;
+}
+
 .main-logo-link,
 .main-logo-link:hover,
 .main-logo-link:active {
     color: #333333;   
-}
-
-.logo-font  {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 18px;  
-}
-
-.nav-font {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 14px;
-}
-
-.shipping-font {
-    color: #fafafa;
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 14px;
-}
-
-.nav-icon-txt {
-    font-family: 'Julius Sans One', sans-serif;
-    font-size: 10px;
 }
 
 .cart-item-counter {
@@ -95,32 +84,20 @@ body {
     opacity: 0.75; 
 }
 
+/* Buttons */ 
+.btn,
+.btn:active,
+.btn:hover,
+.btn:focus {
+    border-radius: 0;
+}
+
 .order-now-button {
     background: #222;
     color: #fafafa;
     min-width: 260px;
 }
 
-.order-now-button:hover, 
-.order-now-button:active,
-.order-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus
-.btn-green:hover,
-.btn-green:active,
-.btn-green:focus {
-    background: #222;
-    color: #fafafa;
-}
-
-.text-black {
-    color: #000 !important;    
-}
-
-.text-shadow {
-    text-shadow: 2px 2px 4px #333333;
-}
 
 .btn-green {
     background: #7ab648;
@@ -131,23 +108,81 @@ body {
     color: #fafafa;
 }
 
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #333333;
-}
-
 .btn-outline-black {
     background: white;
     color: #333333 !important;
     border: 1px solid #333333;
 }
 
+.order-now-button:hover, 
+.order-now-button:active,
+.order-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus,
 .btn-outline-black:hover,
 .btn-outline-black:active,
-.btn-outline-black:focus {
+.btn-outline-black:focus  {
     background: #333333;
     color: #fafafa !important;
+}
+
+.btn-green:hover,
+.btn-green:active,
+.btn-green:focus {
+    background: #fafafa;
+    color: #333333 !important;
+    border-color: #333333;
+}
+
+a.army-badge > span.badge:hover,
+a.gs-badge > span.badge:hover {
+    background: #7ab648;
+    color: #fafafa !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 60px;
+    right: 10px;    
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/* Typography */
+.logo-font  {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 18px;  
+}
+
+.nav-font {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+}
+
+.shipping-font {
+    color: #fafafa;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 14px;
+}
+
+.nav-icon-txt {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 10px;
+}
+
+.text-black {
+    color: #000 !important;    
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px #333333;
 }
 
 .border-black {
@@ -175,11 +210,13 @@ body {
     border: 1px solid #000;
 }
 
+/* Main Carousel */
 .carousel-item img {
     background-size: cover;
     min-height: 250px;
 }
 
+/* Footer */
 footer {
     background-color: #333333;
     color: #fafafa;
@@ -202,41 +239,11 @@ footer i {
     font-size: 18px;
 }
 
-.overlay {
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: #fafafa;
-    z-index: -1;
-}
-
-a.army-badge > span.badge:hover,
-a.gs-badge > span.badge:hover {
-    background: #7ab648;
-    color: #fafafa !important;
-}
-
-.btt-button {
-    height: 42px;
-    width: 42px;
-    position: fixed;
-    bottom: 60px;
-    right: 10px;    
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
 input[name='q']::placeholder {
     color: #aab7c4;
 }
 
-/*------------------------------Bootstrap Toasts */
+/*Bootstrap Toasts */
 
 .message-container {
     position: fixed;
@@ -253,7 +260,7 @@ input[name='q']::placeholder {
     height: 2px;
 }
 
-/* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
+/* From CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 .arrow-up {
     width: 0; 
     height: 0; 
@@ -265,7 +272,7 @@ input[name='q']::placeholder {
     right: 26px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
+/* Convenience Classes - Colors Copied From Bootstrap */
 .arrow-primary {
     border-bottom-color: #007bff !important;
 }
@@ -309,7 +316,7 @@ input[name='q']::placeholder {
     font-size:  13px;
 }
 
-/* Allauth form formatting */ 
+/* Allauth Form Formatting */ 
 .allauth-row {
     max-width: 99vw;
     min-height: 82.1vh;
@@ -404,8 +411,35 @@ input[name='q']::placeholder {
 	background: #333333;
 }
 
+/* Miniature Form */ 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
 
-/*----------------------------------Media Queries */
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+    border-color: #dc3545;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border-radius: 0;
+}
+
+
+/*--Media Queries-- */
 
 /* Slightly larger container width, logo and nav fonts on xl screens */
 @media (min-width: 1200px) {

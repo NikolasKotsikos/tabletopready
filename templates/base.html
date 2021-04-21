@@ -118,12 +118,13 @@
                                 {% if request.user.is_superuser %}
                                     <a href="#" class="dropdown-item small green-text disabled">Admin Tools</a>
                                     <hr>
-                                    <a href="{% url 'add_miniature' %}" class="dropdown-item">Manage Miniatures</a>
-                                    <a href="{% url 'add_army' %}" class="dropdown-item">Manage Armies</a>
-                                    <a href="{% url 'add_gamesystem' %}" class="dropdown-item">Manage Game Systems</a>
+                                    <a href="{% url 'add_miniature' %}" class="dropdown-item">Add Miniature</a>
+                                    <a href="{% url 'add_army' %}" class="dropdown-item">Add Army</a>
+                                    <a href="{% url 'add_gamesystem' %}" class="dropdown-item">Add Game System</a>
                                     <hr>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                {% else %}
+                                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
+                                {% endif %}                                
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

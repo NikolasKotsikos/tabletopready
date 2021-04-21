@@ -15,6 +15,11 @@
         <div class="row">
             <div class="col text-center mt-3">
                 <h2 class="logo-font">Miniatures</h2>
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                        <a href="{% url 'add_miniature'%}" class="btn btn-lg btn-green rounded-0 text-uppercase"><i class="fas fa-plus fa-sm"></i> Add a Miniature</a>
+                    {% endif %}
+                {% endif %}
                 {% with a=current_army gs=current_gamesys %}
                     {% if a %}
                         {% for a in current_army %}
