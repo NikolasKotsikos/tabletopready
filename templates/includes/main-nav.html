@@ -11,7 +11,8 @@
                 <a href="{% url 'miniatures' %}?sort=army&direction=asc" class="dropdown-item">By Army</a>
                 <a href="{% url 'miniatures' %}?sort=itemcount&direction=desc" class="dropdown-item">By Model Count</a> 
                 <a href="{% url 'miniatures' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
-                <a href="{% url 'miniatures' %}?sort=stock&direction=desc" class="dropdown-item">By Stock</a>                              
+                <a href="{% url 'miniatures' %}?sort=stock&direction=desc" class="dropdown-item">By Stock</a>
+                <hr>                              
                 <a href="{% url 'miniatures' %}" class="dropdown-item">All Miniatures</a>
             </div>
         </li>
@@ -22,7 +23,7 @@
             </a>
             <div class="dropdown-menu shadow-sm border-0" aria-labelledby="armies-link">
                 <a href="#" class="dropdown-item small green-text disabled">Warhammer 40,000</a>
-                <hr>
+                <hr class="float-left" width="180">
                 <a href="{% url 'miniatures' %}?army=adeptus_astartes" class="dropdown-item">Adeptus Astartes</a>
                 <a href="{% url 'miniatures' %}?army=astra_militarum" class="dropdown-item">Astra Militarum</a>
                 <a href="{% url 'miniatures' %}?army=chaos" class="dropdown-item">Chaos</a>
@@ -30,24 +31,33 @@
                 <a href="{% url 'miniatures' %}?army=necrons" class="dropdown-item">Necrons</a>                
                 <hr>
                 <a href="#" class="dropdown-item small green-text disabled">Warhammer: Age of Sigmar</a>
-                <hr>
+                <hr class="float-left" width="180">
                 <a href="{% url 'miniatures' %}?army=strmcast_etrnls" class="dropdown-item">Stormcast Eternals</a>
                 <hr>
                 <a href="#" class="dropdown-item small green-text disabled"> Star Wars: Legion</a>
-                <hr>
+                <hr class="float-left" width="180">
                 <a href="{% url 'miniatures' %}?army=galactic_empire" class="dropdown-item">Galactic Empire</a>
-                <a href="{% url 'miniatures' %}?army=rebel_alliance" class="dropdown-item">Rebel Alliance</a>                                      
+                <a href="{% url 'miniatures' %}?army=rebel_alliance" class="dropdown-item">Rebel Alliance</a>
+                <hr>
+                <a href="{% url 'miniatures' %}" class="dropdown-item">All Armies</a>                                  
             </div>
         </li>
 
          <li class="nav-item dropdown">
-            <a class="nav-font text-black nav-link mr-3" href="#" id="swl-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-font text-black nav-link mr-3" href="#" id="gs-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Game Systems
             </a>
-            <div class="dropdown-menu shadow-sm border-0" aria-labelledby="swl-link">
+            <div class="dropdown-menu shadow-sm border-0" aria-labelledby="gs-link">
+                <a href="#" class="dropdown-item small green-text disabled">Games Workshop</a>
+                <hr class="float-left" width="180">
                 <a href="{% url 'miniatures' %}?army=adeptus_astartes,chaos,astra_militarum,thousand_sons,necrons" class="dropdown-item">Warhammer 40,000</a>
                 <a href="{% url 'miniatures' %}?gamesys=wh_aos" class="dropdown-item">Warhammer: Age of Sigmar</a>
-                <a href="{% url 'miniatures' %}?army=galactic_empire,rebel_alliance" class="dropdown-item">Star Wars: Legion</a>              
+                <hr>
+                <a href="#" class="dropdown-item small green-text disabled">Fantasy Flight Games</a>
+                <hr class="float-left" width="180">
+                <a href="{% url 'miniatures' %}?army=galactic_empire,rebel_alliance" class="dropdown-item">Star Wars: Legion</a>
+                <hr>
+                <a href="{% url 'miniatures' %}" class="dropdown-item">All Game Systems</a>              
             </div>
         </li>
 

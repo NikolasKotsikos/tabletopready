@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from itertools import chain
 
 from .models import Miniature, GamingSystem, Army
 from .forms import MiniatureForm, ArmyForm, GameSystemForm
@@ -13,8 +14,8 @@ def all_miniatures(request):
 
     miniatures = Miniature.objects.all()
     query = None
-    gamesys = None
-    army = None
+    gamesystems = None
+    armies = None
     sort = None
     direction = None
 
@@ -34,18 +35,18 @@ def all_miniatures(request):
             miniatures = miniatures.order_by(sortkey)
 
         if 'gamesys' in request.GET:
-            gamesys = request.GET['gamesys'].split(',')
+            gamesystems = request.GET['gamesys__name'].split(',')
             miniatures = miniatures.filter(
-                                    gamesys__name__in=gamesys)
-            gamesys = GamingSystem.objects.filter(
-                                                name__in=gamesys)
+                                    gamesys__name__in=gamesystems)
+            gamesystems = GamingSystem.objects.filter(
+                                                name__in=gamesystems)
 
         if 'army' in request.GET:
-            army = request.GET['army'].split(',')
+            armies = request.GET['army__name'].split(',')
             miniatures = miniatures.filter(
-                                    army__name__in=army)
-            army = Army.objects.filter(
-                                name__in=army)
+                                    army__name__in=armies)
+            armies = Army.objects.filter(
+                                name__in=armies)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -54,7 +55,13 @@ def all_miniatures(request):
                                "You didn't enter any search criteria!")
                 return redirect(reverse('miniatures'))
 
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            queries = Q(name__icontains=query) | Q(
+                                                   description__icontains=query
+                                                   ) | Q(
+                                                         gamesys__name__icontains=query
+                                                         ) | Q(
+                                                               army__name__icontains=query
+                                                               )
             miniatures = miniatures.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -62,12 +69,17 @@ def all_miniatures(request):
     context = {
         'miniatures': miniatures,
         'search_term': query,
-        'current_gamesys': gamesys,
-        'current_army': army,
+        'current_gamesystems': gamesystems,
+        'current_armies': armies,
         'current_sorting': current_sorting,
     }
 
     return render(request, 'miniatures/miniatures.html', context)
+
+
+def all_armies(request):
+    """ A view to show all armies """
+    army = Army.objects.all()
 
 
 def miniature_details(request, miniature_id):
