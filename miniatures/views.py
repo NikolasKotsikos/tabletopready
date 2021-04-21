@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -81,8 +82,14 @@ def miniature_details(request, miniature_id):
     return render(request, 'miniatures/miniature_details.html', context)
 
 
+@login_required
 def add_miniature(request):
     """ Add a miniature to the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = MiniatureForm(request.POST, request.FILES)
         if form.is_valid():
@@ -90,7 +97,8 @@ def add_miniature(request):
             messages.success(request, 'Successfully added miniature!')
             return redirect(reverse('miniature_details', args=[miniature.id]))
         else:
-            messages.error(request, 'Failed to add miniature. Please check that the form is valid.')
+            messages.error(request,
+                           'Failed to add miniature. Please check that the form is valid.')
     else:
         form = MiniatureForm()
 
@@ -102,8 +110,14 @@ def add_miniature(request):
     return render(request, template, context)
 
 
+@login_required
 def add_army(request):
     """ Add an army to the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ArmyForm(request.POST, request.FILES)
         if form.is_valid():
@@ -124,8 +138,14 @@ def add_army(request):
     return render(request, template, context)
 
 
+@login_required
 def add_gamesystem(request):
     """ Add a game system to the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = GameSystemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -146,8 +166,14 @@ def add_gamesystem(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_miniature(request, miniature_id):
     """ Edit a miniature in the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     miniature = get_object_or_404(Miniature, pk=miniature_id)
     if request.method == 'POST':
         form = MiniatureForm(request.POST, request.FILES, instance=miniature)
@@ -171,8 +197,14 @@ def edit_miniature(request, miniature_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_army(request, army_id):
     """" Edit an army in the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     army = get_object_or_404(Army, pk=army_id)
     if request.method == 'POST':
         form = ArmyForm(request.POST, request.FILES, instance=army)
@@ -197,8 +229,14 @@ def edit_army(request, army_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_gamesystem(request, gamesystem_id):
     """" Edit an army in the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     gamesystem = get_object_or_404(GamingSystem, pk=gamesystem_id)
     if request.method == 'POST':
         form = GameSystemForm(request.POST, request.FILES, instance=gamesystem)
@@ -223,24 +261,42 @@ def edit_gamesystem(request, gamesystem_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_miniature(request, miniature_id):
     """ Deletes a miniature from the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     miniature = get_object_or_404(Miniature, pk=miniature_id)
     miniature.delete()
     messages.success(request, 'Miniature deleted!')
     return redirect(reverse('miniatures'))
 
 
+@login_required
 def delete_army(request, army_id):
     """ Deletes an army from the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     army = get_object_or_404(Army, pk=army_id)
     army.delete()
     messages.success(request, 'Army deleted!')
     return redirect(reverse('miniatures'))
 
 
+@login_required
 def delete_gamesystem(request, gamesystem_id):
     """ Deletes a game system from the store """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
     gamesystem = get_object_or_404(Army, pk=gamesystem_id)
     gamesystem.delete()
     messages.success(request, 'Game System deleted!')
