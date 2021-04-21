@@ -87,22 +87,40 @@
                                             {% if miniature.gamesys %}                                               
                                                 <p class="small mb-0 text-muted"><i class="fas fa-dice"></i> {{ miniature.gamesys.friendly_name  }}</p>
                                             {% endif %}   
-                                            <small class="text-muted"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }}</small>                                        
+                                            <small class="text-muted"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }} model{% if miniature.itemcount > 1 %}s{% endif %}</small>
+                                             {% if miniature.stock > 0 %}
+                                                <small class="text-muted"><i class="fas fa-boxes text-success"></i> {{ miniature.stock }} item{% if miniature.stock > 1 %}s{% endif %} in stock</small>
+                                            {% else %}
+                                                <small class="text-muted"><i class="fas fa-ban text-danger"></i> Out of stock</small>
+                                            {% endif %}                                          
                                         </div>
                                     </div>                                    
                                 </div>
-                                <div class="bg-white text-right px-3 pb-3">
-                                    {% if miniature.stock > 0 %}
-                                        <small class="text-muted"><i class="fas fa-boxes fa-lg"></i> {{ miniature.stock }}</small>
-                                    {% else %}
-                                        <small class="text-muted"><i class="fas fa-ban fa-lg"></i> Out of stock</small>
-                                    {% endif %}        
+                                <div class="bg-white text-right px-3 pb-3">                                         
                                     {% if request.user.is_superuser %}
-                                        <small class="ml-3">
-                                            <a href="{% url 'edit_miniature' miniature.id %}"><i class="fas fa-edit"></i> Edit</a>
-                                            <a class="text-danger" href="{% url 'delete_miniature' miniature.id %}"><i class="fas fa-times"></i> Delete</a>
-                                        </small>
-                                    {% endif %}
+                                            <a href="{% url 'edit_miniature' miniature.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
+                                            <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#miniDelete{{ miniature.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="miniDelete{{ miniature.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="{{ miniature.id }}" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                    <div class="modal-header text-center">
+                                                        <h5 class="modal-title text-danger logo-font" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p class="text-black"><strong>{{ miniature.name }}</strong> will be permanently deleted!</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Cancel</button>
+                                                        <a type="button" class="btn btn-danger rounded-0" href="{% url 'delete_miniature' miniature.id %}"><i class="fas fa-trash fa-sm"></i> Delete</a>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    {% endif %}                       
                                 </div>
                             </div>
                         </div>

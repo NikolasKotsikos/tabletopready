@@ -12,8 +12,8 @@
 
 {% block content %}
     <div class="overlay"></div>
-    <div class="container-fluid miniature-details-container">
-        <div class="row">
+    <div class="container-fluid miniatures-container px-0 mx-0">
+        <div class="row details-row mx-auto">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
                 <div class="image-container my-5">
                     {% if miniature.image %}
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-4">
-                <div class="flex-column mb-5 mt-md-5">
+                <div class="mb-5 mt-md-5">
                     <p class="mb-0">{{ miniature.name }}</p>
                     <p class="lead mb-0 text-left font-weight-bold">€{{ miniature.price }}</p>
                     {% if miniature.gamesys %}                                               
@@ -36,9 +36,9 @@
                     {% endif %}
                     <p class="text-muted my-0"><i class="fas fa-crosshairs"></i> {{ miniature.army.friendly_name  }}</p>
                     <p class="text-muted my-0"><i class="fas fa-industry"></i> {{ miniature.manufacturer }}</p>
-                    <p class="text-muted my-0"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }}</p>
+                    <p class="text-muted my-0"><i class="fas fa-user-times"></i> {{ miniature.itemcount  }} model{% if miniature.itemcount > 1 %}s{% endif %}</p>
                      {% if miniature.stock > 0 %}
-                        <p class="text-muted my-0" data-item_id="{{ miniature.id }}" id="id_stock_{{ miniature.id }}"><i class="fas fa-boxes text-success"></i> {{ miniature.stock }} items in stock</p>                        
+                        <p class="text-muted my-0" data-item_id="{{ miniature.id }}" id="id_stock_{{ miniature.id }}"><i class="fas fa-boxes text-success"></i> {{ miniature.stock }} item{% if miniature.stock > 1 %}s{% endif %} in stock</p>                        
                     {% else %}
                         <p><i class="fas fa-ban text-danger my-0"></i> Out of stock</p>
                     {% endif %}            
@@ -134,11 +134,11 @@
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </form>
-                    <div class="miniature-details-footer row d-flex flex-row mt-4">
+                    <div class="details-row mt-4">
                         {% if request.user.is_superuser %}
-                        <div class="col-12">
-                            <a href="{% url 'edit_miniature' miniature.id %}" class="btn btn-green rounded-0"><i class="fas fa-edit"></i> Edit</a>
-                            <button class="btn btn-danger rounded-0" type="button" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-times"></i> Delete</button>
+                        <div class="col-12 mt-2 text-right">
+                            <a href="{% url 'edit_miniature' miniature.id %}" class="btn btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
+                            <button class="btn btn-danger rounded-0" type="button" data-toggle="modal" data-target="#staticBackdrop"><i class="fas fa-times fa-sm"></i> Delete</button>
                             <!-- Modal -->
                             <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -150,7 +150,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <p class="text-black">This will delete <strong>{{ miniature.name }}</strong> forever!</p>
+                                        <p class="text-black"><strong>{{ miniature.name }}</strong> will be permanently deleted!</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal">Cancel</button>
@@ -159,6 +159,7 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
                         {% endif %}                                            
                     </div>                   
                </div>
