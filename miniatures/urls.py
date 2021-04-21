@@ -3,6 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.all_miniatures, name='miniatures'),
+    path('all_armies/', views.all_armies, name='all_armies'),
+    path('all_gamesystems/', views.all_gamesystems, name='all_gamesystems'),
     path('<int:miniature_id>/',
          views.miniature_details, name='miniature_details'),
     path('add_miniature/', views.add_miniature, name='add_miniature'),

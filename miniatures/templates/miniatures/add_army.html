@@ -32,8 +32,8 @@
                             {% csrf_token %}
                             {{ form | crispy }}
                             <div class="text-right">
-                                <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0">Cancel</a>
-                                <button class="btn btn-black rounded-0" type="submit">Add an Army</button>
+                                <a href="{% url 'all_armies' %}" class="btn btn-outline-black rounded-0">Cancel</a>
+                                <button class="btn btn-black rounded-0" type="submit">Add Army</button>
                             </div>
                         </form>             
                     </div>          

@@ -76,9 +76,76 @@ def all_miniatures(request):
     return render(request, 'miniatures/miniatures.html', context)
 
 
+@login_required
 def all_armies(request):
     """ A view to show all armies """
-    army = Army.objects.all()
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
+    armies = Army.objects.all()
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'army__friendly_name':
+                sortkey = 'army__friendly_name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            armies = armies.order_by(sortkey)
+
+    current_sorting = f'{sort}_{direction}'
+
+    context = {
+        'armies': armies,
+        'current_sorting': current_sorting,
+    }
+
+    return render(request,
+                  'miniatures/all_armies.html',
+                  context)
+
+
+@login_required
+def all_gamesystems(request):
+    """ A view to show all game systems """
+    if not request.user.is_superuser:
+        messages.error(request,
+                       'Access denied, only staff members can do that.')
+        return redirect(reverse('home'))
+
+    gamesystems = GamingSystem.objects.all()
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'gamesystem__friendly_name':
+                sortkey = 'gamesystem__friendly_name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            gamesystems = gamesystems.order_by(sortkey)
+
+    current_sorting = f'{sort}_{direction}'
+
+    context = {
+        'gamesystems': gamesystems,
+        'current_sorting': current_sorting,
+    }
+
+    return render(request,
+                  'miniatures/all_gamesystems.html',
+                  context)
 
 
 def miniature_details(request, miniature_id):
@@ -134,7 +201,7 @@ def add_army(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added army!')
-            return redirect(reverse('add_army'))
+            return redirect(reverse('all_armies'))
         else:
             messages.error(request,
                            'Failed to add army. Please check that the form is valid.')
@@ -162,7 +229,7 @@ def add_gamesystem(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Successfully added game system!')
-            return redirect(reverse('add_gamesystem'))
+            return redirect(reverse('all_gamesystems'))
         else:
             messages.error(request,
                            'Failed to add game system. Please check that the form is valid.')
@@ -223,7 +290,7 @@ def edit_army(request, army_id):
             form.save()
             messages.success(request,
                              f'Successfully updated {army.friendly_name}')
-            return redirect(reverse('edit_army', args=[army.id]))
+            return redirect(reverse('all_armies', args=[army.id]))
         else:
             messages.error(request,
                            f'Failed to update {army.friendly_name}. Please check that the form is valid.')
@@ -255,7 +322,7 @@ def edit_gamesystem(request, gamesystem_id):
             form.save()
             messages.success(request,
                              f'Successfully updated {gamesystem.friendly_name}')
-            return redirect(reverse('edit_gamesystem', args=[gamesystem.id]))
+            return redirect(reverse('all_gamesystems', args=[gamesystem.id]))
         else:
             messages.error(request,
                            f'Failed to update {gamesystem.friendly_name}. Please check that the form is valid.')
@@ -297,7 +364,7 @@ def delete_army(request, army_id):
     army = get_object_or_404(Army, pk=army_id)
     army.delete()
     messages.success(request, 'Army deleted!')
-    return redirect(reverse('miniatures'))
+    return redirect(reverse('all_armies'))
 
 
 @login_required
@@ -308,7 +375,7 @@ def delete_gamesystem(request, gamesystem_id):
                        'Access denied, only staff members can do that.')
         return redirect(reverse('home'))
 
-    gamesystem = get_object_or_404(Army, pk=gamesystem_id)
+    gamesystem = get_object_or_404(GamingSystem, pk=gamesystem_id)
     gamesystem.delete()
     messages.success(request, 'Game System deleted!')
-    return redirect(reverse('miniatures'))
+    return redirect(reverse('all_gamesystems'))

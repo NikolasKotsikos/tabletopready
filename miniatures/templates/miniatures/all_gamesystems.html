@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} : Game Systems {% endblock %}
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <section class="container-fluid miniatures-container">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font">
+                    Game Systems<br>                   
+                    <a href="{% url 'add_gamesystem'%}" class="btn btn-lg btn-green rounded-0 text-uppercase mt-2"><i class="fas fa-plus fa-sm"></i> Add a Game System</a>            
+                </h2>
+            
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="container col-10 offset-1">
+                <div class="row mt-1 mb-2">
+                    <div class="col-12 col-md-6 my-auto d-flex justify-content-md-start">
+                        <div class="sort-select-wrapper" width="50">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>                                                                                      
+                            </select>
+                        </div>    
+                    </div>
+                </div>
+                <div class="row">
+                    {% for gamesystem in gamesystems %}
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card text-center h-100 border-black rounded-0">
+                                <div class="card-body">
+                                    <a href="{% url 'miniatures' %}?gamesys={{ gs.name }}" class="logo-font text-uppercase green-text mb-2">
+                                        {{ gamesystem.friendly_name }}                                      
+                                    </a>                                                                 
+                                </div>
+                                <div class="text-right px-3 pb-3">                                         
+                                    <a href="{% url 'edit_gamesystem' gamesystem.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
+                                    <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#miniDelete{{ gamesystem.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="miniDelete{{ gamesystem.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="{{ gamesystem.id }}" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                            <div class="modal-header text-center">
+                                                <h5 class="modal-title text-danger logo-font" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="text-black"><strong>{{ gamesystem.friendly_name }}</strong> will be permanently deleted!</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Cancel</button>
+                                                <a type="button" class="btn btn-danger rounded-0" href="{% url 'delete_gamesystem' gamesystem.id %}"><i class="fas fa-trash fa-sm"></i> Delete</a>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>                       
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 d-sm-none mb-5">
+                            <hr>
+                        </div>
+                        
+                        {% if forloop.counter|divisibleby:2 %}
+                            <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+
+                        {% if forloop.counter|divisibleby:3 %}
+                            <div class="col-12 d-none d-lg-block d-xl-none mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+
+                        {% if forloop.counter|divisibleby:4 %}
+                            <div class="col-12 d-none d-xl-block mb-5">
+                                <hr>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a href="" class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $('.btt-link').click(function(e) {
+            window.scrollTo(0,0)
+        })
+    </script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+{% endblock %}
