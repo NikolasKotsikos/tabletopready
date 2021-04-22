@@ -34,14 +34,14 @@ def all_miniatures(request):
             miniatures = miniatures.order_by(sortkey)
 
         if 'gamesys' in request.GET:
-            gamesystems = request.GET['gamesys__name'].split(',')
+            gamesystems = request.GET['gamesys'].split(',')
             miniatures = miniatures.filter(
                                     gamesys__name__in=gamesystems)
             gamesystems = GamingSystem.objects.filter(
                                                 name__in=gamesystems)
 
         if 'army' in request.GET:
-            armies = request.GET['army__name'].split(',')
+            armies = request.GET['army'].split(',')
             miniatures = miniatures.filter(
                                     army__name__in=armies)
             armies = Army.objects.filter(

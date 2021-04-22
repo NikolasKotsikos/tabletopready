@@ -52,4 +52,4 @@ class Miniature(models.Model):
         return self.name
 
     class Meta:
-        ordering = ['gamesys']
+        ordering = ['gamesys', 'name']

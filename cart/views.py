@@ -4,8 +4,6 @@ from django.utils.html import strip_tags
 
 from miniatures.models import Miniature
 
-# Create your views here.
-
 
 def view_cart(request):
     """ A view that renders the cart contents page """
@@ -15,11 +13,11 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
     """ Add ad quantity of the specified miniature to the shopping cart """
-
     miniature = get_object_or_404(Miniature, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     faction = None
+
     if 'miniature_faction' in request.POST:
         faction = strip_tags(request.POST['miniature_faction'])
     cart = request.session.get('cart', {})

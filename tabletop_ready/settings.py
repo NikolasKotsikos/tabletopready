@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'profiles',
+    'gallery',
 
     # Other
     'crispy_forms',
@@ -205,8 +206,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-FIRST_ORDER_DISCOUNT = 10
 
 # Stripe
 FREE_SHIPPING_THRESHOLD = 90
