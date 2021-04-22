@@ -76,7 +76,7 @@
                 <div class="row">
                     {% for miniature in miniatures %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">
+                            <div class="card h-100 border-0 shadow-sm">
                                 {% if miniature.image %}
                                 <a href="{% url 'miniature_details' miniature.id %}">
                                     <img src="{{ miniature.image.url }}" alt="{{ miniature.name }}" class="card-img-top img-fluid">

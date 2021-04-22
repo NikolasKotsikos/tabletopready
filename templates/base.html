@@ -115,11 +115,7 @@
                         </a>
                         <div class="dropdown-menu shadow-sm border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="d-none" disabled></a>
-                                {% else %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>
-                                {% endif %}                                
+                                <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>                                               
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

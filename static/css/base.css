@@ -72,12 +72,15 @@ body {
     color: #fafafa;
 }
 
-.green-text {
-    color: #7ab648 !important;
+/* Main Carousel */
+.carousel-item img {
+    background-size: cover;
+    min-height: 250px;
 }
 
-.text-center {
-    height: min-content;
+.carousel-caption {
+    width: 650px;
+    background-color: rgba(55, 55, 55, 0.8)
 }
 
 .tinted { 
@@ -177,6 +180,14 @@ a.gs-badge > span.badge:hover {
     font-size: 10px;
 }
 
+.green-text {
+    color: #7ab648 !important;
+}
+
+.text-center {
+    height: min-content;
+}
+
 .text-black {
     color: #000 !important;    
 }
@@ -208,12 +219,6 @@ a.gs-badge > span.badge:hover {
     width: max-content;
     padding: 8px;
     border: 1px solid #000;
-}
-
-/* Main Carousel */
-.carousel-item img {
-    background-size: cover;
-    min-height: 250px;
 }
 
 /* Footer */

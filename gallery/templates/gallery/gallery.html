@@ -38,7 +38,7 @@
                 <div class="row">
                     {% for gallery_item in gallery_items %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                            <div class="card h-100 border-0">                                
+                            <div class="card h-100 border-0 shadow-sm">                                
                                 <a href="{{ gallery_item.image.url }}" target="_blank">
                                     <img src="{{ gallery_item.image.url }}" alt="{{ gallery_item.name }}" class="card-img-top img-fluid" loading="lazy">
                                 </a>                         
@@ -53,9 +53,8 @@
                                         </div>
                                     </div>                                    
                                 </div>
-                                <div class="card-footer bg-white px-3 pb-3 flex-row justify-content-between">
-                                    <p class="px-0 icon"><i class="far fa-heart fa-lg"></i></p>                                         
-                                    {% if request.user.is_superuser %}
+                                {% if request.user.is_superuser %}
+                                    <div class="card-footer bg-white px-3 pb-3 flex-row justify-content-between">
                                         <div class="px-0 mx-0">
                                             <a href="{% url 'edit_gallery_item' gallery_item.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
                                             <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#itemDelete{{ gallery_item.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
@@ -64,30 +63,32 @@
                                         <div class="modal fade" id="itemDelete{{ gallery_item.id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="{{ gallery_item.id }}" aria-hidden="true">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                <div class="modal-header text-center">
-                                                    <h5 class="modal-title text-danger logo-font" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
+                                                    <div class="modal-header text-center">
+                                                        <h5 class="modal-title text-danger logo-font" id="staticBackdropLabel"><i class="fas fa-exclamation-triangle"></i> Warning !</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
                                                 <div class="modal-body">
                                                     <p class="text-black"><strong>{{ gallery_item.name }}</strong> will be permanently deleted!</p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Cancel</button>
-                                                    <a type="button" class="btn btn-danger rounded-0" href="{% url 'delete_gallery_item' gallery_item.id %}"><i class="fas fa-trash fa-sm"></i> Delete</a>
-                                                </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-outline-black rounded-0" data-dismiss="modal"><i class="fas fa-times fa-sm"></i> Cancel</button>
+                                                        <a type="button" class="btn btn-danger rounded-0" href="{% url 'delete_gallery_item' gallery_item.id %}"><i class="fas fa-trash fa-sm"></i> Delete</a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    {% endif %}                       
-                                </div>
+                                        </div>                                                                                             
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
 
+                        {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr>
                         </div>
+                        {% endif %}
                         
                         {% if forloop.counter|divisibleby:2 %}
                             <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">

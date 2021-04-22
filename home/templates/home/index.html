@@ -14,96 +14,80 @@
 
 {% block content %}
 
-<div class="text-center container-fluid px-0">
-    <!--Homepage welcome carousel-->
-    <div id="carouselHomeSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-interval="10000">
-                <img src="media/playing.jpg" class="image-fld w-100 tinted" alt="Playing with miniatures">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="my-lg-5 hero-text text-white text-shadow">Get models <span
-                            class="green-text">ready</span> for all tabletops!</h2>
-                    <a href="{% url 'miniatures' %}" class="btn btn-lg btn-green rounded-0" type="button">Browse Miniatures</a>
-                </div>
-                <div class="carousel-caption d-md-none d-sm-block">
-                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">Browse Our Tabletop Ready Miniatures</a>
-                </div>
-            </div>
-            <div class="carousel-item" data-interval="5000">
-                <img src="media/painting.jpg" class="image-fld w-100 tinted" alt="Painting miniatures">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="my-lg-5 hero-text text-white text-shadow">We make having a painted army <span class="green-text">easy</span>!</h2>
-                    <a href="" class="btn btn-lg btn-green rounded-0" type="button">Find Out How</a>
-                </div>
-                <div class="carousel-caption d-md-none d-sm-block">
-                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">See How We Make Having Painted Armies Easy</a>
-                </div>
-            </div>
-            <div class="carousel-item" data-interval="10000">
-                <img src="media/register.jpg" class="image-fld w-100 tinted" alt="Darth Vader fighthing Luke Skywalker">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2 class="my-lg-5 hero-text text-white text-shadow">Get <span class="green-text">10% off</span> your first order!</h2>
-                    <a href="" class="btn btn-lg btn-green rounded-0" type="button">Register Now</a>
-                </div>
-                <div class="carousel-caption d-md-none d-sm-block">
-                    <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">Register And Get 10% Off Your First Order!</a>
-                </div>
-            </div>                    
-        </div>       
-    </div>   
-</div>
-
-<div class="album py-5 bg-light container-fluid justify-content-center">
-        <!--Latest gallery items display-->
-        <!--TODO: Add header!--> 
-        <!--TODO: Connect to relevant app-->        
-        <div class="row row-cols-1 row-cols-sm-2 g-3 justify-content-center">
-            <div class="col-sm-12 col-md-4 col-lg-5">
-                <div class="card index-card shadow-sm">
-                    <img src="media/noimage.png" class="img-card-top" alt="Default image">
-                    <div class="card-body">
-                        <p class="card-text">Gallery Item Name</p>
-                        <p class="small text-muted">Gallery Item Army</p>
-                        <p class="small text-muted">Gallery Item Manufacturer</p>
+    <div class="container-fluid px-0">
+        <!--Homepage welcome carousel-->
+        <div id="carouselHomeSlidesOnly" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="8000">
+                    <img src="media/playing.jpg" class="image-fld w-100 tinted" alt="Playing with miniatures">
+                    <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h2 class="my-lg-3 hero-text text-white text-shadow">Get an army that's <span class="green-text">ready</span> for all tabletops!</h2>
+                        <a href="{% url 'miniatures' %}" class="btn btn-lg btn-green rounded-0 my-3" type="button">Browse Miniatures</a>
                     </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-5">
-                <div class="card index-card shadow-sm">
-                    <img src="media/noimage.png" class="img-card-top" alt="Default image">
-                    <div class="card-body">
-                        <p class="card-text">Gallery Item Name</p>
-                        <p class="small text-muted">Gallery Item Army</p>
-                        <p class="small text-muted">Gallery Item Manufacturer</p>
+                    <div class="carousel-caption d-md-none d-sm-block">
+                        <a href="{% url 'miniatures' %}" class="btn btn-sm btn-green rounded-0">Browse Our Miniature Range</a>
                     </div>
-                </div>
+                </div>                
+                <div class="carousel-item" data-interval="8000">
+                    <img src="media/register.jpg" class="image-fld w-100 tinted" alt="Darth Vader fighthing Luke Skywalker">
+                    <div class="carousel-caption d-none d-md-block mx-auto">
+                        <h2 class="my-lg-3 hero-text text-white text-shadow">Create an account and start your next army Tabletop-<span class="green-text">Ready</span>!</h2>
+                        <a href="{% url 'account_signup' %}" class="btn btn-lg btn-green rounded-0 my-3" type="button">Create an Account</a>
+                    </div>
+                    <div class="carousel-caption d-md-none d-sm-block">
+                        <a href="{% url 'account_signup' %}" class="btn btn-sm btn-green rounded-0">Create an acccount and start your next army!</a>
+                    </div>
+                </div>                    
+            </div>       
+        </div>   
+    
+        <!--Latest gallery items display-->               
+        <div class="row justify-content-center mb-2 w-100 mx-0">
+            <div class="col-12 text-center mt-3">
+                <h2 class="logo-font">From Our Gallery</h2>
+                <hr class="w-50 mb-3">
             </div>
-        </div>    
-    </div>
-
-<div class="album py-5 bg-dark container-fluid">
-    <!--Latest testimonials items display--> 
-    <!--TODO: Add header!--> 
-    <!--TODO: Connect to relevant app-->     
-    <div class="row row-cols-1 row-cols-sm-2 g-3 justify-content-center">
-        <div class="col-12">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <p class="card-text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, quos illo?
-                        Possimus vel nesciunt illo, delectus odio eligendi blanditiis, cum, repudiandae obcaecati
-                        veniam ipsam totam facere accusantium. Consequuntur, consequatur eius.
-                    </p> 
+            {% for item in gallery_items %}
+                <div class="col-sm-12 col-md-4 col-lg-5">
+                    <div class="card h-100 border-0 shadow-sm">                                
+                        <a href="{% url 'all_gallery_items' %}">
+                            <img src="{{ item.image.url }}" alt="{{ item.name }}" class="card-img-top img-fluid" loading="lazy">
+                        </a>                         
+                        <div class="card-body">
+                            <p class="lead mb-0 text-left font-weight-bold">{{ item.name }}</p>
+                            <div class="row">
+                                <div class="col d-flex flex-column">                                            
+                                    <small class="text-muted"><i class="fas fa-dice"></i> {{ item.gamesystem  }}</small>
+                                    <small class="text-muted"><i class="fas fa-crosshairs"></i> {{ item.army }}</small>
+                                    <small class="text-muted"><i class="fas fa-flag"></i> {{ item.faction }}</small>                                                                                                                                                              
+                                </div>
+                            </div>                                    
+                        </div>                        
+                    </div>            
                 </div>
+            {% endfor %}    
+        </div>
+        
+        <!--Contact form-->
+        <div id="contact" class="row bg-dark contact-container w-100 mx-0">
+            <div class="col-6 border bg-white p-3 m-3 mx-md-auto my-md-5">
+                <h2 class="logo-font text-center">Get in touch</h2>
+                <p class="mb-3">If you have a question for us please fill out the form below</p>
+                <form class="contact-form" action="{% url 'contact_us' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <input class="btn btn-green rounded-0 w-100" type="submit" value="Send Message" />
+                </form>
             </div>
         </div>
-    </div>    
-</div>
- <div class="btt-button shadow-sm rounded-0 border border-black">
-        <a href="" class="btt-link d-flex h-100">
-            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-        </a>
-</div>
+        
+        <div class="btt-button shadow-sm rounded-0 border border-black">
+            <a href="" class="btt-link d-flex h-100">
+                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+            </a>
+        </div>
+        
+    </div>
 {% endblock %}
 
 {% block postloadjs %}
