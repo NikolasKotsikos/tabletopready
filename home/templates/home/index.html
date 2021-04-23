@@ -32,16 +32,22 @@
                     <img src="{{ MEDIA_URL }}register.jpg" class="image-fld w-100 tinted" alt="Darth Vader fighthing Luke Skywalker" loading="lazy">
                     <div class="carousel-caption d-none d-md-block mx-auto">
                         {% if request.user.is_authenticated %}
-                            <h2 class="my-lg-3 hero-text text-white text-shadow">Get inspired for your next Tabletop-<span class="green-text">Ready</span> army!</h2>
+                            <h2 class="my-lg-3 hero-text text-white text-shadow">Looking for your next Tabletop-<span class="green-text">Ready</span> army?</h2>
                             <a href="{% url 'all_gallery_items' %}" class="btn btn-lg btn-green rounded-0 my-3" type="button">View our Gallery</a>
                         {% else %}
                             <h2 class="my-lg-3 hero-text text-white text-shadow">Create an account and start your next army Tabletop-<span class="green-text">Ready</span>!</h2>
                             <a href="{% url 'account_signup' %}" class="btn btn-lg btn-green rounded-0 my-3" type="button">Create an Account</a>
                         {% endif %}
                     </div>
+                    {% if request.user.is_authenticated %}
+                     <div class="carousel-caption d-md-none d-sm-block w-auto">
+                        <a href="{% url 'all_gallery_items' %}" class="btn btn-sm btn-green rounded-0">View our Gallery</a>
+                    </div>
+                    {% else %}
                     <div class="carousel-caption d-md-none d-sm-block w-auto">
                         <a href="{% url 'account_signup' %}" class="btn btn-sm btn-green rounded-0">Create an acccount and start your next army!</a>
                     </div>
+                    {% endif %}
                 </div>                    
             </div>       
         </div>   
