@@ -29,19 +29,11 @@
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="#" class="dropdown-item text-muted disabled">Shop Admin</a>
-                <hr>
-                <a href="{% url 'add_miniature' %}" class="dropdown-item">Manage Miniatures</a>
-                <a href="{% url 'add_army' %}" class="dropdown-item">Manage Armies</a>
-                <a href="{% url 'add_gamesystem' %}" class="dropdown-item">Manage Game Systems</a>
-                <hr>
-            {% endif %}
             <a href="" class="dropdown-item">Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+            <a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a>
         {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+            <a href="{% url 'account_login' %}" class="dropdown-item">Sign In</a>
         {% endif %}
     </div>
 </li>

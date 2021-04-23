@@ -66,6 +66,10 @@ body {
     background-color: #333333;
 }
 
+.dropdown-item {
+    font-size: 11px;
+}
+
 .dropdown-item:hover,
 .dropdown-item:active {
     background-color: #7ab648;
@@ -161,7 +165,7 @@ a.gs-badge > span.badge:hover {
 
 .nav-font {
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .shipping-font {
@@ -207,6 +211,12 @@ a.gs-badge > span.badge:hover {
     font-family: 'Julius Sans One', sans-serif;
     font-weight: bolder;    
 }
+
+
+.form-search-label {
+    font-size:13.5px;
+}
+
 
 #topnav a h2,
 #topnav a h4,
@@ -418,6 +428,10 @@ input[name='q']::placeholder {
     .nav-font {
         font-size: 22px;
     }
+
+    .dropdown-item {
+        font-size: 15px;
+    }
     
     .shipping-font {
         font-size: 20px;
@@ -428,7 +442,7 @@ input[name='q']::placeholder {
     }
 }
 
-/* Fixed top-navbar, footer height only on medium and up */
+/* Fixed top-navbar, footer height, carousel-caption width only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -447,7 +461,7 @@ input[name='q']::placeholder {
     background-color: rgba(55, 55, 55, 0.8);
     margin-bottom: 7rem;
     }
-     
+         
     footer {
         max-height: 55px;         
     }
@@ -465,6 +479,23 @@ input[name='q']::placeholder {
 
     #carouselHomeSlidesOnly {
         padding-top: 44px;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0,
+    .btn.btn-green.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg,
+    .btn.btn-green.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+    
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
 
