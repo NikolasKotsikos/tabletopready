@@ -25,7 +25,6 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
 **<details><summary> Features</summary>**
   - [Database](#database)
   - [Features](#features)
-  - [Version and future](#version-and-future)
   - [Status](#status)
 </details>
 
@@ -37,10 +36,6 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
 **<details><summary> Deployment</summary>**
   - [Deploy to Heroku](#deploy-to-heroku)
   - [Accessing code](#accessing-code)
-</details>
-
-**<details><summary> Testing</summary>**
-  - [Testing Documentation](https://github.com/NikolasKotsikos/uReview/blob/master/testing.md)
 </details>
 
 **<details><summary> Credits</summary>**
@@ -67,16 +62,11 @@ As part of the design process, before starting my project I made initial wirefra
 
 The final design has been influenced by my mentor and the need to redesign and simplify some features. In this senses the wireframes map the journey from idea to functioning app.
 
-- [Homepage](static/assets/images/readme/pdfs/home.pdf)
-- [Create account page](static/assets/images/readme/pdfs/create-account.pdf)
-- [Log in page](static/assets/images/readme/pdfs/log-in.pdf)
-- [Reviews page](static/assets/images/readme/pdfs/reviews-visitor.pdf)
-- [Add/Edit review page](static/assets/images/readme/pdfs/add-edit-review.pdf)
-- [Read review page visitor view](static/assets/images/readme/pdfs/read-review-visitor.pdf)
-- [Read review page user view](static/assets/images/readme/pdfs/read-review-user.pdf)
-- [Mobile view](static/assets/images/readme/pdfs/mobile.pdf)
-- [Tablet view](static/assets/images/readme/pdfs/tablet.pdf)
-
+- [Homepage](readme/wireframes/wf-home.pdf)
+- [Mniatures page](readme/wireframes/wf-miniatures.pdf)
+- [Gallery Page](readme/wireframes/wf-gallery.pdf)
+- [Checkout page](readme/wireframes/wf-checkout.pdf)
+- [Profile page](readme/wireframes/wf-profile.pdf)
 
 ### **<u>Design</u>**
 
@@ -186,41 +176,21 @@ The final design has been influenced by my mentor and the need to redesign and s
     - Clear interactive buttons used for a effortless user journey.
 
 - **Forms**
-  - Forms used for login and register pages, and adding/editing reviews and genres & platforms.
-
-  - Materialize form elements used include input fields, text area fields, select dropdowns and submit buttons.
+  - Forms used for profile, add and edit miniature, army and game system pages.
 
 - **Card Previews**
-  - Used to display reviews & genre and platform armies.
-
+  - Used to display gallery items and miniatures in the shop.
   - Images included contributing to the visual look.
 
 - **Modals**
-  - Used for delete confirmation and admin edit genres and platforms tools.
+  - Used for delete confirmation.
 
 - **Carousel**
-  - Used for sorting reviews by genre and platform displayed on the homepage.
+  - Used for making the home page feel less static.
+- **Search button**
+  - Minimal visual effect with full functionality allowing for keyword searches.
 
-- **Search bar**
-  - Allows the user to search reviews by keywords using text index searching. Review names, genre and platform names, developer names and release years can be used as keywords for the query.
 
-- **Flash Messages**
-  - Used for login and register form error responses.
-
-### **Version and Future**
-
-#### Status
-
-> App Version: <u>1.0</u>
-
-I will continue to update my website as I grow my platform of users. Most things I wanted to add are there but the ones I didn't are listed bellow.
-
-**Future Development plans**
-- Add bookmarks button on reviews.
-
-- Allow for user created review collections.
-
-- Add text formating tools to add/edit review forms.
 
 ## [&#8679;](#table-of-contents)
 ---
@@ -724,15 +694,14 @@ When you clone a repository, the repository is copied on to your local machine, 
 
 > **Please note:** The images on this site are only being used for non-profit educational purposes.
 
-- The callout image on the homepage is from ['Wallpaper Access'](https://www.wallpaperaccess.com).
+- The images on the homepage carousel are from [Fantasy Flight Games](https://fantasyflightgames.com/) & [Games Workshop](https://games-workshop.com)
 
-- Platform images found on the homepage are from [Wikipedia](https://en.wikipedia.org/).
+- The gallery images come from various retailers on [Etsy](https://etsy.com)
 
 - The images used for the review cards are images accompanying the individual original reviews.
 
-- The mockup image showing all devices on my README.md was created using [Photoshop CC 2019](http://www.adobe.com/).
-
 #### Acknowledgments
+- This project was completed under extreme psychological stress due to covid19 affecting various members of my family. I dedicate this work to them. As a result of that this readme doesn't represent the effort that went into making this project.
 
 - My Mentor, [Aaron Sinnott](https://www.linkedin.com/in/aaronsinnott/) for his help and support throughout the project.
 
