@@ -115,7 +115,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 - Following website conventions, my website logo is a link to the homepage. Over time many people have learned that clicking on a site’s logo leads them back to the homepage so adopting this standard reduces confusion by matching the UI to users’ expectations. The logo is also left-aligned which is the most familiar placement, and is where users look to find it.
 
 
-### <u>**User stories**</u>
+### **<u>User stories</u>**
 
 | User Story  #              | As a/an              | I want to be able to...                             | So that I can...                                |
 | -------------------------- | -------------------- | --------------------------------------------------- | ----------------------------------------------- |
@@ -154,7 +154,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 ## &rarr; **Database Architecture**
 
-- ** <u>Data Schema</u> **
+## ** <u>Data Schema</u> **
 
   <img src="static/assets/images/readme/db-schema.png">
 
@@ -287,10 +287,7 @@ I will continue to update my website as I grow my platform of users. Most things
   - Provided icons throughout site.
 
 - [**Lucidchart**](https://lucidchart.com/)
-  - Balsamiq was used to create the wireframes during the design process.
-
-- [**Grammarly**](https://www.grammarly.com/)
-  - Grammarly was used to ensure any grammar errors are eliminated.
+  - Lucidchart was used to create the wireframes during the design process.
 
 - [**HTML Formatter**](https://www.freeformatter.com/html-formatter.html) and [**CSS Formatter**](https://www.freeformatter.com/css-beautifier.html)
   - Used to format my HTML and CSS files with the desired indentation level for optimal readability.
@@ -309,12 +306,6 @@ I will continue to update my website as I grow my platform of users. Most things
 
 - [**Favicon**](https://favicon.io/)
     - Used to create a favicon, displaying my logo on a web browser next to the web address bar, the browser tab, and the bookmarks bar.
-
-- [**Techsini**](http://techsini.com/multi-mockup/index.php)
-    - Multi Device Website Mockup Generator Tool
-
-- [**Resize Pixal**](https://www.resizepixel.com/download) 
-    - To help compress image sizes
 
 ## [&#8679;](#table-of-contents)
 ---

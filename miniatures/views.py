@@ -76,14 +76,8 @@ def all_miniatures(request):
     return render(request, 'miniatures/miniatures.html', context)
 
 
-@login_required
 def all_armies(request):
     """ A view to show all armies """
-    if not request.user.is_superuser:
-        messages.error(request,
-                       'Access denied, only staff members can do that.')
-        return redirect(reverse('home'))
-
     armies = Army.objects.all()
     sort = None
     direction = None
@@ -112,14 +106,8 @@ def all_armies(request):
                   context)
 
 
-@login_required
 def all_gamesystems(request):
     """ A view to show all game systems """
-    if not request.user.is_superuser:
-        messages.error(request,
-                       'Access denied, only staff members can do that.')
-        return redirect(reverse('home'))
-
     gamesystems = GamingSystem.objects.all()
     sort = None
     direction = None
