@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="static/assets/images/readme/uR-Responsive.png">
   <h1>Tabletop-READY</h1>
 <hr>
 
@@ -17,12 +16,14 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
 
 **<details><summary> User Experience (UX)</summary>**
   - [Scope](#scope)
+  - [Wireframes](#wireframes)
   - [Design](#design)
   - [User stories](#user-stories)
-  - [Wireframes](#wireframes)
+  
 </details>
 
 **<details><summary> Features</summary>**
+  - [Database](#database)
   - [Features](#features)
   - [Version and future](#version-and-future)
   - [Status](#status)
@@ -114,6 +115,8 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - Following website conventions, my website logo is a link to the homepage. Over time many people have learned that clicking on a site’s logo leads them back to the homepage so adopting this standard reduces confusion by matching the UI to users’ expectations. The logo is also left-aligned which is the most familiar placement, and is where users look to find it.
 
+## [&#8679;](#table-of-contents)
+---
 
 ### **<u>User stories</u>**
 
@@ -150,14 +153,11 @@ The final design has been influenced by my mentor and the need to redesign and s
 | 18                         | Owner                | Edit/update a miniature, army or game system.       | Change miniature info, images etc.              |
 | 19                         | Owner                | Delete a miniature, army or game system             | Delete an existing miniature or army .          |
 
- > **Note**: The user stories are tested in [testing.md](https://github.com/NikolasKotsikos/uReview/blob/master/testing.md).
 
-### &rarr; **Database Architecture**
+### &rarr; **<u>Database</u>**
 
-## ** <u>Data Schema</u> **
-
-  <img src="static/assets/images/readme/db-schema.png">
-
+## **Data Schema**
+ 
     The `Miniature` model within the miniature's app, is used to store information about individual miniatures.
     The `Army` model within the miniature's app, is used to group miniatures into specific armies.
     The `Game Systems` model within the miniature's app, is used to group miniatures into specific game systems.
@@ -222,6 +222,7 @@ I will continue to update my website as I grow my platform of users. Most things
 
 - Add text formating tools to add/edit review forms.
 
+## [&#8679;](#table-of-contents)
 ---
 
 ## &rarr; **Technologies**
