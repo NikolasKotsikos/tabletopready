@@ -1,13 +1,13 @@
 <div align="center">
   <img src="static/assets/images/readme/uR-Responsive.png">
-  <img src="static/assets/images/readme/logo.png">
+  <h1>Tabletop-READY</h1>
 <hr>
 
-**A video game review site with independent 100% user generated content**
+**A miniature painting commission e-commerce app with full user and admin functionality**
 
 This app was built using [GitHub](https://pages.github.com/) and deployed to [Heroku](https://www.heroku.com/).
 
-[Visit uReview](https://ureview2021.herokuapp.com/)
+[Visit uReview](https://tabletop-ready.herokuapp.com/)
 
 </div>
 
@@ -156,14 +156,13 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - **Collections**
 
-    The uReview database on MongoDB features 4 collections:
-    > **Note**: All collection contain the "_id" key whose valuew is the ObjectId item that contains a string.
-        
-     * The genres collection, which contains the key "genre_name" whose value is a string.
+    The Tabletop- Ready database features 3 models:
+            
+     * The game systems model, which contains the fields "name" and "friendly_name" who both return strings.
 
-     * The platforms collection, which contains the keys "platform_name" and "img_url" whose values are strings.
+     * The armies model, which contains the fields "platform_name" and "img_url" whose both return strings.
 
-     * The reviews collection, which contains the keys "review_name", "genre_name", "platform", "dev_name", "release_year", "img_url", "review_text" and "created_by". All of these keys have a string as their value.
+     * The miniature model, which contains the fields "name", "sku", "manufacturer", "price", "stock", "description", "gamesys", "army", "date_added", "image_url", "image", "has_factions".
 
      * The users collection, which contains the "username" key which has a string as a value and the "password" key that has a string that has been hashed and salted by Werkzeug.
 
@@ -187,9 +186,6 @@ The final design has been influenced by my mentor and the need to redesign and s
   - Forms used for login and register pages, and adding/editing reviews and genres & platforms.
 
   - Materialize form elements used include input fields, text area fields, select dropdowns and submit buttons.
-
-- **Tabs**
-  - Interactive tab used to allow the user to switch between review ingredients and method.
 
 - **Card Previews**
   - Used to display reviews & genre and platform categories.
@@ -227,122 +223,372 @@ I will continue to update my website as I grow my platform of users. Most things
 
 ## &rarr; **Technologies**
 
-#### Languages
+#### <ins>Languages</ins>
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JavaScript](https://www.javascript.com/)
 - [Python](https://www.python.org/)
 
-#### Frameworks, Libraries & Programs
+#### <ins>Frameworks, Libraries & Programs</ins>
 
-- [**MongoDB**](https://www.mongodb.com/)
-  - The document database used for this project.
-
-- [**Flask**](https://flask.palletsprojects.com/en/1.1.x/)
-  - A web framework used to provide tools, libraries, and technologies for the application.
-
-- [**Werkzeug**](https://werkzeug.palletsprojects.com/en/1.0.x/)
-  - Used with Flask to make user authentication more secure using password hashing.
-
-- [**Materialize CSS**](https://materializecss.com/)
-
-  - Materialize was used to assist with the responsiveness and styling of the website using design templates.
-
-- [**Randomkeygen**](https://randomkeygen.com/)
-
-  - Fort Knox Passwords for password security.
-
-- [**Google fonts**](https://fonts.google.com/)
-
-  - Google fonts were used to import the fonts into the CSS file which is used on all pages throughout the project.
-
-- [**Font Awesome 4.7.0**](https://fontawesome.com/)
-
-  - Font Awesome was used to add icons for aesthetic and UX purposes.
-
-- [**jQuery:**](https://jquery.com/)
-
-  - jQuery came with Materialize to make the components used responsive.
-  - Included at end of body tag within HTML file to ensure a smooth running of HMTL and CSS.
+- [**Django**](https://www.djangoproject.com/)
+  - Python Web framework used to build the site.
 
 - [**Git**](https://git-scm.com/)
-
   - Git was used for version control by utilizing the Gitpod terminal to commit to Git and push to GitHub.
 
 - [**GitHub**](https://github.com/)
-
   - GitHub is used to store the project code after being pushed from Git.
 
-- [**Heroku**](https://github.com/)
+- [**Heroku**](https://www.heroku.com/)
+  - Heroku is the app platform I deployed my project to.
 
-  - Heroku is the app platform the project was deployed to.
+- [**Heroku Postgres**](https://www.heroku.com/postgres)
+  - Heroku’s reliable and powerful database used to store the data for my deployed Heroku App.
+
+- [**jQuery:**](https://jquery.com/)
+  - A javascript library used to simplify DOM manipulation.
+
+- [**Bootstrap 4.5.3**](https://getbootstrap.com/)
+  - Bootstrap was used to assist with the responsiveness and styling of the website using design templates.
+
+- [**Boto3**](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+    - Python SDK for AWS, used to directly create, update, and delete AWS resources from my Python scripts.
+
+- [**gunicorn**](https://gunicorn.org/)
+   - WSGI server used to take care of everything happening between the web server and web application.
+
+- [**pillow**](https://pypi.org/project/Pillow/2.2.1/)
+    - Python Imaging Library (PIL), used to add support for opening, manipulating, and saving images.
+
+- [**psycopg2**](https://pypi.org/project/psycopg2/)
+    - PostgreSQL database adapter
+
+- [**AWS**](https://aws.amazon.com/)
+  - A cloud-based storage service used to store static and, media files.
+
+- [**Stripe**](https://stripe.com/gb)
+  - Stripe was used to deal with payments.
+
+- [**Temp Mail**](https://temp-mail.org/en/)
+  - Temp Mail was used to provide temporary, secure, anonymous, free, disposable email addresses for testing purposes.
+
+- [**Google fonts**](https://fonts.google.com/)
+  - Google fonts were used to import the fonts into the CSS file which is used on all pages throughout the project.
+
+- [**Font Awesome 4.7.0**](https://fontawesome.com/)
+  - Font Awesome was used to add icons for aesthetic and UX purposes.
+
+- [**Flaticon**](https://www.flaticon.com/)
+  - Provided icons throughout site.
 
 - [**Lucidchart**](https://lucidchart.com/)
-
-  - Lucidchart was used to create the wireframes, schema, site map, favicon and logo during the design process.
-
-- [**Photoshop CC 2019**](https://adobe.com/)
-
-  - Photoshop was used to edit the hero image and create the orange square image for the genres carousel.
+  - Balsamiq was used to create the wireframes during the design process.
 
 - [**Grammarly**](https://www.grammarly.com/)
-
   - Grammarly was used to ensure any grammar errors are eliminated.
 
-- [**Tables Generator**](https://www.tablesgenerator.com/markdown_tables)
+- [**HTML Formatter**](https://www.freeformatter.com/html-formatter.html) and [**CSS Formatter**](https://www.freeformatter.com/css-beautifier.html)
+  - Used to format my HTML and CSS files with the desired indentation level for optimal readability.
 
+- [**W3 Validator**](https://validator.w3.org/#validate_by_input) and [**W3C CSS Validator**](https://jigsaw.w3.org/css-validator/#validate_by_input)
+  - Used to validate my HTML and CSS files
+
+- [**JShint**](https://jshint.com)
+    - Used to validate JS code
+
+- [**PEP8 online**](http://pep8online.com)
+    - Used to check code for PEP8 requirements.
+
+- [**Tables Generator**](https://www.tablesgenerator.com/markdown_tables)
   - Used to create tables in my readme file.
 
 - [**Favicon**](https://favicon.io/)
     - Used to create a favicon, displaying my logo on a web browser next to the web address bar, the browser tab, and the bookmarks bar.
-    
+
+- [**Techsini**](http://techsini.com/multi-mockup/index.php)
+    - Multi Device Website Mockup Generator Tool
+
+- [**Resize Pixal**](https://www.resizepixel.com/download) 
+    - To help compress image sizes
+
+## [&#8679;](#table-of-contents)
 ---
 
 ## &rarr; **Deployment**
 
-#### Deploy to Heroku
+#### <ins>Deploy to Heroku</ins>
 
-The project was connected to Heroku using automatic deployment from my GitPod repository, using the following steps...
+The project was deployed to Heroku with all static and media files stored on Amazon S3. I also set up automatic deployment to ensure my Heroku app was always up to date with my GitPod repository.
 
-> **Note:** Before following the below steps ensure you have already created your new repo in Github and set up an env.py file to store your sensitive data. (Further details on adding an env.py file below)
+> **Note:** As all static and media files were stored in an AWS bucket and content was created in admin, these are not available through the GitHub repository. Please contact the site owner if you wish to use any of the images or content included.
 
-1. In the terminal create requirements.txt and Procfile files using the commands below:
-   - $ pip3 freeze --local > requirements.txt
+<details>
+<summary>Deploying to Heroku</summary>
+<p>
 
-   - $ echo web: python app.py > Procfile
+> **Note:** Before following the below steps ensure you have already created your new repo in Github.
 
-   > **Note:** 
-The **P**rocfile must be assigned a capital P.
+1. Log in (or Register) to [Heroku](https://www.heroku.com/) and from your dashboard click 'new' > 'create new app'.
 
-2. Log in (or Register) to [Heroku](https://www.heroku.com/) and from your dashboard click 'new' > 'create new app'.
+   ![New app btn](readme/media/new-app.png)
 
-3. Enter your 'App name' and choose the appropriate region, then click 'Create app'.
+2. Enter your 'App name' and choose the appropriate region, then click 'Create app'.
    > **Note:** 
  The app name must be unique, all lowercase, and '-' to be used instead of spaces.
 The region chosen should be the one closest to you.
 
-4. From the Heroku deploy tab, select the Deployment method 'GitHub'.
+   ![Create new app](readme/media/create-new-app.png)
 
-5. On the 'Connect to GitHub' section make sure your GitHub profile is displayed then add your repository name and click 'Search'.
+3. Then on the 'Resources' tab, search and add on the Heroku Postgres database.
 
-   > **Note:** 
-This is the name of your repo in GitHub. It is good practice to use an identical name for your Heroku app.
+4. To use Postgres, install dj_database_url, and psycopg2 in the project terminal using the following commands;
 
-6. Your repo should now be displayed below, click 'Connect' to connect to this app.
+    `$ pip3 install dj_database_url`
 
-7. Go to the Settings tab on Heroku, scroll to the 'Config Vars' section, and click 'Reveal Config Vars'. 
+    `$ pip3 install psycopg2`
 
-   Enter variables (key and value) contained in the env.py file. The keys are listed below and values are inputted by the user.
-    - IP
-    - PORT
-    - SECRET_KEY
-    - MONGO_URI
-    - MONGO_DBNAME
+5. Freeze the requirements to ensure Heroku installs all the apps requirements when deployed using the following command;
 
-8. Push requirements.txt and Procfile to the repository.
+    `$ pip3 freeze > requirements.txt`
 
-9. Go to the Deploy tab on Heroku and under the Automatic deployment section, click 'Enable Automatic Deploys'. Then under Manual deploy click 'Deploy Branch'.
+6. To migrate to the Postgres, go to settings.py and add the following import;
+
+    `import dj_database_url`
+
+   Then down in the databases setting comment out the default configuration and replace the default database with a call to dj_database_url.parse and give it the database URL from Heroku.
+
+   ![Config Vars](readme/media/database_url.png)
+
+    > **Note:** You can either get the database URL from your config variables in your app settings tab or from the command line by typing Heroku config.
+
+7. Apply all migrations using the following command;
+
+    `$ python3 manage.py migrate`
+
+    After migrations have been applied amend your database configurations to;
+
+    ![Config Vars](readme/media/database_url2.png)
+
+     > **Note:** This will ensure that your Postgres database is used in deployment and your sqlite3 in development.
+    
+    Your database should now be all set up.
+
+8. Create a superuser to log in with using the following command;
+
+    `$ python3 manage.py createsuperuser`
+
+
+9. Go to the Settings tab on Heroku, scroll to the 'Config Vars' section, and click 'Reveal Config Vars'. 
+
+   Enter the variables (key and value) contained in your environment settings or stored in an env.py. The keys are listed below and values are inputted by the user.
+
+| Key               | Value               |
+|-------------------|---------------------|
+| AWS_ACCESS_KEY_ID | To be added by user |
+| AWS_SECRET_KEY_ID | To be added by user |
+| USE_AWS           |        TRUE         |
+| DATABASE_URL      | To be added by user |
+| EMAIL_HOST_PASS   | To be added by user |
+| EMAIL_HOST_USER   | To be added by user |
+| SECRET_KEY        | To be added by user |
+| STRIPE_PUBLIC_KEY | To be added by user |
+| STRIPE_SECRET_KEY | To be added by user |
+| STRIPE_WH_SECRET  | To be added by user |
+
+10. Install gunicorn using the following command;
+
+    `$ pip3 install gunicorn`
+
+    Then freeze into your requirements file.
+
+11. Create a Procfile and add the following line;
+
+    `web: gunicorn tabletop_ready.wsgi:application`
+
+    This tells Heroku to create a web dyno which will run gunicorn and serve the Django app.
+
+    > **Note:** The **P**rocfile must be assigned a capital P.
+
+12. Last, you need to temporarily disable collectstatic to ensure that Heroku won't try to collect static files when we deploy. This is done by adding the below variable;
+
+    | DISABLE_COLLECTSTATIC  | 1 |
+
+13. Add the hostname of your Heroku app to allowed hosts in settings.py
+
+14. Now you can commit all the changes and push to GitHub;
+
+    `$ git add .`
+    `$ git commit -m <'your commit message'>`
+    `$ git push`
+
+    If you created your app on the website you will need to initialize your Heroku git remote using the following command;
+
+    `$ heroku git:remote -a tabletop-ready`
+
+    Then use the following command to push to Heroku;
+
+    `$ git push heroku master`
+
+</p>
+</details>
+
+<details>
+<summary>Deploying AWS Static and Media files</summary>
+<p>
+
+The project used Amazon Web Services s3, which is a cloud-based storage service, to store static and media files.
+
+1. Create an account by navigating to [aws.amazon.com](https://aws.amazon.com/) and clicking create an AWS account. Fill in your email and password, and a username for your account, and select continue.
+
+2. Now on the account type page, select personal and fill out the required information, click create an account and continue.
+
+3. Next you will be asked to enter a credit card number which will be used for billing if we go above the free usage limits. Beyond this, you'll be asked a couple more verification questions then once all required information is confirmed your account will be created.
+
+   > **Note**: For this project, I didn't go anywhere near the usage limits but keep in mind that AWS is not free if you go above the free usage limits.
+
+4. Now you can navigate back to [aws.amazon.com](https://aws.amazon.com/) and sign-in to your account.
+
+5. Navigate to AWS management console under my account and using the 'find services' search bar, find s3.
+
+6. Now open s3 and create a new bucket to store all your files.
+
+- Enter a name for your bucket
+    > **Note**: I'd recommend naming your bucket to match your Heroku app name.
+
+- Select a region
+    > **Note**: Select the region closest to you like you did when creating your Heroku app.
+
+- Uncheck block all public access and acknowledge that the bucket will be public.
+    > **Note**: Allows public access to our static files.
+
+- Click create bucket and your bucket should be created.
+
+7. Now click into your new bucket and set some settings;
+
+- On the properties tab and turn on static website hosting.
+
+    > **Note**: For the index and error document, just fill in some default values.
+
+- On the permissions tab 
+
+  - Paste in a **CORS Configuration** to set up the required access between your Heroku app and this s3 bucket. Copy the code below supplied by CodeInstitute;
+
+        [
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+        ]
+
+  - In the **Bucket Policy** tab, select policy generator
+    - Policy type is 's3 bucket policy'
+    - Allow all principles using a *
+    - Actions is 'GetObject'
+    - Add in your ARN (found on previous page)
+    - Click 'Add statement' then 'Generate policy'
+    - Copy the policy code and paste it into the bucket policy editor
+
+       > **Note:** To allow access to all resources in this bucket add a slash star onto the end of the resource key.
+    
+    - Click save
+
+  - In the **Access Control List** tab, under the Public Access section, set the list objects permission to everyone.
+
+8. Create a user to access the bucket created.
+
+- Search for a new service 'IAM'
+- Now open IAM, navigate to 'groups' and click 'Create new group'
+
+  > **Note:** You can call your group whatever you want but try to give it a name that makes sense to you for what it is.
+
+- Create a policy by navigating to 'policies' and click 'Create policy'
+- Go JSON tab and click 'import managed policy'
+  - Search for s3 and then import the s3 full access policy.
+    - Replace resource value '*' with your bucket ARN from the bucket policy page;
+
+    "Resource": [
+        "arn:aws:s3:::tabletop-ready",
+        "arn:aws:s3:::tabletop-ready/*"
+    ]
+
+  - Click 'Review policy', give it a name and a description and click 'Create policy'
+
+9. Attach the policy to the group you created.
+- Navigate to 'groups', select the group you created and on permissions tab select 'Attach policy'.
+- Search for the policy you created, select it and click 'Attach policy'.
+
+- Now to create the user, navigate to 'users' and click 'Add user'
+  - Add username, select programmatic access and click 'Next'
+  - Add user to a group by selecting the group you created and click 'Next' then click through to the end and click 'Create user'
+  - Now download the CSV file which will contain this users access key and secret access key
+
+    > **Note:** It's very important you download and save this CSV because once you've gone through this process we can't download them again.
+
+10. To connect to Django, head to your project and install two new packages then freeze them into your requirements.txt;
+  - $ pip3 install boto3
+  - $ pip3 install django-storages
+  - $ pip3 freeze > requirements.txt
+
+11. In settings, add 'storages' to installed apps.
+
+12. To connect Jdango to s3 add the below settings in settings.py which will tell it which bucket it should be communicating with;
+
+        if 'USE_AWS' in os.environ:
+            AWS_STORAGE_BUCKET_NAME = 'tabletop-ready'
+            AWS_S3_REGION_NAME = 'eu-west-2'
+            AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+            AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+            AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+
+13. Create a file called custom_storages.py and add the content below;
+
+        from django.conf import settings
+        from storages.backends.s3boto3 import S3Boto3Storage
+
+
+        class StaticStorage(S3Boto3Storage):
+            location = settings.STATICFILES_LOCATION
+
+
+        class MediaStorage(S3Boto3Storage):
+            location = settings.MEDIAFILES_LOCATION
+
+    Then in settings.py add the below:
+
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+        STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+        MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+</p>
+</details>
+
+<details>
+<summary>Setting up Automatic Deployment to Heroku</summary>
+<p>
+
+1. From the Heroku deploy tab, select the Deployment method 'GitHub'.
+   
+2. On the 'Connect to GitHub' section make sure your GitHub profile is displayed then add your repository name and click 'Search'.
+
+    > **Note:** This is the name of your repo in GitHub. It is good practice to use an identical name for your Heroku app.
+
+   3. Your repo should now be displayed below, click 'Connect' to connect to this app.
+
+4. Go to the Deploy tab on Heroku and under the Automatic deployment section, click 'Enable Automatic Deploys'. Then under Manual deploy click 'Deploy Branch'.
 
    - Heroku will now receive the code from GitHub and start building the app using the required packages.
    - Once built you will receive the message 'Your app was successfully deployed' and you can click 'View' to launch your new app.
@@ -350,30 +596,75 @@ This is the name of your repo in GitHub. It is good practice to use an identical
         > **Note:** 
         In Manual deploy dropdown 'master' is selected'
 
-#### Accessing code
+</details>
 
-Follow the steps below if you are wanting to propose changes to the project or to use the project as a starting point for your own idea.
+`Sensitive data` for your project can either be stored in your environment settings or be added to an env.py file in your workspace.
 
-- **Forking the GitHub Repository**
+<details>
+<summary>More details on creating an env.py file</summary> 
+<p>
 
-  Forking allows you to create a copy of the original repository and propose changes to the repository owner via a pull request.
+1. Add a env.py file to store environment variables:
 
-  1. Log in to GitHub and locate the GitHub Repository.
+    `os.environ.setdefault("Key", "Value")`
 
-  2. At the top of the Repository (not top of page) just above the "Settings" button on the menu, locate the "Fork" button.
 
-  3. You should now have a copy of the original repository in your GitHub account.
+| Key               | Value               |
+|-------------------|---------------------|
+| AWS_ACCESS_KEY_ID | To be added by user |
+| AWS_SECRET_KEY_ID | To be added by user |
+| DATABASE_URL      | To be added by user |
+| EMAIL_HOST_PASS   | To be added by user |
+| EMAIL_HOST_USER   | To be added by user |
+| SECRET_KEY        | To be added by user |
+| STRIPE_PUBLIC_KEY | To be added by user |
+| STRIPE_SECRET_KEY | To be added by user |
+| STRIPE_WH_SECRET  | To be added by user |
 
-- **Making a Local Clone**
+ 2. Add env.py to your .gitignore file to ensure this file is never pushed to GitHub.
+    > **Note:** The env.py mustn't be tracked as any GitHub user can access your confidential data.
 
-When you clone a repository, the repository is copied on to your local machine.
+</p>
+</details>
+
+#### <ins>Accessing code</ins>
+
+Forking allows you to create a copy of the original repository and propose changes to the repository owner via a pull request.
+
+<details>
+<summary>Forking the GitHub Repository</summary>
+<p>
 
 1. Log in to GitHub and locate the GitHub Repository.
-   - uReview repository can be found [here](https://github.com/NikolasKotsikos/uReview)
+    
+    The Tabletop-Ready repository can be found [here](https://github.com/NikolasKotsikos/tabletopready/)
 
-2. Under the repository name, click the "download code" option.   
+2. At the top of the Repository (not top of page) just above the "Settings" button on the menu, locate the "Fork" button.
 
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.   
+     ![forking](readme/media/fork.png)
+
+3. You should now have a copy of the original repository in your GitHub account.
+
+</p>
+</details>
+
+When you clone a repository, the repository is copied on to your local machine, allowing you to use the project as a starting point for your own idea.
+
+<details>
+<summary>Making a Local Clone</summary>
+<p>
+
+1. Log in to GitHub and locate the GitHub Repository.
+   
+   The Tabletop-Ready repository can be found [here](https://github.com/NikolasKotsikos/tabletopready/)
+
+2. Under the repository name, click the "download code" option.
+
+   ![Clone](readme/media/clone.png)
+
+3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+
+   ![Clone-link](readme/media/clone-link.png)
 
 4. Open Git Bash
 
@@ -382,43 +673,57 @@ When you clone a repository, the repository is copied on to your local machine.
 6. Type git clone, and then paste the URL you copied in Step 3.
 
     ```
-    $ git clone https://github.com/YOUR-USERNAME/ureview.git
+    $ git clone https://github.com/YOUR-USERNAME/tabletopready.git
     ```
 
 7. Press Enter. Your local clone will be created.
 
-      Now, you have a local copy of your fork of the uReview repository.
+    ```
+    $ git clone https://github.com/YOUR-USERNAME/tabletopready.git
+
+    > Cloning into `tabletopready`...
+    > remote: Enumerating objects: 299, done.
+    > remote: Counting objects: 100%, (299/299),  done.
+    > remote: Compressing objects: 100% (156/156), done.
+    > Receiving objects: remove: Total 299 (delta 145), reused 267 (delta 126), pack-reused 0
+    > Receiving objects: 100% (299/299), 4.61MiB | 2.98 MiB/s, done.
+    > Resolving deltas: 100% (145/145), done. Unpacking objects: 100% (10/10), done.
+    ```
+
+    Now, you have a local copy of your fork of the tabletopready repository.
 
     > **Note:** The repository name and output numbers that you see on your computer, representing the total file size, etc, may differ from the example I have provided above.
 
-8. Add an env.py file to your workspace to include your environment variables (more details below).
+8. Either store your sensitive data in your environment settings or add an env.py file to your workspace (More details above).
 
    > **Note:** Contact the site owner if you want more information on the environment variables that have been included.
 
-**Creating env.py file** 
+9. Install all requirements using the following command;
 
-1. Add a env.py file to store environment variables:
-   - Import os 
-   - os.environ.setdefault("IP", "To be added by user") 
-   - os.environ.setdefault("PORT", "To be added by user") 
-   - os.environ.setdefault("SECRET_KEY", "To be added by user") 
-   - os.environ.setdefault("MONGO_URI", "To be added by user") 
-   - os.environ.setdefault("MONGO_DBNAME", "To be added by user")
+    `$ pip3 install -r requirements.txt`
 
-    > **Note:** I used [RandomKeygen.com](https://randomkeygen.com/) to get my secure SECRET_KEY password. A SECRET_KEY is required when using the flash and session functions of Flask.
+10. Apply all migrations using the following command;
 
- 2. Create a file named .gitignore and include env.py to ensure this file is never pushed to GitHub.
-    > **Note:** The env.py mustn't be tracked as any GitHub user can access your confidential data.
+    `$ python3 manage.py migrate`
+    
+    Your database should now be all set up.
 
----
+11. Create a superuser to log in with using the following command;
+
+    `$ python3 manage.py createsuperuser`
+
+12. You can now run your project locally using the following command;
+
+    `$ python3 manage.py runserver`
+
+</p>
+</details>
 
 ## &rarr; **Credits**
 
 #### Content
 
-- [Materialize 1.0.0](https://materializecss.com/): Materialize Library used throughout the project, components used include the grid System, forms, buttons, modals, navbar, dropdown, side nav, tabs, carousel, cards, toasts, and tooltips.
-
-- Reviews added by myself from various accounts (admin, evilBeard, psGamer, ManuelC, mChief) and various friends and family members. The are taken from [EuroGamer](https://www.organix.com/), [GameSpot](https://www.gamespot.com/) and [Tweakers](https://tweakers.net/). All other reviews have been added from user testing.
+- 
 
 #### Media
 
