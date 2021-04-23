@@ -1,0 +1,5 @@
+<p class="my-0"><strong>{{ item.miniature.name }}</strong></p>
+<p class="my-0"><strong>Army: </strong>{{ item.miniature.army.friendly_name }}</p>   
+<!-- User-friendly names for the faction options using striptags template filter to return a string with the original formating and spaces-->                                       
+<p class="my-0"><strong>Faction: </strong>{% if item.miniature.has_factions %}{{ item.faction|striptags }}{% else %}N/A{% endif %}</p>
+<p class="my-0 small text-muted">SKU: {{ item.miniature.sku|upper }}</p>

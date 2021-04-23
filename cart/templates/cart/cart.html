@@ -25,7 +25,43 @@
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <div class="table-responsive-rounded">
+                    <div class="d-block d-md-none">
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/cart_total.html" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                {% include "cart/checkout_buttons.html" %}
+                                <p class="text-muted mb-5">A summary of your cart contents is below</p>
+                            </div>
+                        </div> 
+                        {% for item in cart_items %}
+                            <div class="row">
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "cart/miniature_image.html" %}
+                                </div>
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {% include "cart/miniature_info.html" %}
+                                </div>
+                                <div class="col-12 col-sm-6 mb-2 order-sm-last">
+                                    <p class="my-0">Price per item: €{{ item.miniature.price }}</p>
+                                    <p><strong>Subtotal:</strong> €{{ item.miniature.price | calc_subtotal:item.quantity }}</p>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                     {% include "cart/quantity_form.html" %}
+                                </div>
+                            </div>
+                            <div class="row"><div class="col"><hr></div></div>
+                        {% endfor %}
+                        <div class="btt-button shadow-sm rounded-0 border border-black">
+                            <a href="" class="btt-link d-flex h-100">
+                                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                            </a>
+                        </div>                       
+                    </div>
+                    <div class="table-responsive-rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
@@ -40,61 +76,16 @@
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="p-3 w-25">
-                                        {% if item.miniature.image %}
-                                        <img src="{{ item.miniature.image.url }}" alt="{{ item.miniature.name }}" class="img-fluid rounded" loading="lazy">
-                                        {% else %}
-                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.miniature.name }}" class="img-fluid rounded" loading="lazy">
-                                        {% endif %}
+                                        {% include "cart/miniature_image.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0"><strong>{{ item.miniature.name }}</strong></p>
-                                        <p class="my-0"><strong>Army: </strong>{{ item.miniature.army.friendly_name }}</p>   
-                                        <!-- User-friendly names for the faction options using striptags template filter to return a string with the original formating and spaces-->                                       
-                                        <p class="my-0"><strong>Faction: </strong>{% if item.miniature.has_factions %}{{ item.faction|striptags }}{% else %}N/A{% endif %}</p>
-                                        <p class="my-0 small text-muted">SKU: {{ item.miniature.sku|upper }}</p>
+                                       {% include "cart/miniature_info.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.miniature.price }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                        <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
-                                            {% csrf_token %}
-                                            <div class="form-group">                                   
-                                                <div class="input-group">                                       
-                                                    <div class="input-group-prepend">
-                                                        <button class="decrement-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-minus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>                                            
-                                                    <input 
-                                                        type="number" 
-                                                        name="quantity" 
-                                                        value="{{ item.quantity }}" 
-                                                        min="1" 
-                                                        max="{{ item.miniature.stock }}" 
-                                                        data-item_id="{{ item.item_id }}" 
-                                                        id="id_qty_{{ item.item_id }}" 
-                                                        class="form-control form-control-sm qty_input"
-                                                    >                                            
-                                                    <div class="input-group-append">
-                                                        <button class="increment-qty btn btn-sm btn-black rounded-0" 
-                                                            data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
-                                                            <span>
-                                                                <i class="fas fa-plus fa-sm"></i>
-                                                            </span>
-                                                        </button>
-                                                    </div>
-                                                    {% if miniature.has_factions %}
-                                                        <input type="hidden" name="miniature_faction" value="{{ item.faction }}">
-                                                    {% endif %}                                         
-                                                </div>                                    
-                                            </div>
-                                        </form>
-                                        <a class="update-link green-text"><i class="fas fa-shopping-cart"></i> Update Qty</a>
-                                        <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-miniature_faction="{{ item.faction }}"><i class="fas fa-times"></i> Remove</a>
+                                        {% include "cart/quantity_form.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.miniature.price | calc_subtotal:item.quantity }}</p>
@@ -103,30 +94,12 @@
                             {% endfor %}
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
-                                    <h6><strong>Cart Total: {{ total|floatformat:2 }}</strong></h6>
-                                    <h6>Shipping: €{{ shipping|floatformat:2 }}</h6>
-                                    <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
-                                    {% if free_shipping_delta > 0 %}
-                                        <p class="mb-1 text-danger">
-                                            You can get free shipping by spending just <strong>€{{ free_shipping_delta }}</strong> more!
-                                        </p>
-                                    {% endif %}
+                                    {% include "cart/cart_total.html" %}
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="5" class="text-right">
-                                    <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                        <span class="icon">
-                                            <i class="fas fa-chevron-left"></i>
-                                        </span>
-                                        <span class="text-uppercase">Keep Shopping</span>
-                                    </a>
-                                    <a href="{% url 'checkout' %}" class="btn btn-black rounded-0 btn-lg">
-                                        <span class="text-uppercase">Secure Checkout</span>
-                                        <span class="icon">
-                                            <i class="fas fa-lock"></i>
-                                        </span>
-                                    </a>
+                                    {% include "cart/checkout_buttons.html" %}
                                 </td>
                             </tr>
                         </table>
@@ -147,6 +120,11 @@
 
 {% block postloadjs %}
 {{ block.super }}
+<script type="text/javascript">
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% include 'miniatures/includes/quantity_input_script.html' %}
 
 <script type="text/javascript">
@@ -169,5 +147,5 @@
             location.reload();
         });
     })    
-    </script>
+</script>
 {% endblock %}

@@ -1,0 +1,38 @@
+<form class="form update-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
+    {% csrf_token %}
+    <div class="form-group">                                   
+        <div class="input-group">                                       
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-minus fa-sm"></i>
+                    </span>
+                </button>
+            </div>                                            
+            <input 
+                type="number" 
+                name="quantity" 
+                value="{{ item.quantity }}" 
+                min="1" 
+                max="{{ item.miniature.stock }}" 
+                data-item_id="{{ item.item_id }}" 
+                id="id_qty_{{ item.item_id }}" 
+                class="form-control form-control-sm qty_input"
+            >                                            
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-sm btn-black rounded-0" 
+                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                    <span>
+                        <i class="fas fa-plus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            {% if miniature.has_factions %}
+                <input type="hidden" name="miniature_faction" value="{{ item.faction }}">
+            {% endif %}                                         
+        </div>                                    
+    </div>
+</form>
+<a class="update-link green-text"><i class="fas fa-shopping-cart"></i> Update Qty</a>
+<a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-miniature_faction="{{ item.faction }}"><i class="fas fa-times"></i> Remove</a>

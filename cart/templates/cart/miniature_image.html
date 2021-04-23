@@ -1,0 +1,5 @@
+{% if item.miniature.image %}
+    <img src="{{ item.miniature.image.url }}" alt="{{ item.miniature.name }}" class="img-fluid rounded" loading="lazy">
+{% else %}
+    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.miniature.name }}" class="img-fluid rounded" loading="lazy">
+{% endif %}
