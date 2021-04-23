@@ -7,7 +7,7 @@
 
 This app was built using [GitHub](https://pages.github.com/) and deployed to [Heroku](https://www.heroku.com/).
 
-[Visit uReview](https://tabletop-ready.herokuapp.com/)
+Visit the live site [here](https://tabletop-ready.herokuapp.com/)
 
 </div>
 
@@ -23,7 +23,7 @@ This app was built using [GitHub](https://pages.github.com/) and deployed to [He
 </details>
 
 **<details><summary> Features</summary>**
-  - [Features used](#features-used)
+  - [Features](#features)
   - [Version and future](#version-and-future)
   - [Status](#status)
 </details>
@@ -56,8 +56,8 @@ This app was built using [GitHub](https://pages.github.com/) and deployed to [He
 
 ### **<u>Scope</u>**
 
-The scope of this app is to create a Python and Django based e-commerce site for an imaginary miniature painting commissions service. It aims to provide all relevant and expected functionality 
-commonly found in e-shops to visitors, as well as an easy to use toolset for the site owner, customised to the specific product's demands. The app supports payments via Stripe and uses an 
+The scope of this app is to create a Python and Django based e-commerce site for an imaginary miniature painting commissions service. Tabletop ready offers the advantage of a combined price for receiving a miniature
+ready to use in your tabletop games. It aims to provide all relevant and expected functionality commonly found in e-shops to visitors, as well as an easy to use toolset for the site owner, customised to the specific product's demands. The app supports payments via Stripe and uses an 
 AWS S3 bucket for media and static file storage.
 
 ### **<u>Wireframes</u>**
@@ -97,7 +97,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - The ##7ab648 shade of green has been used as the accent colour for title text throughout the website, as well as the color of more prominent callouts and buttons.
 
-- I decided on this high contrast colour scheme as the colours work well with the subject matter of the website. 
+- I decided on this neutral colour scheme as the colours allow the images in the site to stand out more, with images being central to app's function and presentation. 
 
 <img src="static/assets/images/readme/palette.png">
 
@@ -105,66 +105,69 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - The main font used throughout the site is 'Lato' which belongs to the sans-serif typeface family. The font is clean and elegant, making it a good choice for web design.
 
-- I have used the 'Julius Sans One' font to create the 'uReview' logo as it pairs well with my overall branding. Moreover it has been used as the font for titles and fonts all over the site.
+- I have used the 'Julius Sans One' font to create the 'Tabletop-READY' logo as it pairs well with my overall branding. Moreover it has been used as the font for titles and fonts around the site.
 
 
 **Logo Design**
 
-- I created my own logo design using typography and css to make it high-res and responsive. The color #333333 is used as it is a shade of grey commonly used in miniatures and green represents both ready and painted as the only touch of color.
+- A minimal design so as not to visually challenge the images, using typography and css to make it high-res and responsive. The color #333333 is used as it is a shade of grey commonly used in miniatures and green represents both ready and painted as the only touch of color.
 
 - Following website conventions, my website logo is a link to the homepage. Over time many people have learned that clicking on a site’s logo leads them back to the homepage so adopting this standard reduces confusion by matching the UI to users’ expectations. The logo is also left-aligned which is the most familiar placement, and is where users look to find it.
 
 
 ### <u>**User stories**</u>
 
-**Visitor UX:**
-
-* As a visitor I want to easily navigate the site and find reviews from the home page.
-
-* As a visitor I want to sort and search posted reviews based on a categories or keywords. 
-
-* As a visitor I want to find where I can create an account easily. 
-
-
-**Registered User UX**
-
-* As a registered user I want to easily find how I can log-in in order to post a review. 
-
-* As a registered user I want to be able to add my review easily. 
-
-* As a registered user I want to see a collection of my posted reviews in one page.
-
-* As a registered user I want to have a profile page that bundles functionality.
-
-* As a registered user I want to be able to edit and delete my reviews. 
-
-* As a registered user I want to see new content first on consequtive site visits. 
-
- 
-**Administrator User UX**
-
-* As an administrator I want to easily moderate user posted contents.
-
-* As an administrator I want to be able to manage genres and platforms by adding new ones or deleting underused ones.
-
+| User Story  #              | As a/an              | I want to be able to...                             | So that I can...                                |
+| -------------------------- | -------------------- | --------------------------------------------------- | ----------------------------------------------- |
+|                            |                      | Viewing and Site Navigation                         |                                                 |
+| 1                          | Visitor              | View a gallery of painted models.                   | Decide if I like the painting style.            |
+| 2                          | Visitor              | Easily navigate the shop.                           | See if there's something I want to buy.         |
+| 3                          | Visitor              | Easily view the total of my commission anytime.     | Avoid spending too much.                        |
+|                            |                      | Registration and User Accounts                      |                                                 |
+| 4                          | Site User            | Easily register for an account.                     | Have a personal account and be able to view     |
+|                            |                      |                                                     | my profile.                                     |
+| 5                          | Site User            | Easily login or logout.                             | Access my personal account info.                |
+| 6                          | Site User            | Receive an email confirmation after registering.    | Verify that my account reg. was successfull.    |
+| 7                          | Site User            | Have a personalized user profile.                   | View my personal order history and save my      |
+|                            |                      |                                                     | shipping and payment info.                      |
+|                            |                      | Sorting and Searching                               |                                                 |
+| 8                          | Visitor              | Sort the list of available miniatures by keyword.   | Easily find the miniature I am looking for.     |
+| 9                          | Visitor              | Sort miniatures by the game system (i.e. WH40K)     | Find available miniatures from a system         |
+|                            |                      | I am interested in.                                 |                                                 |
+| 10                         | Visitor              | Sort miniatures by faction and subfaction.          | Find a specific miniature I want to commission. |
+| 11                         | Visitor              | Easily see what I've searched for and the           | Quickly decide whether the miniature            |
+|                            |                      | number of results.                                  | I want is available.                            |
+|                            |                      | Commision Set-Up and Checkout                       |                                                 |
+| 12                         | Visitor              | Easily select the finishing level for my miniature. | Ensure I am not paying over my set budget.      |
+| 13                         | Visitor              | View items in my commission to be purchased.        | Identify the total cost of my purchase and all  |
+|                            |                      |                                                     | miniatures I will receive.                      |
+| 14                         | Visitor              | Easily enter my payment information.                | Check out quickly and with no hassles.          |
+| 15                         | Visitor              | Feel my personal and payment info is secure.        | Confidently provide the needed info to order a  |
+|                            |                      |                                                     | commission.                                     |
+| 16                         | Visitor              | Receive an email confirmation after checking out.   | Keep the confirmation of what I've purchased.   |
+|                            |                      | Admin and Store Management                          |                                                 |
+| 17                         | Owner                | Add a miniature, army or game system.               | Extend the range of miniatures provided.        |
+| 18                         | Owner                | Edit/update a miniature, army or game system.       | Change miniature info, images etc.              |
+| 19                         | Owner                | Delete a miniature, army or game system             | Delete an existing miniature or army .          |
 
  > **Note**: The user stories are tested in [testing.md](https://github.com/NikolasKotsikos/uReview/blob/master/testing.md).
 
 ## &rarr; **Database Architecture**
 
-<img src="static/assets/images/readme/db-schema.png">
+- ** <u>Data Schema</u> **
 
-- **Collections**
+  <img src="static/assets/images/readme/db-schema.png">
 
-    The Tabletop- Ready database features 3 models:
-            
-     * The game systems model, which contains the fields "name" and "friendly_name" who both return strings.
+    The `Miniature` model within the miniature's app, is used to store information about individual miniatures.
+    The `Army` model within the miniature's app, is used to group miniatures into specific armies.
+    The `Game Systems` model within the miniature's app, is used to group miniatures into specific game systems.
 
-     * The armies model, which contains the fields "platform_name" and "img_url" whose both return strings.
+    The `UserProfile` model within the profiles app is used to store user's profile information and is connected to the checkout `Order` model - to store the user's checkout information, as well as order history.   
 
-     * The miniature model, which contains the fields "name", "sku", "manufacturer", "price", "stock", "description", "gamesys", "army", "date_added", "image_url", "image", "has_factions".
-
-     * The users collection, which contains the "username" key which has a string as a value and the "password" key that has a string that has been hashed and salted by Werkzeug.
+    The `Order` model within the checkout app, is used to store orders.
+    The `OrderLineItem` model within the checkout app, is used to store information about individual miniatures on the order.
+    
+    The `Gallery` model within the gallery app, is used to store gallery items created by the admin user.
 
 ## &rarr; **Features**
 
@@ -188,7 +191,7 @@ The final design has been influenced by my mentor and the need to redesign and s
   - Materialize form elements used include input fields, text area fields, select dropdowns and submit buttons.
 
 - **Card Previews**
-  - Used to display reviews & genre and platform categories.
+  - Used to display reviews & genre and platform armies.
 
   - Images included contributing to the visual look.
 
