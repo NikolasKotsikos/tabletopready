@@ -78,11 +78,6 @@ body {
     min-height: 250px;
 }
 
-.carousel-caption {
-    width: 650px;
-    background-color: rgba(55, 55, 55, 0.8)
-}
-
 .tinted { 
     opacity: 0.75; 
 }
@@ -380,42 +375,6 @@ input[name='q']::placeholder {
 	color: #7ab648; /* green-text */
 }
 
-/* Facebook */
-
-.fcbk-bg {
-    background: #3B5998; 
-}
-
-/* Google */
-
-.ggl-bg {
-    background: #FF0035;
-}
-
-/* Twitter */
-
-.twttr-bg {
-    background: #55ACEE; 
-}
-
-.fcbk-bg a,
-.ggl-bg a,
-.twttr-bg a {
-	color: #fafafa;;
-}
-
-.fcbk-bg a:hover,
-.ggl-bg a:hover,
-.twttr-bg a:hover {
-	text-decoration: none;	
-}
-
-.fcbk-bg:hover,
-.ggl-bg:hover,
-.twttr-bg:hover {
-	background: #333333;
-}
-
 /* Miniature Form */ 
 .btn-file {
     position: relative;
@@ -484,9 +443,11 @@ input[name='q']::placeholder {
     }  
     
     .carousel-caption {
-        margin-bottom: 7rem;
+    width: 650px;
+    background-color: rgba(55, 55, 55, 0.8);
+    margin-bottom: 7rem;
     }
- 
+     
     footer {
         max-height: 55px;         
     }

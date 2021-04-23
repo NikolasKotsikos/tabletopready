@@ -1,0 +1,1 @@
+web: gunicorn tabletop_ready.wsgi:application

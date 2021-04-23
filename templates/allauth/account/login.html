@@ -2,14 +2,12 @@
 
 {% load i18n %}
 
-{% load account socialaccount %}
-
 {% block title %}{% trans ": Sign In" %}{% endblock %}
 
 {% block inner_content %}
 
 <div class="container pb-4">
-    <!-- Signing in with email or username-->
+    <!-- Sign in form-->
     <div class="row">
     <div class="col">        
         <hr>
@@ -18,7 +16,7 @@
     </div>
     </div>
     <div class="row my-2">
-        <div class="col my-md-3">
+        <div class="col-sm-12 my-md-3">
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}
                 {{ form|crispy }}
@@ -31,44 +29,14 @@
                             </span>
                             <span class="text-uppercase">Home</span>
                         </a>
-                <button class="btn rounded-0 ml-2" type="submit"><span class="text-uppercase px-2">{% trans "Sign In" %}</span></button>
+                <button class="btn btn-green rounded-0 ml-2" type="submit"><span class="text-uppercase px-2">{% trans "Sign In" %}</span></button>
                 {% blocktrans with site.name as site_name %}        
-                    <p class="p-font mt-1 mb-2">Not registered? <a class="pl-1 green-text" href="{{ signup_url }}"> Sign up</a></p>
+                    <p class="mt-1 mb-2">Not registered? <a class="pl-1 green-text" href="{{ signup_url }}"> Sign up</a></p>
                 {% endblocktrans %}
                 <p class="mt-2">
                     <a class="btn btn-outline-black rounded-0 float-right" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                 </p>
             </form>
         </div>
-    </div>
-    <div class="row my-2 mb-md-4">
-        <div class="col w-100 w-lg-75 text-center">
-            <p class="m-1 py-md-2">-- Or Use A Social Account --</p>
-        </div>
-    </div>
-    <!-- Signing in with social accounts-->
-    {% get_providers as socialaccount_providers %}
-    <div id="social-links" class="row py-3 mb-3 mb-md-4">
-            <div class="col-8 offset-lg-2 text-center">
-                <div class="btn fcbk-bg mb-3 w-75 w-md-50 w-lg-30">
-                    <a href="{% provider_login_url 'facebook' method='oauth2' %}">
-                    <span class="fa fa-facebook mr-2"></span>Sign In with Facebook
-                    </a>
-                </div>
-            </div>
-            <div class="col-8 offset-lg-2 text-center">
-                <div class="btn ggl-bg mb-3 w-75 w-md-50 w-lg-30">
-                    <a href="{% provider_login_url 'google' %}">
-                    <span class="fa fa-google mr-2"></span>Sign In with Google
-                    </a>
-                </div>
-            </div>
-            <div class="col-8 offset-lg-2 text-center">
-                <div class="btn twttr-bg w-75 w-md-50 w-lg-30">
-                    <a href="{% provider_login_url 'twitter' %}">
-                    <span class="fa fa-twitter mr-2"></span>Sign In with Twitter
-                    </a>
-                </div>
-            </div>    
-    </div>
+    </div>    
 {% endblock %}
