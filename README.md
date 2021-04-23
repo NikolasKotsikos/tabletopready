@@ -152,7 +152,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
  > **Note**: The user stories are tested in [testing.md](https://github.com/NikolasKotsikos/uReview/blob/master/testing.md).
 
-## &rarr; **Database Architecture**
+### &rarr; **Database Architecture**
 
 ## ** <u>Data Schema</u> **
 
@@ -169,7 +169,7 @@ The final design has been influenced by my mentor and the need to redesign and s
     
     The `Gallery` model within the gallery app, is used to store gallery items created by the admin user.
 
-## &rarr; **Features**
+### &rarr; **Features**
 
 - **Responsive on all device sizes**
   - Mobile-first design, responsive on all devices through using the Materialize grid system and CSS media queries.
