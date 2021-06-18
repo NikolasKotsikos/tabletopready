@@ -66,8 +66,7 @@ def edit_gallery_item(request, gallery_item_id):
             messages.success(request,
                              f'Successfully updated {gallery_item.name}')
             return redirect(
-                            reverse('all_gallery_items',
-                                    args=[int(gallery_item.id)]))
+                            reverse('all_gallery_items'))
         else:
             messages.error(request,
                            f'Failed to update {gallery_item.name}.'
