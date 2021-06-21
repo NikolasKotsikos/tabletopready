@@ -148,7 +148,8 @@ a.gs-badge > span.badge:hover {
     width: 42px;
     position: fixed;
     bottom: 60px;
-    right: 10px;    
+    right: 10px;   
+    z-index: 9999999; 
 }
 
 .btt-link,
