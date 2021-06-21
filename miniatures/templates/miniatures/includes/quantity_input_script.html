@@ -21,15 +21,16 @@
     })
  
 
-    // Disables +/- buttons outside stock range
+    // Disables +/- buttons outside stock range or if both stock and quantity are 1
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
         var currentStock = parseInt($(`#id_qty_${itemId}`).attr('max'));    
-        var minusDisabled = currentValue < 2;
+        var minusDisabled = currentValue === 1;
         var plusDisabled = currentValue === currentStock;
+        var bothDisabled = currentValue && currentStock === 1;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled); 
-        // document.querySelector(`#increment-qty_${itemId}`).style.background = 'red';
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);  
+        $(`#decrement-qty_${itemId}, #increment-qty_${itemId}`).prop('disabled', bothDisabled);     
     }
 
     // Ensures proper enabling and/or disabling of all inputs on page load
