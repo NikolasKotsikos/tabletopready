@@ -11,13 +11,19 @@ from miniatures.models import Miniature
 
 
 def view_cart(request):
-    """ A view that renders the cart contents page """
+    """ 
+    A view that renders the cart contents page 
+    
+    """
 
     return render(request, 'cart/cart.html')
 
 
 def add_to_cart(request, item_id):
-    """ Add ad quantity of the specified miniature to the shopping cart """
+    """ 
+    Add ad quantity of the specified miniature to the shopping cart
+    
+    """
     miniature = get_object_or_404(Miniature, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
@@ -58,8 +64,11 @@ def add_to_cart(request, item_id):
 
 
 def adjust_cart(request, item_id):
-    """ Adjust the quantity of specific"""
-    """ miniature to the specified amount """
+    """ 
+    Adjust the quantity of specific miniature 
+    to the specified amount 
+    
+    """
 
     miniature = get_object_or_404(Miniature, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -97,7 +106,10 @@ def adjust_cart(request, item_id):
 
 
 def remove_from_cart(request, item_id):
-    """ Remove the item from the shopping cart """
+    """ 
+    Remove the item from the shopping cart 
+    
+    """
 
     try:
         miniature = get_object_or_404(Miniature, pk=item_id)

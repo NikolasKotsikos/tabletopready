@@ -22,10 +22,11 @@
                 <hr>
             </div>
         </div>
+
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <div class="d-block d-md-none">
+                    <div class="d-block d-md-none" id="mobile-form">
                         <div class="row">
                             <div class="col">
                                 {% include "cart/cart_total.html" %}
@@ -45,11 +46,11 @@
                                 <div class="col-12 col-sm-6 mb-2">
                                     {% include "cart/miniature_info.html" %}
                                 </div>
-                                <div class="col-12 col-sm-6 mb-2 order-sm-last">
+                                <div class="col-12 mb-2 order-sm-last">
                                     <p class="my-0">Price per item: €{{ item.miniature.price }}</p>
                                     <p><strong>Subtotal:</strong> €{{ item.miniature.price | calc_subtotal:item.quantity }}</p>
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12">
                                      {% include "cart/quantity_form.html" %}
                                 </div>
                             </div>
@@ -61,7 +62,8 @@
                             </a>
                         </div>                       
                     </div>
-                    <div class="table-responsive-rounded d-none d-md-block">
+
+                    <div class="table-responsive-rounded d-none d-md-block" id="desktop-form">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
                                 <tr>
@@ -72,14 +74,13 @@
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
-
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="p-3 w-25">
                                         {% include "cart/miniature_image.html" %}
                                     </td>
                                     <td class="py-3">
-                                       {% include "cart/miniature_info.html" %}
+                                        {% include "cart/miniature_info.html" %}
                                     </td>
                                     <td class="py-3">
                                         <p class="my-0">€{{ item.miniature.price }}</p>

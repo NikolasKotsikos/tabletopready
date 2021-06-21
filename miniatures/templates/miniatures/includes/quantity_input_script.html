@@ -1,13 +1,35 @@
 <script type="text/javascript">
-    
+
+    // Displays the appropriate size form depending on window width
+    window.addEventListener('DOMContentLoaded', () => {
+        const width = window.innerWidth > 575;
+        if (width) {
+                        document.getElementById('mobile-form').innerHTML = '';
+            document.getElementById('desktop-form').style.display = 'block';
+        }
+        else {
+
+                document.getElementById('mobile-form').style.display = 'block';
+            document.getElementById('desktop-form').innerHTML = '';
+        }
+    })
+
+    //Reloads the page on window resize
+    window.addEventListener('resize', function () { 
+        "use strict";
+        window.location.reload(); 
+    })
+ 
+
     // Disables +/- buttons outside stock range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
-        var currentStock = parseInt($(`#id_qty_${itemId}`).attr('max'));        
+        var currentStock = parseInt($(`#id_qty_${itemId}`).attr('max'));    
         var minusDisabled = currentValue < 2;
         var plusDisabled = currentValue === currentStock;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);       
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled); 
+        // document.querySelector(`#increment-qty_${itemId}`).style.background = 'red';
     }
 
     // Ensures proper enabling and/or disabling of all inputs on page load
@@ -17,7 +39,7 @@
         handleEnableDisable(itemId);
     }
 
-    // Checks enable and/or disabling every time the input is changed.
+    // Checks enable and/or disable every time the input is changed.
     $('.qty_input').change(function() {
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
