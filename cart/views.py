@@ -26,6 +26,7 @@ def add_to_cart(request, item_id):
     """
     miniature = get_object_or_404(Miniature, pk=item_id)
     quantity = int(request.POST.get('quantity'))
+    stock = miniature.stock
     redirect_url = request.POST.get('redirect_url')
     faction = None
 
@@ -33,31 +34,35 @@ def add_to_cart(request, item_id):
         faction = strip_tags(request.POST['miniature_faction'])
     cart = request.session.get('cart', {})
 
-    if faction:
-        if item_id in list(cart.keys()):
-            if faction in cart[item_id]['items_by_faction'].keys():
-                cart[item_id]['items_by_faction'][faction] += quantity
-                messages.success(request,
-                                 f'Updated {faction} {miniature.name} quantity to {cart[item_id]["items_by_faction"][faction]}'
-                                 )
+    if quantity <= stock:
+        if faction:
+            if item_id in list(cart.keys()):
+                if faction in cart[item_id]['items_by_faction'].keys():              
+                    cart[item_id]['items_by_faction'][faction] += quantity
+                    messages.success(request,
+                                    f'Updated {faction} {miniature.name} quantity to {cart[item_id]["items_by_faction"][faction]}'
+                                    )               
+                else:               
+                    cart[item_id]['items_by_faction'][faction] = quantity
+                    messages.success(
+                        request, f'Added {faction} {miniature.name} to your cart')
+                
             else:
-                cart[item_id]['items_by_faction'][faction] = quantity
+                cart[item_id] = {'items_by_faction': {faction: quantity}}
                 messages.success(
                     request, f'Added {faction} {miniature.name} to your cart')
-        else:
-            cart[item_id] = {'items_by_faction': {faction: quantity}}
-            messages.success(
-                request, f'Added {faction} {miniature.name} to your cart')
 
-    else:
-        if item_id in list(cart.keys()):
-            cart[item_id] += quantity
-            messages.success(request,
-                             f'Updated {miniature.name} quantity to {cart[item_id]}'
-                             )
         else:
-            cart[item_id] = quantity
-            messages.success(request, f'Added {miniature.name} to your cart')
+            if item_id in list(cart.keys()):
+                cart[item_id] += quantity
+                messages.success(request,
+                                f'Updated {miniature.name} quantity to {cart[item_id]}'
+                                )
+            else:
+                cart[item_id] = quantity
+                messages.success(request, f'Added {miniature.name} to your cart')
+    else:
+        messages.error(request, "Value is less than 0 or over available stock")
 
     request.session['cart'] = cart
     return redirect(redirect_url)

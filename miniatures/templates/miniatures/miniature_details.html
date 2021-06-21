@@ -125,7 +125,7 @@
                                 </span>
                                 <span class="text-uppercase">Keep Shopping</span>
                             </a>
-                            {% if miniature.stock > 0 %}
+                            {% if miniature.stock > 0 and miniature.stock > miniature_count %}
                                 <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Cart">
                             {% else %}
                                 <input type="hidden">

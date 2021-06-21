@@ -1,24 +1,22 @@
 <script type="text/javascript">
 
     // // Displays the appropriate size form depending on window width
-    // window.addEventListener('DOMContentLoaded', () => {
-    //     const width = window.innerWidth > 575;
-    //     if (width) {
-    //                     document.getElementById('mobile-form').innerHTML = '';
-    //         document.getElementById('desktop-form').style.display = 'block';
-    //     }
-    //     else {
+    window.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth > 575) {
+            document.getElementById('mobile-form').innerHTML = '';
+            document.getElementById('desktop-form').style.display = 'block';
+        }
+        else {
+            document.getElementById('mobile-form').style.display = 'block';
+            document.getElementById('desktop-form').innerHTML = '';
+        }
+    })
 
-    //             document.getElementById('mobile-form').style.display = 'block';
-    //         document.getElementById('desktop-form').innerHTML = '';
-    //     }
-    // })
-
-    // //Reloads the page on window resize
-    // window.addEventListener('resize', function () { 
-    //     "use strict";
-    //     window.location.reload(); 
-    // })
+    //Reloads the page on window resize
+    window.addEventListener('resize', function () { 
+        "use strict";
+        window.location.reload(); 
+    })
  
 
     // Disables +/- buttons outside stock range or if both stock and quantity are 1
@@ -27,10 +25,8 @@
         var currentStock = parseInt($(`#id_qty_${itemId}`).attr('max'));    
         var minusDisabled = currentValue === 1;
         var plusDisabled = currentValue === currentStock;
-        // var bothDisabled = currentValue && currentStock === 1;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);  
-        // $(`#decrement-qty_${itemId}, #increment-qty_${itemId}`).prop('disabled', bothDisabled);     
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);          
     }
 
     // Ensures proper enabling and/or disabling of all inputs on page load
