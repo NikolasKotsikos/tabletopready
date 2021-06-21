@@ -66,7 +66,8 @@ def add_to_cart(request, item_id):
 def adjust_cart(request, item_id):
     """ 
     Adjust the quantity of specific miniature 
-    to the specified amount 
+    to the specified amount and prevent quantity
+    from being negative or over the miniature's stock
     
     """
 
