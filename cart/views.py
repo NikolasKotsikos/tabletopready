@@ -85,30 +85,20 @@ def adjust_cart(request, item_id):
     cart = request.session.get('cart', {})
 
     if faction:
-        if quantity in range(1, stock):
+        if quantity in range(1, (stock + 1)):
             cart[item_id]['items_by_faction'][faction] = quantity
             messages.success(request,
                              f'Updated {faction} {miniature.name} quantity to {cart[item_id]["items_by_faction"][faction]}'
                              )
-        elif quantity == 0:
-            del cart[item_id]['items_by_faction'][faction]
-            if not cart[item_id]['items_by_faction']:
-                cart.pop(item_id)
-            messages.success(
-                request, f'Removed {faction} {miniature.name} from your cart')
         else:
             messages.error(request, "Value is less than 0 or over available stock")
           
 
     else:
-        if quantity in range(1, stock):
+        if quantity in range(1, (stock + 1)):
             cart[item_id] = quantity
             messages.success(request,
-                             f'Updated {miniature.name} quantity to {cart[item_id]}')
-        elif quantity == 0:
-            cart.pop(item_id)
-            messages.success(
-                request, f'Removed {miniature.name} from your cart')
+                             f'Updated {miniature.name} quantity to {cart[item_id]}') 
         else:
             messages.error(request, "Value is less than 0 or over available stock")
           
