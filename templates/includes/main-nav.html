@@ -1,6 +1,6 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
-        
+        <!--All miniatures dropdown menu-->
         <li class="nav-item dropdown">
             <a class="nav-font text-black nav-link mr-3" href="#" id="miniatures-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Miniatures
@@ -16,7 +16,7 @@
                 <a href="{% url 'miniatures' %}" class="dropdown-item">All Miniatures</a>
             </div>
         </li>
-
+        <!--All armies dropdown menu-->
         <li class="nav-item dropdown">
             <a class="nav-font text-black nav-link mr-3" href="#" id="armies-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Armies
@@ -42,8 +42,8 @@
                 <a href="{% url 'all_armies' %}" class="dropdown-item">All Armies</a>                                  
             </div>
         </li>
-
-         <li class="nav-item dropdown">
+        <!--All game systems dropdown menu-->
+        <li class="nav-item dropdown">
             <a class="nav-font text-black nav-link mr-3" href="#" id="gs-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Game Systems
             </a>
@@ -62,6 +62,7 @@
         </li>
 
         <li class="nav-item">
+            <!--Gallery link-->
             <a class="nav-font text-black nav-link mr-3" href="{% url 'all_gallery_items' %}">
                 Gallery
             </a>      

@@ -25,19 +25,23 @@
 
         <div class="row">
             <div class="col">
+                <!--Cart items display-->
                 {% if cart_items %}
                     <div class="d-sm-block d-md-none" id="mobile-form">
                         <div class="row">
+                            <!--Cart total-->
                             <div class="col">
                                 {% include "cart/cart_total.html" %}
                             </div>
                         </div>
                         <div class="row">
+                            <!--Checkout buttons-->
                             <div class="col">
                                 {% include "cart/checkout_buttons.html" %}
                                 <p class="text-muted mb-5">A summary of your cart contents is below</p>
                             </div>
                         </div> 
+                        <!--Cart item details-->
                         {% for item in cart_items %}
                             <div class="row">
                                 <div class="col-12 col-sm-6 mb-2">
@@ -62,7 +66,7 @@
                             </a>
                         </div>                       
                     </div>
-
+                    <!--Miniature info form for desktop screen sizes-->
                     <div class="table-responsive-rounded d-none d-md-block" id="desktop-form">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -74,6 +78,7 @@
                                     <th>Subtotal</th>
                                 </tr>
                             </thead>
+                            <!--Cart item details-->
                             {% for item in cart_items %}
                                 <tr>
                                     <td class="p-3 w-25">
@@ -94,11 +99,13 @@
                                 </tr>
                             {% endfor %}
                             <tr>
+                                <!--Total display-->
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include "cart/cart_total.html" %}
                                 </td>
                             </tr>
                             <tr>
+                                <!--Checkout buttons-->
                                 <td colspan="5" class="text-right">
                                     {% include "cart/checkout_buttons.html" %}
                                 </td>
@@ -106,6 +113,7 @@
                         </table>
                     </div>
                 {% else %}
+                    <!--If the cart is empty-->
                     <p class="lead mb-5">Your cart is empty.</p>
                     <a href="{% url 'miniatures' %}" class="btn btn-outline-black rounded-0 btn-lg">
                         <span class="icon">
@@ -122,6 +130,7 @@
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
+    // Scrolls page back to 0, 0
     $('.btt-link').click(function(e) {
         window.scrollTo(0,0)
     })

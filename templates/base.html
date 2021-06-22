@@ -2,14 +2,13 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    
+  <head>    
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="Description"
-         content="Tabletop Ready is a e-commerse site selling pre-assembled and painted miniatures ready to use in tabletop wargames.">
+         content="Tabletop Ready is a e-shop selling pre-assembled and painted miniatures ready to use in tabletop wargames.">
     {% endblock %}
 
     {% block extra_meta %}
@@ -74,6 +73,7 @@
 
     <title>Tabletop-Ready {% block title %}{% endblock %}</title>
   </head>
+
   <body>
     <header class="container-fluid fixed-top justify-content-between">   
         <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
@@ -82,6 +82,7 @@
                     <h4 class="logo-font text-black my-0">Tabletop-<span class="green-text text-uppercase">Ready</span></h4>
                 </a>
             </div>
+            <!--Main nav-->
             <div class="col-12 col-lg-8 my-auto py-1 py-lg-0">
                <nav class="navbar navbar-expand-lg navbar-light w-100">
                     {% include 'includes/main-nav.html' %}                
@@ -118,6 +119,7 @@
                                 <p class="my-0 nav-icon-txt d-none d-xl-block">My Account</p>
                             </div>
                         </a>
+                        <!--Dropdown menu-->
                         <div class="dropdown-menu shadow-sm border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 <a href="{% url 'profile' %}" class="dropdown-item">Profile</a>                                               
@@ -129,6 +131,7 @@
                         </div>
                     </li>
                     <li class="list-inline-item">
+                        <!--View cart-->
                         <a class="text-black nav-link" href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <div><i class="fas fa-shopping-cart fa-lg"></i></div>
@@ -156,6 +159,7 @@
                     <h4 class="logo-font text-black my-0 mx-auto mobile-logo">Tabletop-<span class="green-text">Ready</span></h4>
                 </a>
             </div>
+            <!--Mobile navbar-->
             <nav class="navbar d-lg-none d-flex navbar-light w-100">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle dropdown menu">
                     <span class="navbar-toggler-icon"></span>
@@ -170,7 +174,7 @@
             </div>            
         </div>        
     </header>
-
+    <!--Messages container-->
     {% if messages %}
         <div class="message-container">
             {% for message in messages %}

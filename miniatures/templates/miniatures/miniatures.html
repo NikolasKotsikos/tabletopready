@@ -16,6 +16,7 @@
             <div class="col text-center mt-3">
                 <h2 class="logo-font">
                     Miniatures<br>
+                    <!--Add miniature button (admin only)-->
                     {% if user.is_authenticated %}
                         {% if user.is_superuser %}
                             <a href="{% url 'add_miniature'%}" class="btn btn-lg btn-green rounded-0 text-uppercase mt-2"><i class="fas fa-plus fa-sm"></i> Add a Miniature</a>
@@ -45,6 +46,7 @@
             <div class="miniatures-container col-10 offset-1">
                 <div class="row mt-1 mb-2">
                     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <!--Sort selector-->
                         <div class="sort-select-wrapper w-50">
                             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -73,6 +75,7 @@
                         </p>    
                     </div>
                 </div>
+                <!--All miniatures/query display-->
                 <div class="row">
                     {% for miniature in miniatures %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -104,7 +107,8 @@
                                         </div>
                                     </div>                                    
                                 </div>
-                                <div class="bg-white text-right px-3 pb-3">                                         
+                                <div class="bg-white text-right px-3 pb-3"> 
+                                    <!--Edit and delete buttons and modal (admin only)-->                                        
                                     {% if request.user.is_superuser %}
                                             <a href="{% url 'edit_miniature' miniature.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
                                             <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#miniDelete{{ miniature.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
@@ -136,7 +140,7 @@
                         <div class="col-12 d-sm-none mb-5">
                             <hr>
                         </div>
-                        
+                        <!--Horizontal rule with adjustable width (code taken from Code Institute Boutique Ado material)-->
                         {% if forloop.counter|divisibleby:2 %}
                             <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
                                 <hr>
@@ -169,12 +173,15 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
+        // Scrolls the page to 0,0
         $('.btt-link').click(function(e) {
             window.scrollTo(0,0)
         })
     </script>
     
     <script type="text/javascript">
+        // Listens for sort selector change events 
+        // and returns results based on selection
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);

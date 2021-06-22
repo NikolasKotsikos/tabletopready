@@ -17,7 +17,8 @@
                         <h2 class="logo-font">
                             Armies<br> 
                             {% if user.is_authenticated %}
-                                {% if user.is_superuser %}                    
+                                {% if user.is_superuser %}            
+                                <!--Add an army button (admin only)-->        
                                 <a href="{% url 'add_army'%}" class="btn btn-lg btn-green rounded-0 text-uppercase mt-2"><i class="fas fa-plus fa-sm"></i> Add an Army</a>            
                                 {% endif %}
                             {% endif %}
@@ -30,6 +31,7 @@
                     <div class="container col-10 offset-1">
                         <div class="row mt-1 mb-2">
                             <div class="col-12 col-md-6 my-auto d-flex justify-content-md-start">
+                                <!--Sort selector-->
                                 <div class="sort-select-wrapper" width="50">
                                     <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                                         <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -41,6 +43,7 @@
                         </div>
                         <div class="row">
                             {% for army in armies %}
+                                <!--Armies display-->
                                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                                     <div class="card text-center h-100 border-black rounded-0">
                                         <div class="card-body">
@@ -50,7 +53,8 @@
                                         </div>
                                         <div class="text-right px-3 pb-3"> 
                                         {% if user.is_authenticated %}
-                                            {% if user.is_superuser %}                                        
+                                            {% if user.is_superuser %}
+                                            <!--Edit and delete army buttons (admin only)-->                                        
                                             <a href="{% url 'edit_army' army.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
                                             <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#armyDelete{{ army.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
                                             {% endif %}
@@ -81,7 +85,7 @@
                                 <div class="col-12 d-sm-none mb-5">
                                     <hr>
                                 </div>
-                                
+                                <!--Horizontal rule with adjustable width (code taken from Code Institute Boutique Ado material)-->
                                 {% if forloop.counter|divisibleby:2 %}
                                     <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
                                         <hr>

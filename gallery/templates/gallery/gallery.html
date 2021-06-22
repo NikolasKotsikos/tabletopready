@@ -36,6 +36,7 @@
                     </div>                    
                 </div>
                 <div class="row">
+                    <!--Gallery items display-->
                     {% for gallery_item in gallery_items %}
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0 shadow-sm">                                
@@ -45,6 +46,7 @@
                                 <div class="card-body">
                                     <p class="lead mb-0 text-left font-weight-bold">{{ gallery_item.name }}</p>
                                     <div class="row">
+                                        <!--Gallery items details-->
                                         <div class="col d-flex flex-column">                                            
                                             <small class="text-muted"><i class="fas fa-dice"></i> {{ gallery_item.gamesystem  }}</small>
                                             <small class="text-muted"><i class="fas fa-crosshairs"></i> {{ gallery_item.army }}</small>
@@ -56,6 +58,7 @@
                                 {% if request.user.is_superuser %}
                                     <div class="card-footer bg-white px-3 pb-3 flex-row justify-content-between">
                                         <div class="px-0 mx-0">
+                                            <!--Edit and delete buttons (admin only)-->
                                             <a href="{% url 'edit_gallery_item' gallery_item.id %}" class="btn btn-sm btn-outline-black rounded-0"><i class="fas fa-edit fa-sm"></i> Edit</a>
                                             <button class="btn btn-sm btn-danger rounded-0" type="button" data-toggle="modal" data-target="#itemDelete{{ gallery_item.id }}"><i class="fas fa-trash fa-sm"></i> Delete</button>
                                         </div>                                        
@@ -83,7 +86,7 @@
                                 {% endif %}
                             </div>
                         </div>
-
+                        <!--Horizontal rule with adjustable width (code taken from Code Institute Boutique Ado material)-->
                         {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr>
@@ -122,6 +125,7 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
+        // Scrolls page to 0,0
         $('.btt-link').click(function(e) {
             window.scrollTo(0,0)
         })
