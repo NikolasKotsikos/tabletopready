@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}: Page Not Found! (404) {% endblock %}
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2 class="logo-font green-text">
+                    <i class="fas fa-exclamation-triangle fa-lg">Page Not Found!</i><br>                         
+                </h2>            
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="container col-10 offset-1">              
+                <div class="row">                   
+                    <div class="col-12 text-center">
+                        <p class="logo-font">The page you requested wasn't found or doesn't exist.</p>
+                    </div>
+                </div>
+            </div>
+        </div>                         
+{% endblock %}
+

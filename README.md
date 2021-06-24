@@ -2,7 +2,7 @@
   <img src="readme/media/tr-responsive.png">
 <hr>
 
-**A miniature painting commission e-commerce app with full user and admin functionality**
+**A miniature painting commission e-shop with full user and admin functionality made with Python and Django.**
 
 This app was built using [GitHub](https://pages.github.com/) and deployed to [Heroku](https://www.heroku.com/).
 
@@ -72,9 +72,11 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 **Structure**
 
-- A simple design structure with a fixed navbar, a dropdown side navigation menu accessible from every page and a fixed footer. A brand logo is displayed in the top left of the screen to allow easy navigation back to the homepage.
+- A minimalistic and clean design structure with a fixed logo on the top left, followed by the main nav dropdown menus (all miniatures, by army and by game system options available) and gallery link. On the top right side the links for search, account login/management and your shopping cart provide a compact and easily readable on all screen sizes set of controls for the user.
 
-- As a mobile first site I contained the logo, login button and nav menu icon centered by two spaces creating a core towards the center of the page. This helps keep the design consistent as it moves from smaller to larger viewports.
+- On mobile the logo is on the top middle part of the page, while the nav dropdowns are combined in a toggleable dropbown menu button, while the search, account and cart icons take up the rest of the space in the nav. 
+
+- Includes have been used to display the checkout form differently for desktop and mobile. 
 
 - As well as including a title tag on my base.html, I have also added the meta description tag to help optimize my click-through rate from search engine result pages.
 
@@ -82,23 +84,23 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 <img src="readme/media/palette.png">
 
-- The #333333 dark shade of grey has been used for the main background throughout the site with #343a40 as a cooler and lighter grey to add aesthetic variation.
+- The #333333 dark shade of grey has been used for the main background throughout the site with #343a40 as a cooler and lighter grey to add aesthetic variation and allow for better contrast.
 
-- Default Bootstrap white (#fff) was used as a background for the navbar as well as the colour of various UI buttons throughout the site. 
+- Default white (#fff) was used as a background for the navbar as well as the colour of various UI buttons throughout the site. 
+
+- Default black (#000) was used as the background colour for action buttons and as the text colour throughout the site.
 
 - The #fafafa shade of white has been used as a background for cards and forms throughout the app.
 
 - The #7ab648 shade of green has been used as the accent colour for title text throughout the website, as well as the color of more prominent callouts and buttons.
 
-- I decided on this neutral colour scheme as the colours allow the images in the site to stand out more, with images being central to the app's function and presentation. 
-
+- I decided on this neutral colour scheme as the colours allow the images in the site to stand out more. 
 
 **Typography**
 
-- The main font used throughout the site is 'Lato' which belongs to the sans-serif typeface family. The font is clean and elegant, making it a good choice for web design.
+- The main font used throughout the site is 'Lato' which belongs to the sans-serif typeface family. The font is clean and elegant, making it in my opinion a good choice for web design.
 
 - I have used the 'Julius Sans One' font to create the 'Tabletop-READY' logo as it pairs well with my overall branding. Moreover it has been used as the font for titles and fonts around the site.
-
 
 **Logo Design**
 
@@ -118,7 +120,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 | 1                          | Visitor              | View a gallery of painted models.                   | Decide if I like the painting style.            |
 | 2                          | Visitor              | Easily navigate the shop.                           | See if there's something I want to buy.         |
 | 3                          | Visitor              | Easily view the total of my commission anytime.     | Avoid spending too much.                        |
-|                            |                      | Registration and User Accounts                      |                                                 |
+|                            |                      | **Registration and User Accounts**                  |                                                 |
 | 4                          | Site User            | Easily register for an account.                     | Have a personal account and be able to view     |
 |                            |                      |                                                     | my profile.                                     |
 | 5                          | Site User            | Easily login or logout.                             | Access my personal account info.                |
@@ -175,7 +177,7 @@ The final design has been influenced by my mentor and the need to redesign and s
     - Clear interactive buttons used for a effortless user journey.
 
 - **Forms**
-  - Forms used for profile, add and edit miniature, army and game system pages.
+  - Forms used for profile, checkout, add and edit miniature, army and game system pages.
 
 - **Card Previews**
   - Used to display gallery items and miniatures in the shop.
@@ -186,6 +188,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - **Carousel**
   - Used to give the index/home page a dynamic feel.
+
 - **Search button**
   - Minimal visual effect with full functionality allowing for keyword searches.
 
