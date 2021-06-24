@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Tabletop-READY</h1>
+  <img src="readme/media/tr-responsive.png">
 <hr>
 
 **A miniature painting commission e-commerce app with full user and admin functionality**
@@ -18,13 +18,14 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
   - [Scope](#scope)
   - [Wireframes](#wireframes)
   - [Design](#design)
-  - [User stories](#user-stories)
+  - [User stories](#user-stories)  
   
 </details>
 
 **<details><summary> Features</summary>**
   - [Database](#database)
   - [Features](#features)
+  - [Testing](testing.md)
   - [Status](#status)
 </details>
 
@@ -48,25 +49,24 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
   - [Contact details](#contact-details) 
 </details>
 
-# &rarr; **User Experience (UX)**
+## &rarr; **User Experience (UX)**
 
 ### **<u>Scope</u>**
 
 The scope of this app is to create a Python and Django based e-commerce site for an imaginary miniature painting commissions service. Tabletop ready offers the advantage of a combined price for receiving a miniature
-ready to use in your tabletop games. It aims to provide all relevant and expected functionality commonly found in e-shops to visitors, as well as an easy to use toolset for the site owner, customised to the specific product's demands. The app supports payments via Stripe and uses an 
-AWS S3 bucket for media and static file storage.
+ready to use in your tabletop games. It aims to provide all relevant and expected functionality commonly found in e-shops to visitors, as well as an easy-to-use toolset for the site owner, customised to the specific product's demands.
 
 ### **<u>Wireframes</u>**
 
-As part of the design process, before starting my project I made initial wireframes using [Lucidchart](https://lucidchart.com). Creating these mock-ups helped me plan the basic structure and arrangement of the features for my site.
+Before starting my project I made initial wireframes using [Lucidchart](https://lucidchart.com). Creating these mock-ups helped me plan the basic structure and arrangement of the features for my site.
 
-The final design has been influenced by my mentor and the need to redesign and simplify some features. In this senses the wireframes map the journey from idea to functioning app.
+The final design has been influenced by my mentor and the need to redesign and simplify some features. Thus the wireframes map the journey from idea to functioning app.
 
 - [Homepage](readme/wireframes/wf-home.pdf)
 - [Mniatures page](readme/wireframes/wf-miniatures.pdf)
 - [Gallery Page](readme/wireframes/wf-gallery.pdf)
 - [Checkout page](readme/wireframes/wf-checkout.pdf)
-- [Profile page](readme/wireframes/wf-profile.pdf)
+- [Profile page](readme/wireframes/wf-userprofile.pdf)
 
 ### **<u>Design</u>**
 
@@ -80,17 +80,18 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 **Colour palette**
 
-- The #333333 shade of grey has been used for the main background throughout the site with all the forms using a #fafafa shade of white creating a slight contrast.
+<img src="readme/media/palette.png">
+
+- The #333333 dark shade of grey has been used for the main background throughout the site with #343a40 as a cooler and lighter grey to add aesthetic variation.
 
 - Default Bootstrap white (#fff) was used as a background for the navbar as well as the colour of various UI buttons throughout the site. 
 
 - The #fafafa shade of white has been used as a background for cards and forms throughout the app.
 
-- The ##7ab648 shade of green has been used as the accent colour for title text throughout the website, as well as the color of more prominent callouts and buttons.
+- The #7ab648 shade of green has been used as the accent colour for title text throughout the website, as well as the color of more prominent callouts and buttons.
 
-- I decided on this neutral colour scheme as the colours allow the images in the site to stand out more, with images being central to app's function and presentation. 
+- I decided on this neutral colour scheme as the colours allow the images in the site to stand out more, with images being central to the app's function and presentation. 
 
-<img src="static/assets/images/readme/palette.png">
 
 **Typography**
 
@@ -105,6 +106,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 - Following website conventions, my website logo is a link to the homepage. Over time many people have learned that clicking on a site’s logo leads them back to the homepage so adopting this standard reduces confusion by matching the UI to users’ expectations. The logo is also left-aligned which is the most familiar placement, and is where users look to find it.
 
+
 ## [&#8679;](#table-of-contents)
 ---
 
@@ -112,7 +114,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 
 | User Story  #              | As a/an              | I want to be able to...                             | So that I can...                                |
 | -------------------------- | -------------------- | --------------------------------------------------- | ----------------------------------------------- |
-|                            |                      | Viewing and Site Navigation                         |                                                 |
+|                            |                      | **Viewing and Site Navigation**                     |                                                 |
 | 1                          | Visitor              | View a gallery of painted models.                   | Decide if I like the painting style.            |
 | 2                          | Visitor              | Easily navigate the shop.                           | See if there's something I want to buy.         |
 | 3                          | Visitor              | Easily view the total of my commission anytime.     | Avoid spending too much.                        |
@@ -123,7 +125,7 @@ The final design has been influenced by my mentor and the need to redesign and s
 | 6                          | Site User            | Receive an email confirmation after registering.    | Verify that my account reg. was successfull.    |
 | 7                          | Site User            | Have a personalized user profile.                   | View my personal order history and save my      |
 |                            |                      |                                                     | shipping and payment info.                      |
-|                            |                      | Sorting and Searching                               |                                                 |
+|                            |                      | **Sorting and Searching**                           |                                                 |
 | 8                          | Visitor              | Sort the list of available miniatures by keyword.   | Easily find the miniature I am looking for.     |
 | 9                          | Visitor              | Sort miniatures by the game system (i.e. WH40K)     | Find available miniatures from a system         |
 |                            |                      | I am interested in.                                 |                                                 |
@@ -138,31 +140,28 @@ The final design has been influenced by my mentor and the need to redesign and s
 | 15                         | Visitor              | Feel my personal and payment info is secure.        | Confidently provide the needed info to order a  |
 |                            |                      |                                                     | commission.                                     |
 | 16                         | Visitor              | Receive an email confirmation after checking out.   | Keep the confirmation of what I've purchased.   |
-|                            |                      | Admin and Store Management                          |                                                 |
+|                            |                      | **Admin and Store Management**                      |                                                 |
 | 17                         | Owner                | Add a miniature, army or game system.               | Extend the range of miniatures provided.        |
 | 18                         | Owner                | Edit/update a miniature, army or game system.       | Change miniature info, images etc.              |
 | 19                         | Owner                | Delete a miniature, army or game system             | Delete an existing miniature or army .          |
 
+> The user stories are tested in [Testing](testing.md)
+---
+## &rarr; **<u>Database</u>**
 
-### &rarr; **<u>Database</u>**
+### **Data Schema**
+- The `Miniature` model within the miniature's app, is used to store information about individual miniatures.
+- The `Army` model within the miniature's app, is used to group miniatures into specific armies.
+- The `Game Systems` model within the miniature's app, is used to group miniatures into specific game systems.
+- The `UserProfile` model within the profiles app is used to store user's profile information and is connected to the checkout `Order` model - to store the user's checkout information, as well as order history.   
+- The `Order` model within the checkout app, is used to store orders.
+- The `OrderLineItem` model within the checkout app, is used to store information about individual miniatures on the order.
+- The `Gallery` model within the gallery app, is used to store gallery items created by the admin user.
 
-## **Data Schema**
- 
-    The `Miniature` model within the miniature's app, is used to store information about individual miniatures.
-    The `Army` model within the miniature's app, is used to group miniatures into specific armies.
-    The `Game Systems` model within the miniature's app, is used to group miniatures into specific game systems.
-
-    The `UserProfile` model within the profiles app is used to store user's profile information and is connected to the checkout `Order` model - to store the user's checkout information, as well as order history.   
-
-    The `Order` model within the checkout app, is used to store orders.
-    The `OrderLineItem` model within the checkout app, is used to store information about individual miniatures on the order.
-    
-    The `Gallery` model within the gallery app, is used to store gallery items created by the admin user.
-
-### &rarr; **Features**
+## &rarr; **Features**
 
 - **Responsive on all device sizes**
-  - Mobile-first design, responsive on all devices through using the Materialize grid system and CSS media queries.
+  - Mobile-first design, responsive on all devices employing Bootstrap's grid system and CSS media queries.
 
 - **A user-friendly interface with easy navigation throughout the site**
   - Attractive, minimalistic design with visuals and information presented clearly and concisely.
@@ -186,7 +185,7 @@ The final design has been influenced by my mentor and the need to redesign and s
   - Used for delete confirmation.
 
 - **Carousel**
-  - Used for making the home page feel less static.
+  - Used to give the index/home page a dynamic feel.
 - **Search button**
   - Minimal visual effect with full functionality allowing for keyword searches.
 
@@ -606,8 +605,6 @@ Forking allows you to create a copy of the original repository and propose chang
 
 2. At the top of the Repository (not top of page) just above the "Settings" button on the menu, locate the "Fork" button.
 
-     ![forking](readme/media/fork.png)
-
 3. You should now have a copy of the original repository in your GitHub account.
 
 </p>
@@ -623,13 +620,9 @@ When you clone a repository, the repository is copied on to your local machine, 
    
    The Tabletop-Ready repository can be found [here](https://github.com/NikolasKotsikos/tabletopready/)
 
-2. Under the repository name, click the "download code" option.
-
-   ![Clone](readme/media/clone.png)
+2. Under the repository name, click the "download code" option.   
 
 3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-
-   ![Clone-link](readme/media/clone-link.png)
 
 4. Open Git Bash
 
@@ -684,11 +677,13 @@ When you clone a repository, the repository is copied on to your local machine, 
 </p>
 </details>
 
+## [&#8679;](#table-of-contents)
+---
+
 ## &rarr; **Credits**
 
-#### Content
+#### <u>Content</u>
 
-- 
 
 #### Media
 
@@ -696,12 +691,9 @@ When you clone a repository, the repository is copied on to your local machine, 
 
 - The images on the homepage carousel are from [Fantasy Flight Games](https://fantasyflightgames.com/) & [Games Workshop](https://games-workshop.com)
 
-- The gallery images come from various retailers on [Etsy](https://etsy.com)
-
-- The images used for the review cards are images accompanying the individual original reviews.
+- The gallery images come from various retailers on [Etsy](https://etsy.com/)
 
 #### Acknowledgments
-- This project was completed under extreme psychological stress due to covid19 affecting various members of my family. I dedicate this work to them. As a result of that this readme doesn't represent the effort that went into making this project.
 
 - My Mentor, [Aaron Sinnott](https://www.linkedin.com/in/aaronsinnott/) for his help and support throughout the project.
 

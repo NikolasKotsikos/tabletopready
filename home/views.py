@@ -6,8 +6,6 @@ from gallery.models import GalleryItem
 from profiles.models import UserProfile
 from django.contrib import messages
 
-# Create your views here.
-
 
 def index(request):
     """ A view to return the index page """
