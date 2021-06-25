@@ -125,28 +125,25 @@ The final design has been influenced by my mentor and the need to redesign and s
 |                            |                      |                                                     | my profile.                                     |
 | 5                          | Site User            | Easily login or logout.                             | Access my personal account info.                |
 | 6                          | Site User            | Receive an email confirmation after registering.    | Verify that my account reg. was successfull.    |
-| 7                          | Site User            | Have a personalized user profile.                   | View my personal order history and save my      |
-|                            |                      |                                                     | shipping and payment info.                      |
+| 7                          | Site User            | Have a personalized user profile.                   | View my personal order history and save my shipping and payment info.    |
 |                            |                      | **Sorting and Searching**                           |                                                 |
 | 8                          | Visitor              | Sort the list of available miniatures by keyword.   | Easily find the miniature I am looking for.     |
-| 9                          | Visitor              | Sort miniatures by game system (i.e. WH40K)         | Find available miniatures from a system         |
-|                            |                      | I am interested in.                                 |                                                 |
+| 9                          | Visitor              | Sort miniatures by game system (i.e. WH40K)   I am interested in.         | Find available miniatures from a  game system   |
 | 10                         | Visitor              | Sort miniatures by army.                            | Find a specific miniature I want to commission. |
-| 11                         | Visitor              | Easily see what I've searched for and the           | Quickly decide whether the miniature            |
-|                            |                      | number of results.                                  | I want is available.                            |
-|                            |                      | Commision Set-Up and Checkout                       |                                                 |
-| 12                         | Visitor              | Easily select the finishing level for my miniature. | Ensure I am not paying over my set budget.      |
-| 13                         | Visitor              | View items in my commission to be purchased.        | Identify the total cost of my purchase and all  |
+| 11                         | Visitor              | Easily see what I've searched for and the   number of results.          | Quickly decide whether the miniature  I want is available.                |
+|                            |                      | **Ordering and Checkout**                           |                                                 |
+| 12                         | Visitor              | Easily adjust the quantity of my selection.         | Adjust order to my budget or cancel it.         |
+| 13                         | Visitor              | View items in my order to be purchased.             | Identify the total cost of my purchase and all  |
 |                            |                      |                                                     | miniatures I will receive.                      |
 | 14                         | Visitor              | Easily enter my payment information.                | Check out quickly and with no hassles.          |
-| 15                         | Visitor              | Feel my personal and payment info is secure.        | Confidently provide the needed info to order a  |
-|                            |                      |                                                     | commission.                                     |
+| 15                         | Visitor              | Easily update my personal details.                  | I can change my shipping information to a new address or edit my personal data |
 | 16                         | Visitor              | Receive an email confirmation after checking out.   | Keep the confirmation of what I've purchased.   |
 |                            |                      | **Admin and Store Management**                      |                                                 |
 | 17                         | Owner                | Add a miniature, army or game system.               | Extend the range of miniatures provided.        |
 | 18                         | Owner                | Edit/update a miniature, army or game system.       | Change miniature info, images etc.              |
 | 19                         | Owner                | Delete a miniature, army or game system             | Delete an existing miniature or army .          |
 
+---
 > The user stories are tested in [Testing](testing.md)
 ---
 ## &rarr; **<u>Database</u>**
@@ -256,9 +253,6 @@ The final design has been influenced by my mentor and the need to redesign and s
 - [**Font Awesome 4.7.0**](https://fontawesome.com/)
   - Font Awesome was used to add icons for aesthetic and UX purposes.
 
-- [**Flaticon**](https://www.flaticon.com/)
-  - Provided icons throughout site.
-
 - [**Lucidchart**](https://lucidchart.com/)
   - Lucidchart was used to create the wireframes during the design process.
 
@@ -299,14 +293,11 @@ The project was deployed to Heroku with all static and media files stored on Ama
 
 1. Log in (or Register) to [Heroku](https://www.heroku.com/) and from your dashboard click 'new' > 'create new app'.
 
-   ![New app btn](readme/media/new-app.png)
-
+   
 2. Enter your 'App name' and choose the appropriate region, then click 'Create app'.
    > **Note:** 
  The app name must be unique, all lowercase, and '-' to be used instead of spaces.
 The region chosen should be the one closest to you.
-
-   ![Create new app](readme/media/create-new-app.png)
 
 3. Then on the 'Resources' tab, search and add on the Heroku Postgres database.
 
@@ -326,8 +317,6 @@ The region chosen should be the one closest to you.
 
    Then down in the databases setting comment out the default configuration and replace the default database with a call to dj_database_url.parse and give it the database URL from Heroku.
 
-   ![Config Vars](readme/media/database_url.png)
-
     > **Note:** You can either get the database URL from your config variables in your app settings tab or from the command line by typing Heroku config.
 
 7. Apply all migrations using the following command;
@@ -336,9 +325,7 @@ The region chosen should be the one closest to you.
 
     After migrations have been applied amend your database configurations to;
 
-    ![Config Vars](readme/media/database_url2.png)
-
-     > **Note:** This will ensure that your Postgres database is used in deployment and your sqlite3 in development.
+    > **Note:** This will ensure that your Postgres database is used in deployment and your sqlite3 in development.
     
     Your database should now be all set up.
 
@@ -712,7 +699,7 @@ When you clone a repository, the repository is copied on to your local machine, 
 
 #### Contact details
 
-Created by @NikolasKotsikos
+Created by NikolasKotsikos
 
 If you have any problems, questions or, suggestions for my project please contact me on the email below:
 
@@ -723,10 +710,4 @@ kotsikn@gmail.com
 Thanks for visiting.
 
 &copy;
-Nikolas Kotsikos
- 
-
- 
-
-
- 
+Nikolas Kotsikos 
