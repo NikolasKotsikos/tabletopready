@@ -1,23 +1,24 @@
 <script type="text/javascript">
 
-    // // Displays the appropriate size form depending on window width
+    // Displays the appropriate size form depending on window width
     window.addEventListener('DOMContentLoaded', () => {
         if (window.innerWidth > 575) {
-            document.getElementById('mobile-form').innerHTML = '';
-            document.getElementById('desktop-form').style.display = 'block';
+            document.getElementById('mobile-form').style.display = 'none'
+            document.getElementById('desktop-form').style.display = 'block';            
         }
         else {
             document.getElementById('mobile-form').style.display = 'block';
-            document.getElementById('desktop-form').innerHTML = '';
+            document.getElementById('desktop-form').style.display = 'none';        
         }
     })
-
-    //Reloads the page on window resize
-    window.addEventListener('resize', function () { 
-        "use strict";
-        window.location.reload(); 
-    })
- 
+    
+    // Refreshes page on browser resize to load the appropriate size form
+    $(window).bind('resize', function(e) {
+        if (window.RT) clearTimeout(window.RT);
+    window.RT = setTimeout(function() {
+        this.location.reload(false); /* If false retrieves page from cache */
+    }, 200);
+    });
 
     // Disables +/- buttons outside stock range or if both stock and quantity are 1
     function handleEnableDisable(itemId) {
