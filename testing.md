@@ -334,14 +334,6 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 [**JS hint**](https://jshint.com/) was used to check for any errors with my Javascript files. 
 JS was also tested by opening the developer console window on Chrome and checking for any errors as I clicked through the site.
 
-- <ins>Warnings received;</ins>
-
-    `let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz).`
-    
-    `'template literal syntax' is only available in ES6 (use 'esversion: 6').`
-
-    Warnings occurred as JShint is using ECMAScript 5.1 specification and my code uses ECMAScript 6 specific syntax. However, all code is valid.
-
 - <ins>Undefined variable;</ins>
 
     `$`
