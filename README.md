@@ -10,6 +10,18 @@ Visit the live site [here](https://tabletop-ready.herokuapp.com/)
 
 </div>
 
+For <ins>**testing**</ins> the following credentials can be used:
+
+**Member Login**
+- Username: tabletopreadyuser
+- Email: tabletopready@test.com
+- Password: tr123456
+
+**Card payments**
+- Card number: 4242 4242 4242 4242
+- Zip & CCV: any integer values are valid
+
+**<ins>Disclaimer</ins> : This project is for educational purposes only**
 ---
 
 ## <u>Table of contents</u>
