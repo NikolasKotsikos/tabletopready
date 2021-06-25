@@ -1,24 +1,20 @@
 <script type="text/javascript">
 
     // Displays the appropriate size form depending on window width
-    window.addEventListener('DOMContentLoaded', () => {
-        if (window.innerWidth > 575) {
-            document.getElementById('mobile-form').style.display = 'none'
-            document.getElementById('desktop-form').style.display = 'block';            
+    window.addEventListener('resize', () => {
+        let width = window.innerWidth
+
+        if (width < 575) {
+            this.location.reload();
+            document.getElementById('mobile-form').style.display = 'block';
+            document.getElementById('desktop-form').innerHTML = '';           
         }
         else {
-            document.getElementById('mobile-form').style.display = 'block';
-            document.getElementById('desktop-form').style.display = 'none';        
+            this.location.reload(); 
+            document.getElementById('mobile-form').innerHTML = '';
+            document.getElementById('desktop-form').style.display = 'block';                                  
         }
     })
-    
-    // Refreshes page on browser resize to load the appropriate size form
-    $(window).bind('resize', function(e) {
-        if (window.RT) clearTimeout(window.RT);
-    window.RT = setTimeout(function() {
-        this.location.reload(false); /* If false retrieves page from cache */
-    }, 200);
-    });
 
     // Disables +/- buttons outside stock range or if both stock and quantity are 1
     function handleEnableDisable(itemId) {

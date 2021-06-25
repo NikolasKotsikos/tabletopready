@@ -129,9 +129,9 @@ The final design has been influenced by my mentor and the need to redesign and s
 |                            |                      |                                                     | shipping and payment info.                      |
 |                            |                      | **Sorting and Searching**                           |                                                 |
 | 8                          | Visitor              | Sort the list of available miniatures by keyword.   | Easily find the miniature I am looking for.     |
-| 9                          | Visitor              | Sort miniatures by the game system (i.e. WH40K)     | Find available miniatures from a system         |
+| 9                          | Visitor              | Sort miniatures by game system (i.e. WH40K)         | Find available miniatures from a system         |
 |                            |                      | I am interested in.                                 |                                                 |
-| 10                         | Visitor              | Sort miniatures by faction and subfaction.          | Find a specific miniature I want to commission. |
+| 10                         | Visitor              | Sort miniatures by army.                            | Find a specific miniature I want to commission. |
 | 11                         | Visitor              | Easily see what I've searched for and the           | Quickly decide whether the miniature            |
 |                            |                      | number of results.                                  | I want is available.                            |
 |                            |                      | Commision Set-Up and Checkout                       |                                                 |
